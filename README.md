@@ -7,6 +7,6 @@ pip3(mac) pip install -r api/requirements.txt
 
 opstarten python3 app.py(mac) python app.py
 
-\\ voor het opstarten / windows\\
+\\ voor het opstarten / windows \\
 ./venv/Scripts/activate
 python app.py
