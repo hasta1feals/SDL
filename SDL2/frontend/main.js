@@ -1,8 +1,9 @@
 
 
-
+//Verscrikkele manier en onveilige manier om een qr code te genereren. Vraag bram ff hoe je dit beter kan doen. En waarom je geen import stateMENTS mag gebruiken in js
 img = document.getElementById("qr");
 img.src ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=otpauth://totp/Dijkstra%20en%20van%20Puffelen:info%40dijkstraenvanpuffelen.nl?secret=JBSWY3DPEHPK3PXP&issuer=Dijkstra%20en%20van%20Puffelen"
+
 
 function register(e) {
     // Check if passwords match
