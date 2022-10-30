@@ -4,6 +4,7 @@ from flask_cors import CORS
 from db import DB
 from security import login, me
 from resources.user import create_user
+from resources.otp import create_otp
 # Create a new Flask application
 app = Flask(__name__)
 app.debug = True
@@ -20,6 +21,8 @@ jwt = JWTManager(app)
 app.add_url_rule('/users', None, create_user, methods=['POST'])
 app.add_url_rule('/auth', None, login, methods=['POST'])
 app.add_url_rule('/me', None, me, methods=['GET'])
+app.add_url_rule('/otp', None, create_otp, methods=['GET'])
+
 
 
 

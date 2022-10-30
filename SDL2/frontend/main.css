@@ -21,6 +21,9 @@
 .input {
     margin: 10px;
 }
+#text2fa{
+    color: #000;
+}
 
 .label {
     display: block;
@@ -96,6 +99,10 @@ h1{
     padding: 0;
     font-weight: bold;
 }
+
+.loginbox h1{
+    color: #000;
+}
 /* / maat van de input  / */
 .loginbox input{
     width: 100%;
@@ -131,8 +138,40 @@ h1{
     font-size: 18px;
     border-radius: 5px;
 }
+#login2fa{
+    width: 288.09px;
+    border: none;
+    margin-left: 119px;
+
+    outline: none;
+    height: 40px;
+    background:  #42447D;
+
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+}
+#qrbutton{
+    width: 288.09px;
+    border: none;
+    margin-left: 119px;
+
+    outline: none;
+    height: 40px;
+    background:  #42447D;
+
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+}
 
 
+#qr1{
+    padding: 33px 0;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
 
 
 /* / hover bij de submit button / */
