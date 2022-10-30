@@ -1,4 +1,9 @@
 
+
+
+img = document.getElementById("qr");
+img.src ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=otpauth://totp/Dijkstra%20en%20van%20Puffelen:info%40dijkstraenvanpuffelen.nl?secret=JBSWY3DPEHPK3PXP&issuer=Dijkstra%20en%20van%20Puffelen"
+
 function register(e) {
     // Check if passwords match
 
@@ -30,21 +35,54 @@ function login() {
     
 }
 
+
+
+function login2fa() {
+    // Fetch data from html
+    data = {
+        otp_code: getValue("code"),
+    };
+    // Submit data to API
+    
+    api("otp", 'GET', data).then((res) => {
+        if (res.id== getValue("code")) {
+            // Save the received JWT in a cookie
+            setCookie("token", res.access_token, 365);
+          console.log("gelukt")
+           
+
+        } else {
+            alert("Credentials are incorrect");
+        }
+    });
+    
+}
+
+
+
+
 function getUser() {
     // Fetch user data from API
     api("me").then((res) => {
         if (res.message == 'success') {
             document.getElementById('welcome').innerText = `Welcome, ${res.user.firstname} ${res.user.lastname}`;
             console.log("user id: " + res.user.id)
-            console.log(res.user.fi)
+            //als user id 1 is dan is het admin account
+            if (res.user.admin === 1) {
+                showPage('otpPage');
+                
+            } else {
+                //hier moet de normale pagina komen voor medewerkers
+                console.log("user is geen admin")
+            }        
         }
-            else {
-                console.log("error")
-        }
+
+            
     });
 }
 
-function logout(){
+function link(){
+    showPage('otpPage')
     
 }
 
@@ -59,10 +97,24 @@ function showPage(id){
     document.getElementById(id).style.display = "block";
 }
 
+function qrbtn() {
+    x = document.getElementById("qr");
+    if(x.style.display == "block"){
+        x.style.display = "none";
+    }else{
+        x.style.display = "block";
+    }
+}
+
 
 function bindEvents() {
     connectButton("register", register);
     connectButton("login", login);
+    connectButton("login2fa", login2fa);
+   
+
+
+
     enableSubmits();
 }
 

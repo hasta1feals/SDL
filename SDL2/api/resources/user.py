@@ -16,9 +16,9 @@ def create_user():
     qry = '''
     INSERT INTO
         `users`
-            (`email`, `password`, `firstname`, `lastname`)
+            (`email`, `password`, `firstname`, `lastname`, `admin`)
         VALUES
-            (:email, :password, :firstname, :lastname)
+            (:email, :password, :firstname, :lastname, :admin)
     '''
 
     # Hash the password before inserting
