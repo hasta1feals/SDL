@@ -10,8 +10,8 @@
     transform: translate(-50%, -50%);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #F5F5F5;
-    padding: 20px;
-    border: 1px solid #ccc;
+    /* padding: 20px;
+    border: 1px solid #ccc; */
     border-radius: 10px;
     box-shadow: 2px 2px 4px #000;
     min-width: 200px;
@@ -63,10 +63,10 @@ body{
     width: 590px;
     height: 635px;
     left: 425px;
-top: 170px;
-border: 1px solid;
-padding: 10px;
-box-shadow: 0 3px 10px rgb(47 48 70 / 0.2);    background:#ffff;
+    top: 170px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgb(47 48 70 / 0.2);    background:#ffff;
     color: #fff;
     top: 60%;
     left: 50%;
@@ -197,3 +197,124 @@ h1{
 {
     color:#fca03d;
 } 
+
+.dashboard {
+    position: relative;
+    width: 1366px;
+    height: 728px;
+    left: 0px;
+    top: 0px;
+
+    border-radius: 10px;    
+
+    background: linear-gradient(0deg, rgba(0, 76, 208, 0.05), rgba(0, 76, 208, 0.05)), #FFFFFF;
+}
+
+.navbar {
+    position: absolute;
+    width: 275px;
+    height: 728px;
+    left: 0px;
+    top: 0px;
+
+
+    border-radius: 10px;    
+    background: #424361;
+}
+
+.navbar input{
+    position: absolute;
+    width: 230px;
+    height: 16px;
+    left: 10px;
+    top: 87px;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+#dashboardButton{
+    position: absolute;
+    border: none;
+    width: 275px;
+    height: 48px;
+    left: 0px;
+    top: 160px;
+
+    background: #424361;
+    color: #FFFFFF;
+
+    text-align: left;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+#urenButton{
+    position: absolute;
+    border: none;
+    width: 275px;
+    height: 48px;
+    left: 0px;
+    top: 214px;
+
+    background: #424361;
+    color: #FFFFFF;
+
+    text-align: left;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+#MdwRegButton{
+    position: absolute;
+    border: none;
+    width: 275px;
+    height: 48px;
+    left: 0px;
+    top: 268px;
+
+    background: #424361;
+    color: #FFFFFF;
+
+    text-align: left;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+#uitloggenButton{
+    box-sizing: border-box;
+    position: absolute;
+    border: none;
+    width: 275px;
+    height: 48px;
+    left: 0px;
+    top: 651px;
+    
+    background: #424361;
+    color: #FFFFFF;
+
+     text-align: left;
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 22px;
+}
+
+
