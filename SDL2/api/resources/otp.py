@@ -2,8 +2,7 @@ from flask import request
 from flask_bcrypt import generate_password_hash
 from db import DB
 import pyotp
-from dotenv import load_dotenv
-import os
+
 
 
 
