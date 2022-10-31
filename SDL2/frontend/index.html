@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,79 +11,74 @@
     <link rel="icon" href="https://windesheim.nl/assets/favicons/favicon.ico">
     <title>JWT</title>
 </head>
+
 <body>
     <!-- 2fa page -->
     <div class="container" id="otpPage">
 
-    
+
         <div class="loginbox">
             <h1>2FA</h1>
-            <form >
+            <form>
                 <div class="ruimte"></div>
-                
+
                 <div class="loginlogin">
-                <input type="text" name="Code" placeholder="Code" id="code" />
-                <br>
-               
-                <button type='button' id="login2fa" > Login</button> 
-    <button type='button' onclick="qrbtn()" id="qrbutton" > Qr code</button> 
-                <br>
-                <div id="qr1">
-                <img id="qr" src="" alt="qr" class="qr">
+                    <input type="text" name="Code" placeholder="Code" id="code" />
+                    <br>
+
+                    <button type='button' id="login2fa"> <span id="login2faText"
+                            onclick="showPage('loginPage')">Login</span></button>
+                    <button type='button' onclick="qrbtn()" id="qrbutton"> Qr code</button>
+                    <br>
+                    <div id="qr1">
+                        <img id="qr" src="" alt="qr" class="qr">
+                    </div>
+                    <br>
                 </div>
-                <br>
-            
-            </div>
             </form>
-
-    </div>
-
-
-
-
-
-    <!-- Login page -->
-    <div class="container" id="loginPage">
-
-
-
-        <div class="loginbox">
-            <img src="img/loginicon-removebg-preview.png" class="avatar">
-            <h1>Inloggen</h1>
-            <form >
-                <div class="ruimte"></div>
-                
-                <div class="loginlogin">
-                <input type="text" name="email" placeholder="E-mail" id="email2" />
-                <br>
-                <input id="password2" type="password" name="wachtwoord" placeholder="Wachtwoord" />
-                <button type='button' id="login" > Login</button> 
-
-                <br>
-            
-                <a id="linkk" href="">Wachtwoord vergeten</a><br>
-            </div>
-            </form>
-    
         </div>
-        <!-- <div class="input">
+
+        <!-- Login page -->
+        <div class="container" id="loginPage">
+
+            <div class="loginbox">
+                <img src="img/loginicon-removebg-preview.png" class="avatar">
+                <h1>Inloggen</h1>
+                <form>
+                    <div class="ruimte"></div>
+
+                    <div class="loginlogin">
+                        <input type="text" name="email" placeholder="E-mail" id="email2" />
+                        <br>
+                        <input id="password2" type="password" name="wachtwoord" placeholder="Wachtwoord" />
+                        <button type='button' id="login"> Login</button>
+
+                        <br>
+
+                        <a id="linkk" href="">Wachtwoord vergeten</a><br>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="input">
             <span class="label">E-mail:</span>
             <input type="text" name="email" id="email2">
-        </div>
-        <div class="input">
+            </div>
+            <div class="input">
             <span class="label">Password:</span>
             <input type="password" name="password" id="password2">
-        </div>
-        <div class="input">
+            </div>
+            <div class="input">
             <button id="login">Login</button>
+            </div>
+        <p>Don't have an account yet? <span onclick="showPage('registerPage')">Register</span></p>-->
         </div>
-        <p>Don't have an account yet? <span onclick="showPage('registerPage')">Register</span></p>
-    </div> -->
-    <!-- User info page -->
-    <div class="container hidden" id="mainPage">
-        <span class="welcome" id="welcome"></span>
-        <button id="logout" onclick="logout()">Logout</button>
-    </div>
+
+        <!-- User info page -->
+        <div class="container hidden" id="mainPage">
+            <span class="welcome" id="welcome"></span>
+            <button id="logout" onclick="logout()">Logout</button>
+        </div>
 </body>
 <script src="main.js"></script>
+
 </html>

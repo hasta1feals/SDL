@@ -142,7 +142,7 @@ h1{
     width: 288.09px;
     border: none;
     margin-left: 119px;
-
+    
     outline: none;
     height: 40px;
     background:  #42447D;
@@ -150,6 +150,13 @@ h1{
     color: #fff;
     font-size: 18px;
     border-radius: 5px;
+}
+#login2faText{
+    width: 288.09px;
+    border: none;
+    margin-left: 0px;
+
+    background:  #42447D;
 }
 #qrbutton{
     width: 288.09px;
@@ -188,7 +195,7 @@ h1{
     line-height: 100px;
     color: darkgrey;
    
-  right: 100px;
+    right: 100px;
 }
 /* / hover link */
 .loginbox a:hover
