@@ -204,7 +204,7 @@ h1{
     height: 728px;
     left: 0px;
     top: 0px;
-
+    display: block;
     border-radius: 10px;    
 
     background: linear-gradient(0deg, rgba(0, 76, 208, 0.05), rgba(0, 76, 208, 0.05)), #FFFFFF;
