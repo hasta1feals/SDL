@@ -41,6 +41,7 @@ function login2fa() {
       // Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
       console.log("gelukt");
+      showPage("dashboardPage");
     } else {
       alert("Credentials are incorrect");
     }
@@ -57,10 +58,7 @@ function getUser() {
       console.log("user id: " + res.user.id);
       //als user id 1 is dan is het admin account
       if (res.user.admin === 1) {
-        showPage("dashboardPage");
-        // Dit is tijdelijk voor het schrijven van de html dashboard
-        // directe koppeling naar dahsboard pagina
-        // showPage("otpPage");
+        showPage("otpPage");
       } else {
         //hier moet de normale pagina komen voor medewerkers
         console.log("user is geen admin");
