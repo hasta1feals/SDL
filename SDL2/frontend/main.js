@@ -58,7 +58,8 @@ function getUser() {
       console.log("user id: " + res.user.id);
       //als user id 1 is dan is het admin account
       if (res.user.admin === 1) {
-        showPage("otpPage");
+        showPage("dashboardPage");
+        //showPage("otpPage"); f2 tijdelijk uitschakelen 
       } else {
         //hier moet de normale pagina komen voor medewerkers
         console.log("user is geen admin");
