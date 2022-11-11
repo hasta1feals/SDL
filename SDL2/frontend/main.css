@@ -209,24 +209,6 @@ h1{
     background: linear-gradient(0deg, rgba(0, 76, 208, 0.05), rgba(0, 76, 208, 0.05)), #FFFFFF;
 }
 
-.navbar {
-    position: absolute;
-    width: 275px;
-    height: 728px;
-    left: 0px;
-    top: 0px;  
-    background: #424361;
-}
-
-.navbar input{
-    position: absolute;
-    width: 230px;
-    height: 16px;
-    left: 10px;
-    top: 87px;
-    line-height: 22px;
-}
-
 .header {
     position: absolute;
     width: 1091px;
@@ -261,17 +243,6 @@ h1{
     color:#FFFFFF
 }
 
-.footer {
-    box-sizing: border-box;
-    position: absolute; 
-    width: 1091px;
-    height: 49px; 
-    left: 275px;
-    top: 679px;
-    background: #FFFFFF;
-    border-top: 1px solid #ACACAC;
-}
-
 .pages {
     position: absolute;
     width: 247px;
@@ -280,7 +251,7 @@ h1{
     top: 687.5px;
 }
 
-.filter {
+#filter {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -292,25 +263,23 @@ h1{
     width: 100px;
     height: 40px;
     left: 281px;
-    top: 97px;
+    top: 77px;
     background: #FFFFFF;
+    color: #004CD0;
     border: 1px solid #004CD0;
     border-radius: 5px;
-}
-
-.filtertext {
-    width: 40px;
-    height: 24px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;    
     line-height: 24px;
     display: flex;
     align-items: center;
-    color: #004CD0;
     flex: none;
     order: 0;
     flex-grow: 0;
 }
-
-.add {
+    
+#add {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -322,25 +291,23 @@ h1{
     width: 108px;
     height: 40px;
     left: 1128px;
-    top: 94px;
-    background: #004CD0;    
+    top: 77px;
+    background: #004CD0;  
+    color: #FFFFFF;  
     border-radius: 5px;
-}
-
-.addtext {
-    width: 84px;
-    height: 24px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
     line-height: 24px;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
     flex: none;
     order: 0;
     flex-grow: 0;
-    background: transparent;
+    border: 1px solid #000000;
 }
 
-.remove {
+#remove {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
@@ -352,22 +319,41 @@ h1{
     width: 118px;
     height: 40px;
     left: 1242px;
-    top: 94px;
+    top: 77px;
     background: #CD0C0C;
+    color: #FFFFFF;
     border-radius: 5px;
-}
-
-.removetext {
-    width: 94px;
-    height: 24px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
     line-height: 24px;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
     flex: none;
     order: 0;
     flex-grow: 0;
-    background: transparent;
+    border: 1px solid #000000;
+}
+
+.navbar {
+    position: absolute;
+    width: 275px;
+    height: 728px;
+    left: 0px;
+    top: 0px;  
+    background: #424361;
+}
+
+.navbar input{
+    position: absolute;
+    width: 230px;
+    height: 16px;
+    left: 10px;
+    top: 87px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 #dashboardButton{
@@ -380,6 +366,9 @@ h1{
     background: #424361;
     color: #FFFFFF;
     text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
     line-height: 22px;
 }
 
@@ -393,6 +382,9 @@ h1{
     background: #424361;
     color: #FFFFFF;
     text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
     line-height: 22px;
 }
 
@@ -406,6 +398,9 @@ h1{
     background: #424361;
     color: #FFFFFF;
     text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
     line-height: 22px;
 }
 
@@ -420,7 +415,19 @@ h1{
     background: #424361;
     color: #FFFFFF;
     text-align: left;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
     line-height: 22px;
 }
 
-
+.footer {
+    box-sizing: border-box;
+    position: absolute; 
+    width: 1091px;
+    height: 49px; 
+    left: 275px;
+    top: 679px;
+    background: #FFFFFF;
+    border-top: 1px solid #ACACAC;
+}
