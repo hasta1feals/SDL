@@ -3,19 +3,21 @@
 }
 
 .container{
-    position: absolute;
+    position: fixed;
     display: inline-block;
-    left: 50%; 
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 0px; 
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #F5F5F5;
-    /* padding: 20px;
-    border: 1px solid #ccc; */
+    /* transform: translate(-50%, -50%);
+    padding: 20px;
+    border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 2px 2px 4px #000;
     min-width: 200px;
-    min-height: 150px;
+    min-height: 150px; */
 }
 
 .input {
