@@ -270,6 +270,25 @@ h1{
     color:#FFFFFF
 }
 
+.footer {
+    box-sizing: border-box;
+    position: absolute; 
+    width: 1091px;
+    height: 49px; 
+    left: 275px;
+    top: 679px;
+    background: #FFFFFF;
+    border-top: 1px solid #ACACAC;
+}
+
+.pages {
+    position: absolute;
+    width: 247px;
+    height: 32px;
+    left: 1067px;
+    top: 687.5px;
+}
+
 #dashboardButton{
     position: absolute;
     border: none;
