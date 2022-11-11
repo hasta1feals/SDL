@@ -335,6 +335,50 @@ h1{
     border: 1px solid #000000;
 }
 
+#export {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 8px;
+    position: absolute;
+    width: 94px;
+    height: 40px;
+    left: 1249px;
+    top: 610px;
+    background: #1E8034;
+    color: #FFFFFF;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    border: 1px solid #000000;
+}
+
+.table {
+    position: absolute;
+    width: 1091px;
+    height: 40px;
+    left: 275px;
+    top: 160px;
+    background-color: #92b3d3;
+}
+
+.tablerows {
+    position: absolute;
+    width: 1091px;
+    height: 80px;
+    left: 275px;
+    top: 200px;
+}
+
 .navbar {
     position: absolute;
     width: 275px;
