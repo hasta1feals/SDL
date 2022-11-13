@@ -213,7 +213,7 @@ h1{
 
 .header {
     position: absolute;
-    width: 1091px;
+    width: 1405px;
     height: 64px;
     left: 275px;
     top: 0px;
@@ -233,7 +233,7 @@ h1{
     position: absolute;
     width: 174px;
     height: 40px;
-    left: 900px;
+    left: 1175px;
     top: 11px;
     background: #424361;
     border: 1px solid #000000;
@@ -264,7 +264,7 @@ h1{
     position: absolute;
     width: 100px;
     height: 40px;
-    left: 281px;
+    left: 295px;
     top: 77px;
     background: #FFFFFF;
     color: #004CD0;
@@ -292,7 +292,7 @@ h1{
     position: absolute;
     width: 108px;
     height: 40px;
-    left: 1128px;
+    left: 1420px;
     top: 77px;
     background: #004CD0;  
     color: #FFFFFF;  
@@ -320,7 +320,7 @@ h1{
     position: absolute;
     width: 118px;
     height: 40px;
-    left: 1242px;
+    left: 1540px;
     top: 77px;
     background: #CD0C0C;
     color: #FFFFFF;
@@ -347,8 +347,8 @@ h1{
     position: absolute;
     width: 94px;
     height: 40px;
-    left: 1249px;
-    top: 610px;
+    left: 1550px;
+    top: 760px;
     background: #1E8034;
     color: #FFFFFF;
     border-radius: 5px;
@@ -366,7 +366,7 @@ h1{
 
 .table {
     position: absolute;
-    width: 1091px;
+    width: 1405px;
     height: 40px;
     left: 275px;
     top: 160px;
@@ -375,7 +375,7 @@ h1{
 
 .tablerows {
     position: absolute;
-    width: 1091px;
+    width: 1405px;
     height: 80px;
     left: 275px;
     top: 200px;
@@ -384,7 +384,7 @@ h1{
 .navbar {
     position: absolute;
     width: 275px;
-    height: 728px;
+    height: 891px;
     left: 0px;
     top: 0px;  
     background: #424361;
@@ -395,7 +395,7 @@ h1{
     width: 230px;
     height: 16px;
     left: 10px;
-    top: 87px;
+    top: 97px;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -457,7 +457,7 @@ h1{
     width: 275px;
     height: 48px;
     left: 0px;
-    top: 651px;  
+    top: 810px;  
     background: #424361;
     color: #FFFFFF;
     text-align: left;
@@ -470,10 +470,10 @@ h1{
 .footer {
     box-sizing: border-box;
     position: absolute; 
-    width: 1091px;
+    width: 1405px;
     height: 49px; 
-    left: 275px;
-    top: 679px;
+    left: 275px;    
+    top: 840px;
     background: #FFFFFF;
     border-top: 1px solid #ACACAC;
 }
