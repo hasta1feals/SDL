@@ -1,7 +1,5 @@
 //Verscrikkele manier en onveilige manier om een qr code te genereren. Vraag bram ff hoe je dit beter kan doen. En waarom je geen import stateMENTS mag gebruiken in js
 
-img = document.getElementById("qr");
-     img.src ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=4718347187481790817";
 function register(e) {
   // Check if passwords match
   // Fetch data from html
@@ -37,8 +35,7 @@ function login2fa() {
 
   api("otpp", "GET", data).then((res) => {
     
-     
-
+   
     if (res.otp == getValue("code")) {
       // Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
@@ -49,7 +46,17 @@ function login2fa() {
     }
   });
 }
+function showQrCode() {
+  // Fetch data from html
 
+
+  api("otpp", "GET", data).then((res) => {
+    
+    img = document.getElementById("qr");
+    img.src ="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + res.barcode;
+    
+  });
+}
 function getUser() {
   // Fetch user data from API
   api("me").then((res) => {
@@ -62,6 +69,7 @@ function getUser() {
       if (res.user.admin === 1) {
         // showPage("dashboardPage");
         showPage("otpPage"); 
+        showQrCode();
       } else {
         //hier moet de normale pagina komen voor medewerkers
         console.log("user is geen admin");
