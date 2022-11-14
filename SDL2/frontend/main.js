@@ -63,15 +63,9 @@ function getUser() {
         "welcome"
       ).innerText = `Welcome, ${res.user.firstname} ${res.user.lastname}`;
       console.log("user id: " + res.user.id);
-      //als user id 1 is dan is het admin account
-      if (res.user.admin === 1 || res.user.admin === 0) {
-        // showPage("dashboardPage");
         showPage("otpPage");
         showQrCode();
-      } else {
-        //hier moet de normale pagina komen voor medewerkers
-        console.log("user is geen admin");
-      }
+     
     }
   });
 }

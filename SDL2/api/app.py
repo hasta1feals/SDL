@@ -4,7 +4,6 @@ from flask_cors import CORS
 from db import DB
 from security import login, me
 from resources.user import create_user, get_otp
-from resources.otp import create_otp
 # Create a new Flask application
 app = Flask(__name__)
 app.debug = True
