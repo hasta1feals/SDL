@@ -200,6 +200,8 @@ h1{
     color:#fca03d;
 } 
 
+/* Dashboard  */
+
 .dashboard {
     position: relative;
     width: 1366px;
@@ -306,7 +308,7 @@ h1{
     flex: none;
     order: 0;
     flex-grow: 0;
-    border: 1px solid #000000;
+    border: 1px solid #ffffff;
 }
 
 #remove {
@@ -334,7 +336,7 @@ h1{
     flex: none;
     order: 0;
     flex-grow: 0;
-    border: 1px solid #000000;
+    border: 1px solid #ffffff;
 }
 
 #export {
@@ -361,7 +363,7 @@ h1{
     flex: none;
     order: 0;
     flex-grow: 0;
-    border: 1px solid #000000;
+    border: 1px solid #ffffff;
 }
 
 .table {
@@ -380,6 +382,7 @@ h1{
     left: 275px;
     top: 200px;
 }
+
 
 .navbar {
     position: absolute;
@@ -431,6 +434,15 @@ h1{
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
+    line-height: 22px;
+}
+
+#urenPicto{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 5px;
+    top: 12px;
     line-height: 22px;
 }
 

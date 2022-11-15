@@ -34,8 +34,6 @@ function login2fa() {
   // Submit data to API
 
   api("otpp", "GET", data).then((res) => {
-
-
     if (res.otp == getValue("code")) {
       // Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
@@ -49,10 +47,10 @@ function login2fa() {
 function showQrCode() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
   api("otpp", "GET", data).then((res) => {
-
     img = document.getElementById("qr");
-    img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + res.barcode;
-
+    img.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+      res.barcode;
   });
 }
 function getUser() {
@@ -63,9 +61,9 @@ function getUser() {
         "welcome"
       ).innerText = `Welcome, ${res.user.firstname} ${res.user.lastname}`;
       console.log("user id: " + res.user.id);
-        showPage("otpPage");
-        showQrCode();
-     
+      // showPage("otpPage");
+      // showQrCode();
+      showPage("dashboardPage");
     }
   });
 }
