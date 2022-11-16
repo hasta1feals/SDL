@@ -6,10 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+
     <script type="module" src="./main.js"></script>
 
     <link rel="icon" href="https://windesheim.nl/assets/favicons/favicon.ico">
     <title>JWT</title>
+     <script type="module" src="./main.js"></script>
+     
 </head>
 
 <body>
@@ -38,38 +41,32 @@
 
     <!-- Dashboard -->
     <div class="container hidden" id="dashboardPage">
-        <div class="dashboard">
-            <div class="navbar" id="navbar">
-                <p id="LogoVanPuffelen">Hier komt het logo</p>
-                <input type="text" name="searchbar" placeholder="Zoeken" id="searchBar" />
-                <button type="button" id="dashboardButton"><img id="urenPicto"
-                        src="img/Dashboard.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Klanten</button>
-                <button type="button" id="urenButton"><img id="urenPicto"
-                        src="img/Clock.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Uren</button>
-                <button type="button" id="MdwRegButton"><img id="urenPicto"
-                        src="img/Klanten.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Medewerker Registratie</button>
-                <button type="button" id="uitloggenButton"><img id="urenPicto"
-                        src="img/Uitloggen.png">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Uitloggen</button>
-            </div>
-            <div class="header" id="header">
-                <div class="naammdw">
-                    <p class="mdw" id="mdw">Naam Medewerker</p>
+        <div class="dash">
+            <div class="sidenav">
+                <img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>
+
+                <div class="navlinks">
+                    <a href="#"><img class="icon" src="img/dashboardicon.png" width="28px" height="28px"></img>Dashboard</a>
+                    <a href="#"><img class="icon" src="img/clockicon.png" width="28px" height="28px"></img>Uren</a>
+                    <a id="reger" href="#"><img class="icon" src="img/dashboardicon.png" width="28px" height="28px"></img>Registratie</a>
                 </div>
+        
+                    
+                <a class="loguitknop" href="#"><img class="icon" src="img/logout.png" width="28px" height="28px"></img>Uitloggen</a>
+            
+        
             </div>
-            <div>
-                <button type="button" id="filter">Filter</button>
-                <button type="button" id="add">Toevoegen</button>
-                <button type="button" id="remove">Verwijderen</button>
-                <button type="button" id="export">Exporteer</button>
-            </div>
-            <div class="table"></div>
-            <div class="tablerows"></div>
-            <div class="footer" id="footer">
-                <div class="pages">
-                </div>
+        
+            <div class="main">
+                <nav class="navbar">
+                    <a id="ww" class="link right navtext">Test</a>
+                </nav>
+        
+                <h2>Dashboard</h2>
+                <p></p>
             </div>
         </div>
-    </div>
+    </div> 
 
     <!-- Login page -->
     <div class="container" id="loginPage">
@@ -88,23 +85,40 @@
 
                     <br>
 
-                    <a id="linkk" href="">Wachtwoord vergeten</a><br>
                 </div>
             </form>
         </div>
-        <!-- <div class="input">
-            <span class="label">E-mail:</span>
-            <input type="text" name="email" id="email2">
-            </div>
-            <div class="input">
-            <span class="label">Password:</span>
-            <input type="password" name="password" id="password2">
-            </div>
-            <div class="input">
-            <button id="login">Login</button>
-            </div>
-        <p>Don't have an account yet? <span onclick="showPage('registerPage')">Register</span></p>-->
     </div>
+
+
+     <!-- registeren page -->
+    <div class="container hidden" id="registerPage">
+
+        <div class="registerbox">
+            <img src="img/loginicon-removebg-preview.png" class="avatar">
+            <h1>Registreren</h1>
+            <form>
+                <div class="ruimte"></div>
+
+                <div class="regreg">
+                    <input type="text" name="voornaam" placeholder="Voornaam" id="voornaam" />
+                    <br>
+                    <input id="achternaam" type="text" name="achternaam" placeholder="achternaam" />
+                    <br>
+                    <input id="email3" type="text" name="email" placeholder="E-Mail" />
+                    <br>
+                    <input id="password3" type="password" name="wachtwoord" placeholder="Wachtwoord" />
+                    <br>
+                    <input id="password4" type="password" name="wachtwoord" placeholder="Wachtwoord" />
+                    <button type='button' id="reg"> Aanmaken</button>
+                    <button  id="reg"> Annuleren</button>
+
+
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div> 
 
     <!-- User info page -->
     <div class="container hidden" id="mainPage">

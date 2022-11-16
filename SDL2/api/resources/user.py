@@ -61,12 +61,30 @@ def get_otp():
     otp = pyotp.totp.TOTP(listToStr[12:44]).provisioning_uri(name='info@dijkstraenvanpuffelen.nl', issuer_name='Dijkstra en van Puffelen')
     otp_code = pyotp.totp.TOTP(listToStr[12:44]).now()
     
-
-    print (reservatie)
-    print (listToStr[12:44])
  
     #Print alles wat ik hierboven heb gemaakt!
     return {'message': 'success', 'reservatie': reservatie, 'otp': otp_code , "barcode": otp}, 201    
 
+
+@jwt_required()
+def get_users():
+    # Parse all arguments for validity
+    user = get_jwt_identity()
+    #qry uit de database hier wordt de secret gehaald
+    qry = '''
+     SELECT
+        `*`
+         FROM `users` where `id` = :id
+    '''
+    data = {
+        "id": user["id"]
+    }
+    try:
+        user = DB.all(qry, data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.')
+
+    #Print alles wat ik hierboven heb gemaakt!
+    return {'message': 'success', 'user': user}, 201    
 
 

@@ -2,8 +2,25 @@
 
 function register(e) {
   // Check if passwords match
-  // Fetch data from html
+  if (getValue("password3") != getValue("password4")) {
+    alert("Passwords do not match");
+    return;
+}
+data = {
+  password: getValue("password3"),
+  email: getValue("email3"),
+  firstname: getValue("voornaam"),
+  lastname: getValue("achternaam"),
+  admin: 0
+  // s: 137173187381783
+
+};
   // Submit data to API
+  api("users", 'POST', data).then((res) => {
+    if (res.message == 'success') {
+      alert("User created");
+       }
+});
 }
 
 function login() {
@@ -38,7 +55,9 @@ function login2fa() {
       // Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
       console.log("gelukt");
-      showPage("dashboardPage");
+    // window.location.href="dashbord.html";
+    userInfo();
+    showPage("dashboardPage");
     } else {
       alert("Credentials are incorrect");
     }
@@ -53,6 +72,16 @@ function showQrCode() {
       res.barcode;
   });
 }
+function userInfo() {
+  //
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("ww");
+    console.log(res.user.firstname)
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+    
+   
+  });
+}
 function getUser() {
   // Fetch user data from API
   api("me").then((res) => {
@@ -61,9 +90,13 @@ function getUser() {
         "welcome"
       ).innerText = `Welcome, ${res.user.firstname} ${res.user.lastname}`;
       console.log("user id: " + res.user.id);
-      // showPage("otpPage");
-      // showQrCode();
-      showPage("dashboardPage");
+      showPage("otpPage");
+      showQrCode();
+      // window.location.href="dashbord.html";
+      // showPage("dashboardPage")
+      // showPage("registerPage")
+
+      userInfo();
     }
   });
 }
@@ -91,11 +124,22 @@ function qrbtn() {
   }
 }
 
+
+function userAanmaken() {
+  showPage('dashboardPage')
+}
+
+function reger() {
+  showPage("registerPage");
+}
+
 function bindEvents() {
-  connectButton("register", register);
   connectButton("login", login);
   connectButton("login2fa", login2fa);
+  connectButton("reg", register);
+  connectButton("reger", reger);
 
+  
   enableSubmits();
 }
 
