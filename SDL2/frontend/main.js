@@ -1,8 +1,6 @@
 //Verscrikkele manier en onveilige manier om een qr code te genereren. Vraag bram ff hoe je dit beter kan doen. En waarom je geen import stateMENTS mag gebruiken in js
 
 function register(e) {
-  e.preventDefault();
-  event.preventDefault();
   // Check if passwords match
   if (getValue("password3") != getValue("password4")) {
     alert("Passwords do not match");
@@ -23,9 +21,8 @@ console.log(data);
   // Submit data to API
   api("users", 'POST', data).then((res) => {
     if (res.message == 'success') {
-      event.preventDefault();
       userAanmaken();
-     
+      alert("Account created");
        }
 });
 }
@@ -44,6 +41,7 @@ function login() {
       setCookie("token", res.access_token, 365);
       console.log("gelukt");
       getUser();
+      // showPage("dashboardPage");
     } else {
       alert("Credentials are incorrect");
     }
