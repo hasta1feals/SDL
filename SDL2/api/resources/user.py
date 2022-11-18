@@ -29,10 +29,12 @@ def create_user():
     args['admin'] = 0
     args['secret'] = s
     
+    print(args)
+    
     # Insert the user into the database
     id = DB.insert(qry, args)
     # Return a message and the user id
-    return {'message': 'succes', 'id': id}, 201
+    return {'message': 'success', 'id': id}, 201
 
 
 #kijk ff als het slim is om de secret te hashen kost niet veel moeite maar dubbel check het 
