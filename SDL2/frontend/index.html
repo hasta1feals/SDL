@@ -11,8 +11,8 @@
 
     <link rel="icon" href="https://windesheim.nl/assets/favicons/favicon.ico">
     <title>JWT</title>
-     <!-- <script type="module" src="./main.js"></script> -->
-     
+    <!-- <script type="module" src="./main.js"></script> -->
+
 </head>
 
 <body>
@@ -46,27 +46,35 @@
                 <img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>
 
                 <div class="navlinks">
-                    <a href="#"><img class="icon" src="img/dashboardicon.png" width="28px" height="28px"></img>Dashboard</a>
+                    <a href="#"><img class="icon" src="img/dashboardicon.png" width="28px"
+                            height="28px"></img>Dashboard</a>
                     <a href="#"><img class="icon" src="img/clockicon.png" width="28px" height="28px"></img>Uren</a>
-                    <a id="reger" href="#"><img class="icon" src="img/dashboardicon.png" width="28px" height="28px"></img>Registratie</a>
+                    <a id="reger" href="#"><img class="icon" src="img/dashboardicon.png" width="28px"
+                            height="28px"></img>Registratie</a>
                 </div>
-        
-                    
-                <a class="loguitknop" href="#"><img class="icon" src="img/logout.png" width="28px" height="28px"></img>Uitloggen</a>
-            
-        
+
+                <a class="loguitknop" href="#"><img class="icon" src="img/logout.png" width="28px"
+                        height="28px"></img>Uitloggen</a>
             </div>
-        
+
             <div class="main">
                 <nav class="navbar">
                     <a id="ww" class="link right navtext">Test</a>
                 </nav>
-        
+
                 <h2>Dashboard</h2>
                 <p></p>
+
+                <div class="tabel">
+                    <a id="" class="filterknop" href="#">Filter</a>
+                    <a id="" class="add" href="#">Toevoegen</a>
+                    <a id="" class="delete" href="#">Verwijderen</a>
+                    <a id="" class="export" href="#">Export</a>
+                </div>
+
             </div>
         </div>
-    </div> 
+    </div>
 
     <!-- Login page -->
     <div class="container" id="loginPage">
@@ -91,7 +99,7 @@
     </div>
 
 
-     <!-- registeren page -->
+    <!-- registeren page -->
     <div class="container hidden" id="registerPage">
 
         <div class="registerbox">
@@ -110,15 +118,15 @@
                     <input id="password3" type="password" name="wachtwoord" placeholder="Wachtwoord" />
                     <br>
                     <input id="password4" type="password" name="wachtwoord" placeholder="Wachtwoord" />
-                    <button  id="reg">Aanmaken</button>
-                    <button  id="regop"> Annuleren</button>
+                    <button id="reg">Aanmaken</button>
+                    <button id="regop"> Annuleren</button>
 
 
                     <br>
                 </div>
             </form>
         </div>
-    </div> 
+    </div>
 
     <!-- User info page -->
     <div class="container hidden" id="mainPage">

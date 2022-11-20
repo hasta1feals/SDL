@@ -5,26 +5,25 @@ function register(e) {
   if (getValue("password3") != getValue("password4")) {
     alert("Passwords do not match");
     return;
-}
-data = {
-  password: getValue("password3"),
-  email: getValue("email3"),
-  firstname: getValue("voornaam"),
-  lastname: getValue("achternaam"),
-  admin: 0
-  // s: 137173187381783
+  }
+  data = {
+    password: getValue("password3"),
+    email: getValue("email3"),
+    firstname: getValue("voornaam"),
+    lastname: getValue("achternaam"),
+    admin: 0,
+    // s: 137173187381783
+  };
 
-};
-
-console.log(data);
+  console.log(data);
 
   // Submit data to API
-  api("users", 'POST', data).then((res) => {
-    if (res.message == 'success') {
+  api("users", "POST", data).then((res) => {
+    if (res.message == "success") {
       userAanmaken();
       alert("Account created");
-       }
-});
+    }
+  });
 }
 
 function login() {
@@ -60,9 +59,9 @@ function login2fa() {
       // Save the received JWT in a cookie
       setCookie("token", res.access_token, 365);
       console.log("gelukt");
-    // window.location.href="dashbord.html";
-    userInfo();
-    showPage("dashboardPage");
+      // window.location.href="dashbord.html";
+      userInfo();
+      showPage("dashboardPage");
     } else {
       alert("Credentials are incorrect");
     }
@@ -81,10 +80,8 @@ function userInfo() {
   //
   api("users", "GET", data).then((res) => {
     text = document.getElementById("ww");
-    console.log(res.user.firstname)
+    console.log(res.user.firstname);
     text.innerText = res.user.firstname + " " + res.user.lastname;
-    
-   
   });
 }
 function getUser() {
@@ -95,10 +92,10 @@ function getUser() {
         "welcome"
       ).innerText = `Welcome, ${res.user.firstname} ${res.user.lastname}`;
       console.log("user id: " + res.user.id);
-      showPage("otpPage");
-      showQrCode();
+      // showPage("otpPage");
+      // showQrCode();
       // window.location.href="dashbord.html";
-      // showPage("dashboardPage")
+      showPage("dashboardPage");
       // showPage("registerPage")
 
       userInfo();
@@ -129,9 +126,8 @@ function qrbtn() {
   }
 }
 
-
 function userAanmaken() {
-  showPage('dashboardPage')
+  showPage("dashboardPage");
 }
 
 function reger() {
@@ -144,7 +140,6 @@ function bindEvents() {
   connectButton("reg", register);
   connectButton("reger", reger);
 
-  
   enableSubmits();
 }
 
