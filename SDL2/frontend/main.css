@@ -390,7 +390,7 @@ a {
 
 
 .link {
-    color: black;
+    color: #42447D;
     display: flex;
     text-decoration: none;
     padding: 15px;
@@ -450,7 +450,6 @@ p {
     top: 120px;
     background: #004CD0;  
     color: #FFFFFF;  
-    border: 1px solid #ffffff;
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
@@ -469,7 +468,6 @@ p {
     top: 120px;
     background: #CD0C0C;
     color: #FFFFFF;
-    border: 1px solid #ffffff;
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
@@ -488,7 +486,6 @@ p {
     top: 825px;
     background: #1E8034;
     color: #FFFFFF;
-    border: 1px solid #ffffff;
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
