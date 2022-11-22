@@ -350,7 +350,6 @@ body {
     width: 100%;
     border-bottom: 0.1px solid #d7d7d7;
     /* margin: 0; */
-
 }
 
 .navtext,
@@ -367,7 +366,6 @@ a {
 }
 
 .sidenav input[type=text] {
-
     padding: 6px;
     margin-top: 8px;
     margin-left: -1px;
@@ -388,7 +386,6 @@ a {
     bottom: 0;
 }
 
-
 .link {
     color: #42447D;
     display: flex;
@@ -400,12 +397,9 @@ a {
     margin-right: 40px;
 }
 
-
 .right {
     margin-left: auto;
 }
-
-
 
 h2,
 h3,
@@ -415,103 +409,71 @@ p {
 
 }
 
-.tabel {
-    z-index: 1;
+/* buttons */
+.tabel .btnWrapper {
+    list-style-type: none;
 }
 
-.filterknop {
-    position: fixed;
+.tabel .btnWrapper a {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 40px;
-    left: 220px;
-    top: 100px;
-    background: #FFFFFF;
-    color: #004CD0;
-    border: 1px solid #004CD0;
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;    
     line-height: 24px;
+    width: 120px;
+    height: 40px;
+    text-decoration: none;
 }
 
-.add {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 108px;
-    height: 40px;
-    left: 1420px;
-    top: 100px;
+.tabel .filterknop {
+    display: none;
+}
+
+.tabel .add {
     background: #004CD0;  
-    color: #FFFFFF;  
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
+    color: #FFFFFF; 
+    float: right;
+    margin-top: -40px;
+    margin-right: 155px;
 }
 
-.delete {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 118px;
-    height: 40px;
-    left: 1540px;
-    top: 100px;
+.tabel .delete {
     background: #CD0C0C;
     color: #FFFFFF;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
+    float: right;
+    margin-top: -40px;
+    margin-right: 25px;
 }
 
-.export {
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 94px;
-    height: 40px;
-    left: 1550px;
-    top: 825px;
+.tabel .export {
     background: #1E8034;
     color: #FFFFFF;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-* {
-    box-sizing: border-box;
-  }
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 50px;
+    margin-right: 25px;
+} 
+/* buttons end */
   
-  #myInput {
+#myInput {
     width: 100%;
     font-size: 16px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
     margin-top: 100px;
-  }
+}
   
-  #myTable {
+#myTable {
     border-collapse: collapse;
     width: 100%;
     border: 1px solid #eee;
     font-size: 18px;
     margin-top: 5px;
     margin-bottom: 20px;
-  }
+}
   
   #myTable th {
     font-weight: lighter; 
