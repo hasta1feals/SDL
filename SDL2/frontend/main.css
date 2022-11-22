@@ -428,7 +428,7 @@ p {
     width: 80px;
     height: 40px;
     left: 220px;
-    top: 120px;
+    top: 100px;
     background: #FFFFFF;
     color: #004CD0;
     border: 1px solid #004CD0;
@@ -447,7 +447,7 @@ p {
     width: 108px;
     height: 40px;
     left: 1420px;
-    top: 120px;
+    top: 100px;
     background: #004CD0;  
     color: #FFFFFF;  
     border-radius: 5px;
@@ -465,7 +465,7 @@ p {
     width: 118px;
     height: 40px;
     left: 1540px;
-    top: 120px;
+    top: 100px;
     background: #CD0C0C;
     color: #FFFFFF;
     border-radius: 5px;
@@ -492,30 +492,95 @@ p {
     line-height: 24px;
 }
 
-.table{
-	border: 1px solid #eee;
-	table-layout: fixed;
-	width: 100%;
-	margin-bottom: 20px;
-    margin-top: 115px;
+* {
+    box-sizing: border-box;
+  }
+  
+  #myInput {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-top: 100px;
+  }
+  
+  #myTable {
     border-collapse: collapse;
-}
-.table th {
-	font-weight: 100;
-	padding: 15px;
-	background: #B7CFE6;
-	border: 1px solid #B7CFE6;
-}
-.table td{
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  
+  #myTable th {
+    font-weight: lighter; 
+    text-align: left;
+    padding: 12px;
+    background: #B7CFE6;
+    border: 1px solid #B7CFE6;
+  }
+
+  #myTable td {
+    text-align: left;
+    padding: 12px;
+    background: white;
+    border: 1px solid white;
+    padding-bottom: 50px;
+  }
+  
+  #myTable tr {
+    border-bottom: 1px solid #ddd;
     font-weight: 100;
-	padding: 25px 10px;
-	border: 1px solid #eee;
-	text-align: left;
-}
-.table tbody tr:nth-child(odd){
-	background: #fff;
-}
-.table tbody tr:nth-child(even){
-	background: #F7F7F7;
-}
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+  }
+  
+  #myTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+  }
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+  }
+  
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: 100%;
+  }
+  
+  @media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+  }
+  
+  @media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
 
