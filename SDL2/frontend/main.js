@@ -134,11 +134,16 @@ function reger() {
   showPage("registerPage");
 }
 
+function projectToevoegen() {
+  showPage("toevoegenPage");
+}
+
 function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
   connectButton("reg", register);
   connectButton("reger", reger);
+  connectButton("add", projectToevoegen);
 
   enableSubmits();
 }
@@ -214,8 +219,6 @@ function deleteCookie(cname) {
 }
 
 bindEvents();
-
-
 
 function myFunction() {
   // Declare variables
