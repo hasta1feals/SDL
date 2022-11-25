@@ -455,9 +455,78 @@ p {
     bottom: 0;
     margin-bottom: 50px;
     margin-right: 25px;
+
 } 
-/* buttons end */
-  
+/* buttons END */
+
+/* Toevoegen */
+.inputWrapper a {
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;    
+    line-height: 24px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.inputWrapper #Datum {
+    margin-left: 95px;
+}
+
+.inputWrapper #Medewerker {
+    margin-left: 52px;
+}
+
+.inputWrapper #Klant {
+    margin-left: 108px;
+}
+
+.inputWrapper #Project {
+    margin-left: 93px;
+}
+
+.inputWrapper #Activiteit {
+    margin-left: 79px;
+}
+
+.inputWrapper #Uren {
+    margin-left: 112px;
+}
+
+.inputWrapper #AantalDeclarabel {
+    margin-left: 10px;
+}
+
+.inputWrapper #Bonus {
+    margin-left: 101px;
+}
+
+.inputWrapper #Opmerking {
+    margin-left: 62px;
+}
+
+.inputWrapper .confirm {
+    background: #004CD0;  
+    color: #FFFFFF; 
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 50px;
+    margin-right: 25px;
+
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;    
+    line-height: 24px;
+    width: 120px;
+    height: 40px;
+} 
+
+/* Toevoegen END */
+
 #myInput {
     width: 100%;
     font-size: 16px;

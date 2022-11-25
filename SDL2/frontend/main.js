@@ -138,12 +138,17 @@ function projectToevoegen() {
   showPage("toevoegenPage");
 }
 
+function projectToevoegenConfirm() {
+  showPage("dashboardPage");
+}
+
 function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
   connectButton("reg", register);
   connectButton("reger", reger);
   connectButton("add", projectToevoegen);
+  connectButton("confirm", projectToevoegenConfirm);
 
   enableSubmits();
 }
