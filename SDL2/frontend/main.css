@@ -428,24 +428,22 @@ p {
     text-decoration: none;
 }
 
-.tabel .filterknop {
-    display: none;
-}
-
 .tabel .add {
     background: #004CD0;  
     color: #FFFFFF; 
     float: right;
-    margin-top: -40px;
-    margin-right: 155px;
+    margin-top: -30px;
+    margin-right: 10px;
+    margin-bottom: 1%;
 }
 
 .tabel .delete {
     background: #CD0C0C;
     color: #FFFFFF;
     float: right;
-    margin-top: -40px;
+    margin-top: -30px;
     margin-right: 25px;
+
 }
 
 .tabel .export {
