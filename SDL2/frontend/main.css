@@ -459,6 +459,11 @@ p {
 /* buttons END */
 
 /* Toevoegen */
+.inputWrapper {
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
 .inputWrapper a {
     display: flex;
     font-weight: 500;
@@ -466,42 +471,16 @@ p {
     line-height: 50px;
     text-decoration: none;
     margin-top: 10px;
+    margin-left: 30%;
 }
 
-.inputWrapper #Datum {
-    margin-left: 95px;
-}
-
-.inputWrapper #Medewerker {
-    margin-left: 52px;
-}
-
-.inputWrapper #Klant {
-    margin-left: 108px;
-}
-
-.inputWrapper #Project {
-    margin-left: 93px;
-}
-
-.inputWrapper #Activiteit {
-    margin-left: 79px;
-}
-
-.inputWrapper #Uren {
-    margin-left: 112px;
-}
-
-.inputWrapper #AantalDeclarabel {
-    margin-left: 10px;
-}
-
-.inputWrapper #Bonus {
-    margin-left: 101px;
-}
-
-.inputWrapper #Opmerking {
-    margin-left: 62px;
+.inputWrapper input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 5px;
 }
 
 .inputWrapper .confirm {
@@ -524,6 +503,65 @@ p {
     height: 40px;
 } 
 
+.inputWrapper .cancel {
+    background: #004CD0;  
+    color: #FFFFFF; 
+    float: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 50px;
+    margin-right: 155px;
+    
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;    
+    line-height: 24px;
+    width: 120px;
+    height: 40px;
+} 
+
+.Datum {
+    margin-bottom: 20px;
+}
+
+.Medewerker {
+    margin-bottom: 30px;
+}
+
+.Project {
+    margin-left: 25%;
+    margin-top: -95px;
+}
+
+.Klant {
+    margin-left: 50%;
+    margin-top: -65px;
+}
+
+.Activiteit {
+    margin-bottom: 20px;
+}
+
+.Uren {
+    margin-bottom: 30px;
+}
+
+.Aantal-Declarabel {
+    margin-left: 25%;
+    margin-top: -95px;
+}
+
+.Bonus {
+    margin-left: 50%;
+    margin-top: -65px;
+}
+
+.Opmerking {
+    margin-top: 20px;
+}
 /* Toevoegen END */
 
 #myInput {

@@ -142,6 +142,10 @@ function projectToevoegenConfirm() {
   showPage("dashboardPage");
 }
 
+function projectToevoegenCancel() {
+  showPage("dashboardPage");
+}
+
 function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
@@ -149,6 +153,7 @@ function bindEvents() {
   connectButton("reger", reger);
   connectButton("add", projectToevoegen);
   connectButton("confirm", projectToevoegenConfirm);
+  connectButton("cancel", projectToevoegenCancel);
 
   enableSubmits();
 }
