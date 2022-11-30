@@ -37,6 +37,25 @@ def create_user():
     return {'message': 'success', 'id': id}, 201
 
 
+
+def create_projecten():
+    # Parse all arguments for validity
+
+    # Make the insert query with parameters
+    qry = '''
+            INSERT INTO 
+              `project` (`user` ,`begin`, `naam`)
+           VALUES (:user , :begin, :naam);
+    '''
+   
+       # Hash the password before inserting
+    
+    # Insert the user into the database
+    id = DB.insert(qry)
+    # Return a message and the user id
+    return {'message': 'success', 'id': id}, 201
+
+
 #kijk ff als het slim is om de secret te hashen kost niet veel moeite maar dubbel check het 
 @jwt_required()
 def get_otp():
