@@ -339,7 +339,8 @@ body {
 }
 
 .nav-item:last-child {
-    margin-top: auto;
+    position: absolute;
+    bottom: 0;
 }
 
 .nav-link {
