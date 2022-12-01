@@ -40,21 +40,25 @@ def create_user():
 
 def create_projecten():
     # Parse all arguments for validity
-
+    args = request.get_json()
     # Make the insert query with parameters
     qry = '''
             INSERT INTO 
-              `project` (`user` ,`begin`, `naam`)
-           VALUES (:user , :begin, :naam);
+              `project` (`user_id` ,`begin`, `naam`)
+           VALUES (:user_id , :begin, :naam);
     '''
    
-       # Hash the password before inserting
-    
-    # Insert the user into the database
-    id = DB.insert(qry)
-    # Return a message and the user id
+    data = {
+        "user_id": args["user"],
+        "begin": args["begin"],
+        "naam": args["naam"]
+        }
+    try:
+        id = DB.insert(qry, data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.')
+        
     return {'message': 'success', 'id': id}, 201
-
 
 #kijk ff als het slim is om de secret te hashen kost niet veel moeite maar dubbel check het 
 @jwt_required()
@@ -108,4 +112,19 @@ def get_users():
     #Print alles wat ik hierboven heb gemaakt!
     return {'message': 'success', 'user': user}, 201    
 
+@jwt_required()
+def show_all_project():
+   
+    qry = '''
+    SELECT
+        *
+         FROM `project`
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
 
