@@ -2,6 +2,13 @@
     background-color: #ffff;
 } */
 
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: #b6b6b6;
+    --bg-primary: #42447D;
+}
+
 .container{
     position: fixed;
     display: inline-block;
@@ -55,9 +62,11 @@ button{
 }
 
 
-/* body, lichaam van de page/  */
+/* body, */
 body{
-    background-color: #cccccc !important; 
+    background-color: #cccccc !important;
+    margin: 0;
+    padding: 0; 
 }
 
 /* /dit hoor allemaal bij de input van de login/ */
@@ -303,17 +312,57 @@ body {
 }
 
 .sidenav {
-    height: 100%;
-    width: 200px;
+    height: 100vh;
+    width: 5rem;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #42447D;
+    background-color: var(--bg-primary);
     overflow-x: hidden;
     padding-top: 20px;
+    transition: width 200ms ease;
     /* position: fixed; */
     /* overflow: hidden; */
+}
+
+.sidenav-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item{
+    width: 100%;
+}
+
+.nav-item:last-child {
+    margin-top: auto;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.link-text {
+    display: none;
+    margin-left: 1rem;
+    color: white;
+    
+}
+
+.sidenav:hover {
+    width: 16rem;
+}
+
+.sidenav:hover .link-text {
+    display: block;
 }
 
 .sidenav a {
@@ -330,7 +379,8 @@ body {
 }
 
 .main {
-    margin-left: 200px;
+    margin-left: 5rem;
+    
     /* Same as the width of the sidenav */
 }
 
@@ -338,11 +388,10 @@ body {
 
     border-bottom: 0.1px solid #424361;
     margin-top: -20px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .navbar {
-    height: 75px;
+    height: 81px;
     display: flex;
     align-items: center;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -358,11 +407,8 @@ a {
 }
 
 .icon {
-    position: relative;
-    top: 7px;
-    padding-right: 10px;
-    width: 35px!important;
-    height: 30px!important;
+    min-width: 0.5rem;
+    margin: 0rem;
 }
 
 .sidenav input[type=text] {
