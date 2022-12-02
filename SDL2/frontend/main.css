@@ -356,7 +356,6 @@ body {
     display: none;
     margin-left: 3rem;
     color: white;
-    
 }
 
 .sidenav:hover {
@@ -388,9 +387,19 @@ body {
 }
 
 .logo {
-
+    margin-bottom: 2rem;
+    width: 100%;
     border-bottom: 0.1px solid #424361;
     margin-top: -20px;
+}
+
+.logo svg {
+    transform: rotate(0deg);
+    
+}
+
+.navbar:hover .logo svg {
+    transform: rotate(-180deg);
 }
 
 .navbar {
