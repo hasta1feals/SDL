@@ -67,6 +67,7 @@ function login2fa() {
     }
   });
 }
+
 function showQrCode() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
   api("otpp", "GET", data).then((res) => {
@@ -76,6 +77,7 @@ function showQrCode() {
       res.barcode;
   });
 }
+
 function userInfo() {
   //
   api("users", "GET", data).then((res) => {
@@ -84,6 +86,7 @@ function userInfo() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+
 function getUser() {
   // Fetch user data from API
   api("me").then((res) => {
@@ -139,7 +142,7 @@ function projectToevoegen() {
 }
 
 function projectToevoegenConfirm() {
-  showPage("dashboardPage");
+  showPage("popupCenter");
 }
 
 function projectToevoegenCancel() {
