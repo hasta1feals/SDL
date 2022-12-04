@@ -98,7 +98,7 @@ function getUser() {
       // showPage("otpPage");
       // showQrCode();
       // window.location.href="dashbord.html";
-      showPage("dashboardPage");
+      showPage("klantAanmaken");
       // showPage("registerPage")
 
       userInfo();
