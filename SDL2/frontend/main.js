@@ -154,6 +154,7 @@ function bindEvents() {
   connectButton("login2fa", login2fa);
   connectButton("reg", register);
   connectButton("reger", reger);
+  connectButton("registeren-nav", reger);
   connectButton("add", projectToevoegen);
   connectButton("confirm", projectToevoegenConfirm);
   connectButton("cancel", projectToevoegenCancel);
