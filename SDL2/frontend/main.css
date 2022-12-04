@@ -628,6 +628,82 @@ p {
 }
 /* Toevoegen END */
 
+
+/* Pop-up Begin */
+.popupCenter, .popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popupContent {
+    /* opacity: 0;
+    visibility: hidden; */
+    width: 400px;
+    height: 250px;
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .4);
+}
+
+.popupHeader {
+    height: 68px;
+    background: #42447D;
+    overflow: hidden;
+    border-radius: 3px 3px 0 0;
+    text-align: center;
+}
+
+.popupHeader h2 {
+    color: #FFFFFF;
+    padding-top: 20px;
+}
+
+p {
+    padding-top: 26px;
+    margin-left: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+    height: 80px;
+}
+
+.line {
+    bottom: 20px;
+    width: 100%;
+    height: 1px;
+    background: black;
+}
+
+.popupAccept {
+    bottom: 12px;
+    right: 80px;
+}
+
+.popupDecline {
+    bottom: 12px;
+    right: 25px;
+}
+
+.popupContent a {
+    position: absolute;
+    border: 1px solid #42447D;
+    border-radius: 3px;
+    color: #42447D;
+    padding: 1px 8px;
+    font-size: 18px;
+    width: 50px;
+    text-align: center;
+}
+
+.popupContent a:hover {
+    background: #42447D;
+    /* background: #fca03d */
+    color: #FFFFFF;
+}
+/* Pop-up END */
+
 /* Klant aanmaken */
 .klantWrapper {
     margin-top: 10%;

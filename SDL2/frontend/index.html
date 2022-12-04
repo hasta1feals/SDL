@@ -282,9 +282,20 @@
                 </Label>
             </div>
 
-            <a id="confirm" class="confirm" href="#">Toevoegen</a>
             <a id="cancel" class="cancel" href="#">Terug</a>
+            <label id="confirm" class="confirm" href="#">Toevoegen</label>
 
+            <div class="popupCenter hidden" id="popupCenter">
+                <div class="popupContent">
+                    <div class="popupHeader">
+                        <h2>Waarschuwing</h2>
+                    </div>
+                    <p>Weet u zeker dat u dit wil toevoegen</p>
+                    <div class="line"></div>
+                    <a id="popupAccept" class="popupAccept" href="#">JA</a>
+                    <a id="popupDecline" class="popupDecline" href="#">NEE</a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -424,6 +435,7 @@
             <h1>Inloggen</h1>
             <form>
                 <div class="ruimte"></div>
+                <!-- Waarom staat dit bij login, 2fa en registreren ? -->
 
                 <div class="loginlogin">
                     <input type="text" name="email" placeholder="E-mail" id="email2" />
@@ -444,6 +456,8 @@
             <img src="img/loginicon-removebg-preview.png" class="avatar">
             <h1>Registreren</h1>
             <form>
+                <div class="ruimte"></div>
+
                 <div class="regreg">
                     <input type="text" name="voornaam" placeholder="Voornaam" id="voornaam" />
                     <br>
@@ -468,6 +482,7 @@
         <button id="logout" onclick="logout()">Logout</button>
     </div>
 </body>
+
 <script src="main.js"></script>
 
 </html>
