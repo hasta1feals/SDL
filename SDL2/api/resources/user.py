@@ -11,6 +11,23 @@ from flask_jwt_extended import (
 )
 from datetime import date
 
+
+
+def get_projecten():
+    # qry om users te laten zien
+    qry = '''
+    SELECT
+      *
+         FROM `project`
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
+
 def create_user():
     # Parse all arguments for validity
     args = request.get_json()
@@ -112,19 +129,4 @@ def get_users():
     #Print alles wat ik hierboven heb gemaakt!
     return {'message': 'success', 'user': user}, 201    
 
-@jwt_required()
-def show_all_project():
-   
-    qry = '''
-    SELECT
-        *
-         FROM `project`
-
-    '''
-    try:
-        id = DB.all(qry)
-    except Exception:
-        print('Er is een probleem opgetreden, contact de admin.');
-
-    return {'message': 'success', 'id': id}, 201
 

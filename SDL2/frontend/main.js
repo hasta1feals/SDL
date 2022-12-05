@@ -99,12 +99,31 @@ function getUser() {
       // showQrCode();
       // window.location.href="dashbord.html";
       showPage("dashboardPage");
+      projectUren();
       // showPage("registerPage")
 
       userInfo();
     }
   });
 }
+
+
+
+function projectUren() {
+  api("projecten", 'GET').then((res) => {
+      if (res.message == 'success') {
+          for (i = 0; i < res.id.length; i++) {
+              document.getElementById("selection").innerHTML += '<option value="' + res.id[i].id + '">' + res.id[i].naam + '</option>';
+          }
+      }
+  });
+}
+
+
+
+
+
+
 
 function link() {
   showPage("otpPage");
