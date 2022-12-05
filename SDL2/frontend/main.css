@@ -940,7 +940,7 @@ p {
 
 #myInput {
     width: 100%;
-    font-size: 16px;
+    font-size: 13px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
     margin-top: 100px;
@@ -959,18 +959,20 @@ p {
   
   #myTable th {
     font-weight: lighter; 
-    text-align: left;
+    text-align: center;
     padding: 12px;
     background: #B7CFE6;
     border: 1px solid #B7CFE6;
+    
   }
 
   #myTable td {
-    text-align: left;
+    text-align: center;
     padding: 12px;
     background: white;
     border: 1px solid white;
     padding-bottom: 50px;
+    
   }
   
   #myTable tr {
