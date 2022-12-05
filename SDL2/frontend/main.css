@@ -555,10 +555,20 @@ p {
     margin-left: 30%;
 }
 
+.inputWrapper .confirm {
+    display: flex;
+    font-weight: 500;
+    font-size: 16px;    
+    line-height: 50px;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-left: 30%;
+}
+
 .inputWrapper input {
     width: 300px;
     height: 40px;
-    border: 1px solid;
+    border: 1px solid rgb(216, 216, 216);
     border-radius: 5px;
     padding: 10px 10px;
     margin-top: 5px;
@@ -566,6 +576,7 @@ p {
     font-size: 16px;
 }
 
+/* Deze wordt gebruikt in de pop up */
 .inputWrapper .confirm {
     background: #004CD0;  
     color: #FFFFFF; 
@@ -584,6 +595,7 @@ p {
     line-height: 24px;
     width: 120px;
     height: 40px;
+    cursor: pointer;
 } 
 
 .inputWrapper .cancel {
@@ -657,13 +669,18 @@ p {
 }
 
 .popupContent {
-    /* opacity: 0;
-    visibility: hidden; */
+    opacity: 0;
+    visibility: hidden;
     width: 400px;
     height: 250px;
     background: #FFFFFF;
     border-radius: 3px;
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .4);
+}
+
+#click:checked ~ .popupContent {
+    opacity: 1;
+    visibility: visible;
 }
 
 .popupHeader {
@@ -677,6 +694,10 @@ p {
 .popupHeader h2 {
     color: #FFFFFF;
     padding-top: 20px;
+}
+
+#click {
+    display: none;
 }
 
 p {
@@ -745,7 +766,7 @@ p {
 .klantWrapper input {
     width: 300px;
     height: 50px;
-    border: 1px solid;
+    border: 1px solid rgb(216, 216, 216);
     border-radius: 5px;
     padding: 10px 10px;
     margin-top: 5px;
@@ -853,7 +874,7 @@ p {
 .projectWrapper input {
     width: 300px;
     height: 50px;
-    border: 1px solid;
+    border: 1px solid rgb(216, 216, 216);
     border-radius: 5px;
     padding: 10px 10px;
     margin-top: 5px;
