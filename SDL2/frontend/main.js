@@ -163,6 +163,14 @@ function userAanmaken() {
   showPage("dashboardPage");
 }
 
+function klanten() {
+  showPage("klantenPage");
+}
+
+function projecten() {
+  showPage("projectenPage");
+}
+
 function reger() {
   showPage("registerPage");
 }
@@ -185,6 +193,8 @@ function bindEvents() {
   connectButton("reg", register);
   connectButton("reger", reger);
   connectButton("registeren-nav", reger);
+  connectButton("klanten", klanten);
+  connectButton("projecten", projecten);
   connectButton("add", projectToevoegen);
   connectButton("confirm", projectToevoegenConfirm);
   connectButton("cancel", projectToevoegenCancel);
