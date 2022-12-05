@@ -221,28 +221,28 @@ function bindEvents() {
   connectButton("cancel", projectToevoegenCancel);
 
   // Ref-linken van buttons in de Dashboard navbar BEGIN
-  connectButton("dashboardPageBtn", klantenPageNav);
-  connectButton("klantenPageBtn", dashboardPageNav);
+  connectButton("dashboardPageBtn", dashboardPageNav);
+  connectButton("klantenPageBtn", klantenPageNav);
   connectButton("projectenPageBtn", projectenPageNav);
   connectButton("registeren-navBtn", regerNav);
   // Ref-linken van buttons in de Dashboard navbar END
 
   // Ref-linken van buttons in de Klant Aanmaken navbar BEGIN
-  connectButton("dashboardPageBtn1", klantenPageNav);
+  connectButton("dashboardPageBtn1", dashboardPageNav);
   connectButton("klantenPageBtn1", klantenPageNav);
   connectButton("projectenPageBtn1", klantenPageNav);
   connectButton("registeren-navBtn1", regerNav);
   // Ref-linken van buttons in de Klant Aanmaken navbar END
 
   // Ref-linken van buttons in de Project Aanmaken navbar BEGIN
-  connectButton("dashboardPageBtn2", klantenPageNav);
+  connectButton("dashboardPageBtn2", dashboardPageNav);
   connectButton("klantenPageBtn2", klantenPageNav);
   connectButton("projectenPageBtn2", klantenPageNav);
   connectButton("registeren-navBtn2", regerNav);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
   // Ref-linken van buttons in de Toevoegen navbar BEGIN
-  connectButton("dashboardPageBtn3", klantenPageNav);
+  connectButton("dashboardPageBtn3", dashboardPageNav);
   connectButton("klantenPageBtn3", klantenPageNav);
   connectButton("projectenPageBtn3", klantenPageNav);
   connectButton("registeren-navBtn3", regerNav);
