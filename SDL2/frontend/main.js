@@ -100,6 +100,7 @@ function getUser() {
       // window.location.href="dashbord.html";
       showPage("dashboardPage");
       projectUren();
+      klantenUren();
       // showPage("registerPage")
 
       userInfo();
@@ -119,6 +120,16 @@ function projectUren() {
   });
 }
 
+function klantenUren() {
+  api("klanten", 'GET').then((res) => {
+      if (res.message == 'success') {
+          for (i = 0; i < res.id.length; i++) {
+            console.log(res);
+              document.getElementById("selectionKlanten").innerHTML += '<option value="' + res.id[i].id + '">' + res.id[i].voornaam + '</option>';
+          }
+      }
+  });
+}
 
 
 

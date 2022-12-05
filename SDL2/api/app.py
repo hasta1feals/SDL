@@ -3,7 +3,7 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from db import DB
 from security import login, me
-from resources.user import create_user, get_otp, get_users, create_projecten, get_projecten
+from resources.user import create_user, get_otp, get_users, create_projecten, get_projecten, create_klanten, get_klanten
 # Create a new Flask application
 app = Flask(__name__)
 app.debug = True
@@ -24,6 +24,10 @@ app.add_url_rule('/me', None, me, methods=['GET'])
 app.add_url_rule('/projecten', None, create_projecten, methods=['POST'])
 app.add_url_rule('/projecten', None, get_projecten, methods=['GET'])
 app.add_url_rule('/otpp', None, get_otp, methods=['GET'])
+app.add_url_rule('/klanten', None, create_klanten, methods=['POST'])
+app.add_url_rule('/klanten', None, get_klanten, methods=['GET'])
+
+
 
 
 
