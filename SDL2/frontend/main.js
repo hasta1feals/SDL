@@ -108,33 +108,36 @@ function getUser() {
   });
 }
 
-
-
 function projectUren() {
-  api("projecten", 'GET').then((res) => {
-      if (res.message == 'success') {
-          for (i = 0; i < res.id.length; i++) {
-              document.getElementById("selection").innerHTML += '<option value="' + res.id[i].id + '">' + res.id[i].naam + '</option>';
-          }
+  api("projecten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selection").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].naam +
+          "</option>";
       }
+    }
   });
 }
 
 function klantenUren() {
-  api("klanten", 'GET').then((res) => {
-      if (res.message == 'success') {
-          for (i = 0; i < res.id.length; i++) {
-            console.log(res);
-              document.getElementById("selectionKlanten").innerHTML += '<option value="' + res.id[i].id + '">' + res.id[i].voornaam + '</option>';
-          }
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionKlanten").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
       }
+    }
   });
 }
-
-
-
-
-
 
 function link() {
   showPage("otpPage");
@@ -187,6 +190,16 @@ function projectToevoegenCancel() {
   showPage("dashboardPage");
 }
 
+// Ref-linken van buttons in de navbar BEGIN
+function klantenPage() {
+  showPage("klantenPage");
+}
+
+function klantenPage() {
+  showPage("projectenPage");
+}
+// Ref-linken van buttons in de navbar END
+
 function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
@@ -198,6 +211,11 @@ function bindEvents() {
   connectButton("add", projectToevoegen);
   connectButton("confirm", projectToevoegenConfirm);
   connectButton("cancel", projectToevoegenCancel);
+
+  // Ref-linken van buttons in de navbar BEGIN
+  connectButton("klantenPageBtn", klantenPage);
+  connectButton("projectenPageBtn", klantenPage);
+  // Ref-linken van buttons in de navbar END
 
   enableSubmits();
 }
