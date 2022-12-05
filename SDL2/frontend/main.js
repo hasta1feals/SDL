@@ -192,15 +192,19 @@ function projectToevoegenCancel() {
 }
 
 // Ref-linken van buttons in de navbar BEGIN
-function klantenPage() {
+function dashboardPageNav() {
+  showPage("dashboardPage");
+}
+
+function klantenPageNav() {
   showPage("klantenPage");
 }
 
-function projectenPage() {
+function projectenPageNav() {
   showPage("projectenPage");
 }
 
-function reger() {
+function regerNav() {
   showPage("registerPage");
 }
 // Ref-linken van buttons in de navbar END
@@ -217,27 +221,31 @@ function bindEvents() {
   connectButton("cancel", projectToevoegenCancel);
 
   // Ref-linken van buttons in de Dashboard navbar BEGIN
-  connectButton("klantenPageBtn", klantenPage);
-  connectButton("projectenPageBtn", projectenPage);
-  connectButton("registeren-navBtn", reger);
+  connectButton("dashboardPageBtn", klantenPageNav);
+  connectButton("klantenPageBtn", dashboardPageNav);
+  connectButton("projectenPageBtn", projectenPageNav);
+  connectButton("registeren-navBtn", regerNav);
   // Ref-linken van buttons in de Dashboard navbar END
 
   // Ref-linken van buttons in de Klant Aanmaken navbar BEGIN
-  connectButton("klantenPageBtn1", klantenPage);
-  connectButton("projectenPageBtn1", klantenPage);
-  connectButton("registeren-navBtn1", reger);
+  connectButton("dashboardPageBtn1", klantenPageNav);
+  connectButton("klantenPageBtn1", klantenPageNav);
+  connectButton("projectenPageBtn1", klantenPageNav);
+  connectButton("registeren-navBtn1", regerNav);
   // Ref-linken van buttons in de Klant Aanmaken navbar END
 
   // Ref-linken van buttons in de Project Aanmaken navbar BEGIN
-  connectButton("klantenPageBtn2", klantenPage);
-  connectButton("projectenPageBtn2", klantenPage);
-  connectButton("registeren-navBtn2", reger);
+  connectButton("dashboardPageBtn2", klantenPageNav);
+  connectButton("klantenPageBtn2", klantenPageNav);
+  connectButton("projectenPageBtn2", klantenPageNav);
+  connectButton("registeren-navBtn2", regerNav);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
   // Ref-linken van buttons in de Toevoegen navbar BEGIN
-  connectButton("klantenPageBtn3", klantenPage);
-  connectButton("projectenPageBtn3", klantenPage);
-  connectButton("registeren-navBtn3", reger);
+  connectButton("dashboardPageBtn3", klantenPageNav);
+  connectButton("klantenPageBtn3", klantenPageNav);
+  connectButton("projectenPageBtn3", klantenPageNav);
+  connectButton("registeren-navBtn3", regerNav);
   // Ref-linken van buttons in de Toevoegen navbar END
 
   enableSubmits();
