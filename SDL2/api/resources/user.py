@@ -19,6 +19,27 @@ def get_projecten():
     SELECT
       *
          FROM `project`
+          ORDER BY naam;
+
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
+
+
+
+def get_klanten():
+    # qry om klantente laten zien!
+    qry = '''
+    SELECT
+      *
+         FROM `klanten`
+         ORDER BY voornaam;
+
 
     '''
     try:
@@ -76,6 +97,32 @@ def create_projecten():
         print('Er is een probleem opgetreden, contact de admin.')
         
     return {'message': 'success', 'id': id}, 201
+
+def create_klanten():
+    # Parse all arguments for validity
+    args = request.get_json()
+    # Make the insert query with parameters
+    qry = '''
+          INSERT INTO 
+              `klanten` ( voornaam, achternaam, woonplaats, adres, postcode, telefoon)
+           VALUES (:voornaam, :achternaam, :woonplaats, :adres, :postcode, :telefoon);
+    '''
+   
+    data = {
+        "voornaam": args["voornaam"],
+        "achternaam": args["achternaam"],
+        "woonplaats": args["woonplaats"],
+        "adres": args["adres"],
+        "postcode": args["postcode"],
+        "telefoon": args["telefoon"]
+        }
+    try:
+        id = DB.insert(qry, data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.')
+        
+    return {'message': 'success', 'id': id}, 201
+
 
 #kijk ff als het slim is om de secret te hashen kost niet veel moeite maar dubbel check het 
 @jwt_required()
