@@ -174,17 +174,18 @@ function projecten() {
   showPage("projectenPage");
 }
 
-function reger() {
-  showPage("registerPage");
-}
-
 function projectToevoegen() {
   showPage("toevoegenPage");
 }
 
-function projectToevoegenConfirm() {
-  showPage("popupCenter");
+function regerop() {
+  showPage("dashboardPage");
 }
+
+// Deze is niet meer nodig funcite werkt nu via een html/css verbinding
+// function projectToevoegenConfirm() {
+//   showPage("popupCenter");
+// }
 
 function projectToevoegenCancel() {
   showPage("dashboardPage");
@@ -195,8 +196,12 @@ function klantenPage() {
   showPage("klantenPage");
 }
 
-function klantenPage() {
+function projectenPage() {
   showPage("projectenPage");
+}
+
+function reger() {
+  showPage("registerPage");
 }
 // Ref-linken van buttons in de navbar END
 
@@ -204,18 +209,36 @@ function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
   connectButton("reg", register);
-  connectButton("reger", reger);
-  connectButton("registeren-nav", reger);
+  connectButton("regop", regerop);
   connectButton("klanten", klanten);
   connectButton("projecten", projecten);
   connectButton("add", projectToevoegen);
-  connectButton("confirm", projectToevoegenConfirm);
+  // connectButton("confirm", projectToevoegenConfirm);
   connectButton("cancel", projectToevoegenCancel);
 
-  // Ref-linken van buttons in de navbar BEGIN
+  // Ref-linken van buttons in de Dashboard navbar BEGIN
   connectButton("klantenPageBtn", klantenPage);
-  connectButton("projectenPageBtn", klantenPage);
-  // Ref-linken van buttons in de navbar END
+  connectButton("projectenPageBtn", projectenPage);
+  connectButton("registeren-navBtn", reger);
+  // Ref-linken van buttons in de Dashboard navbar END
+
+  // Ref-linken van buttons in de Klant Aanmaken navbar BEGIN
+  connectButton("klantenPageBtn1", klantenPage);
+  connectButton("projectenPageBtn1", klantenPage);
+  connectButton("registeren-navBtn1", reger);
+  // Ref-linken van buttons in de Klant Aanmaken navbar END
+
+  // Ref-linken van buttons in de Project Aanmaken navbar BEGIN
+  connectButton("klantenPageBtn2", klantenPage);
+  connectButton("projectenPageBtn2", klantenPage);
+  connectButton("registeren-navBtn2", reger);
+  // Ref-linken van buttons in de Project Aanmaken navbar END
+
+  // Ref-linken van buttons in de Toevoegen navbar BEGIN
+  connectButton("klantenPageBtn3", klantenPage);
+  connectButton("projectenPageBtn3", klantenPage);
+  connectButton("registeren-navBtn3", reger);
+  // Ref-linken van buttons in de Toevoegen navbar END
 
   enableSubmits();
 }
