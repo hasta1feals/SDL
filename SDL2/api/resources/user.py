@@ -30,6 +30,27 @@ def get_projecten():
 
     return {'message': 'success', 'id': id}, 201
 
+    
+def get_projecten2():
+    # qry om users te laten zien
+    qry = '''
+   SELECT project.naam , klanten.voornaam klantennaam ,project.begin , users.firstname 
+FROM project
+INNER JOIN users
+ON klanten.id = project.klanten_id
+INNER JOIN klanten
+ON users.id = project.user_id
+
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
+
+
 
 
 def get_klanten():
