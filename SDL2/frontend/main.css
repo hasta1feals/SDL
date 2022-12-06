@@ -515,12 +515,21 @@ p {
     margin-bottom: 1%;
 }
 
+.tabel .edit {
+    background: orange;  
+    color: #FFFFFF; 
+    float: right;
+    margin-top: -20px;
+    margin-right: 10px;
+    margin-bottom: 1%;
+}
+
 .tabel .delete {
     background: #CD0C0C;
     color: #FFFFFF;
     float: right;
     margin-top: -20px;
-    margin-right: 25px;
+    margin-right: 10px;
 
 }
 
@@ -979,5 +988,10 @@ p {
     padding: 25px 10px;
     border: 1px solid #eee;
     text-align: left;
+}
+
+.overzicht {
+    text-align: left;
+    margin-left: 2%;
 }
   
