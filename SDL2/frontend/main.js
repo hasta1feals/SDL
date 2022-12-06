@@ -26,6 +26,28 @@ function register(e) {
   });
 }
 
+
+
+function projectPosten() {
+  let x = idProject.toString()
+
+  data = {
+    naam: getValue("password3"),
+    begin: getValue("email3"),
+    klanten_id: x
+  
+  };
+
+  console.log(data);
+
+  // Submit data to API
+  api("projecten", "POST", data).then((res) => {
+    if (res.message == "success") {
+    console.log("gelukt")
+    }
+  });
+}
+
 function login() {
   // Fetch data from html
   data = {
@@ -101,6 +123,7 @@ function getUser() {
       showPage("dashboardPage");
       projectUren();
       klantenUren();
+      klantenProject()
       // showPage("registerPage")
       projectProject();
       userInfo();
@@ -180,6 +203,49 @@ function klantenUren() {
     }
   });
 }
+
+function klantenProject() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionKlanten1").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
+
+let selectionProject = document.querySelector('#selectionKlanten1');
+var idProject = []
+
+selectionProject.addEventListener('change', () => {
+  api("klanten", 'GET').then((res) => {
+      if (res.message == 'success') {
+          for (i = 0; i < res.id.length; i++) {
+              if (res.id[i].id == selectionProject.value) {
+                  console.log(res.id[i].id)
+
+
+                  idProject.push(res.id[i].id);
+
+
+                  break;
+              }
+
+
+          }
+
+
+      }
+  })
+})
+
+
 
 function link() {
   showPage("otpPage");
@@ -267,6 +333,10 @@ function regerNav() {
 }
 // Ref-linken van buttons in de navbar END
 
+function projectConfirm() {
+  projectPosten();
+  
+}
 function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
@@ -274,6 +344,7 @@ function bindEvents() {
   connectButton("regop", regerop);
   connectButton("klanten", klanten);
   connectButton("projecten", projecten);
+  connectButton("projectConfirm", projectConfirm);
   // connectButton("confirm", projectToevoegenConfirm);
 
   connectButton("projectCancel", projectToevoegenCancel);

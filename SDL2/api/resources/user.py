@@ -103,12 +103,12 @@ def create_projecten():
     # Make the insert query with parameters
     qry = '''
             INSERT INTO 
-              `project` (`user_id` ,`begin`, `naam`)
-           VALUES (:user_id , :begin, :naam);
+              `project` (`klanten_id` ,`begin`, `naam`)
+           VALUES (:klanten_id , :begin, :naam);
     '''
    
     data = {
-        "user_id": args["user"],
+        "klanten_id": args["klanten_id"],
         "begin": args["begin"],
         "naam": args["naam"]
         }
@@ -143,6 +143,8 @@ def create_klanten():
         print('Er is een probleem opgetreden, contact de admin.')
         
     return {'message': 'success', 'id': id}, 201
+
+
 
 
 #kijk ff als het slim is om de secret te hashen kost niet veel moeite maar dubbel check het 
