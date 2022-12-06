@@ -174,10 +174,6 @@ function projecten() {
   showPage("projectenPage");
 }
 
-function projectToevoegen() {
-  showPage("toevoegenPage");
-}
-
 function regerop() {
   showPage("dashboardPage");
 }
@@ -187,9 +183,29 @@ function regerop() {
 //   showPage("popupCenter");
 // }
 
+// Ref-linken van buttons: toevoegen -> overzicht BEGIN
 function projectToevoegenCancel() {
+  showPage("projectenPage");
+}
+function klantToevoegenCancel() {
+  showPage("klantenPage");
+}
+function dashToevoegenCancel() {
   showPage("dashboardPage");
 }
+// Ref-linken van buttons: toevoegen -> overzicht END
+
+// Ref-linken van buttons: overzicht -> toevoegen BEGIN
+function projectToevoegen() {
+  showPage("projectAanmaken");
+}
+function klantToevoegen() {
+  showPage("klantAanmaken");
+}
+function dashToevoegen() {
+  showPage("toevoegenPage");
+}
+// Ref-linken van buttons: overzicht -> toevoegen END
 
 // Ref-linken van buttons in de navbar BEGIN
 function dashboardPageNav() {
@@ -216,9 +232,15 @@ function bindEvents() {
   connectButton("regop", regerop);
   connectButton("klanten", klanten);
   connectButton("projecten", projecten);
-  connectButton("add", projectToevoegen);
   // connectButton("confirm", projectToevoegenConfirm);
-  connectButton("cancel", projectToevoegenCancel);
+
+  connectButton("projectCancel", projectToevoegenCancel);
+  connectButton("klantCancel", klantToevoegenCancel);
+  connectButton("cancel", dashToevoegenCancel);
+
+  connectButton("projectAdd", projectToevoegen);
+  connectButton("klantAdd", klantToevoegen);
+  connectButton("add", dashToevoegen);
 
   // Ref-linken van buttons in de Dashboard navbar BEGIN
   connectButton("dashboardPageBtn", dashboardPageNav);
@@ -230,21 +252,35 @@ function bindEvents() {
   // Ref-linken van buttons in de Klant Aanmaken navbar BEGIN
   connectButton("dashboardPageBtn1", dashboardPageNav);
   connectButton("klantenPageBtn1", klantenPageNav);
-  connectButton("projectenPageBtn1", klantenPageNav);
+  connectButton("projectenPageBtn1", projectenPageNav);
   connectButton("registeren-navBtn1", regerNav);
   // Ref-linken van buttons in de Klant Aanmaken navbar END
+
+  // Ref-linken van buttons in de Klant Overzicht navbar BEGIN
+  connectButton("dashboardPageBtn4", dashboardPageNav);
+  connectButton("klantenPageBtn4", klantenPageNav);
+  connectButton("projectenPageBtn4", projectenPageNav);
+  connectButton("registeren-navBtn4", regerNav);
+  // Ref-linken van buttons in de Klant Overzicht navbar END
 
   // Ref-linken van buttons in de Project Aanmaken navbar BEGIN
   connectButton("dashboardPageBtn2", dashboardPageNav);
   connectButton("klantenPageBtn2", klantenPageNav);
-  connectButton("projectenPageBtn2", klantenPageNav);
+  connectButton("projectenPageBtn2", projectenPageNav);
   connectButton("registeren-navBtn2", regerNav);
+  // Ref-linken van buttons in de Project Aanmaken navbar END
+
+  // Ref-linken van buttons in de Project Overzicht navbar BEGIN
+  connectButton("dashboardPageBtn5", dashboardPageNav);
+  connectButton("klantenPageBtn5", klantenPageNav);
+  connectButton("projectenPageBtn5", projectenPageNav);
+  connectButton("registeren-navBtn5", regerNav);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
   // Ref-linken van buttons in de Toevoegen navbar BEGIN
   connectButton("dashboardPageBtn3", dashboardPageNav);
   connectButton("klantenPageBtn3", klantenPageNav);
-  connectButton("projectenPageBtn3", klantenPageNav);
+  connectButton("projectenPageBtn3", projectenPageNav);
   connectButton("registeren-navBtn3", regerNav);
   // Ref-linken van buttons in de Toevoegen navbar END
 
