@@ -952,7 +952,7 @@ p {
     font-size: 13px;
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
-    margin-top: 100px;
+    margin-top: 40px;
 }
   
 #myTable {
@@ -961,7 +961,7 @@ p {
     border: 1px solid #eee;
     font-size: 14px;
     margin-top: 5px;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
 }
   
 #myTable th {
@@ -993,5 +993,7 @@ p {
 .overzicht {
     text-align: left;
     margin-left: 2%;
+    font-weight: 100;
+    margin-top: -1%;
 }
   
