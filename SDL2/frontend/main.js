@@ -331,6 +331,10 @@ function projectenPageNav() {
 function regerNav() {
   showPage("registerPage");
 }
+
+function loginBtn() {
+  showPage("loginPage")
+}
 // Ref-linken van buttons in de navbar END
 
 function projectConfirm() {
@@ -360,6 +364,8 @@ function bindEvents() {
   connectButton("klantenPageBtn", klantenPageNav);
   connectButton("projectenPageBtn", projectenPageNav);
   connectButton("registeren-navBtn", regerNav);
+  connectButton("loginPageBtn", loginBtn);
+
   // Ref-linken van buttons in de Dashboard navbar END
 
   // Ref-linken van buttons in de Klant Aanmaken navbar BEGIN
@@ -367,6 +373,7 @@ function bindEvents() {
   connectButton("klantenPageBtn1", klantenPageNav);
   connectButton("projectenPageBtn1", projectenPageNav);
   connectButton("registeren-navBtn1", regerNav);
+  connectButton("loginPageBtn1", loginBtn);
   // Ref-linken van buttons in de Klant Aanmaken navbar END
 
   // Ref-linken van buttons in de Klant Overzicht navbar BEGIN
@@ -374,6 +381,7 @@ function bindEvents() {
   connectButton("klantenPageBtn4", klantenPageNav);
   connectButton("projectenPageBtn4", projectenPageNav);
   connectButton("registeren-navBtn4", regerNav);
+  connectButton("loginPageBtn4", loginBtn);
   // Ref-linken van buttons in de Klant Overzicht navbar END
 
   // Ref-linken van buttons in de Project Aanmaken navbar BEGIN
@@ -381,6 +389,7 @@ function bindEvents() {
   connectButton("klantenPageBtn2", klantenPageNav);
   connectButton("projectenPageBtn2", projectenPageNav);
   connectButton("registeren-navBtn2", regerNav);
+  connectButton("loginPageBtn2", loginBtn);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
   // Ref-linken van buttons in de Project Overzicht navbar BEGIN
@@ -388,6 +397,7 @@ function bindEvents() {
   connectButton("klantenPageBtn5", klantenPageNav);
   connectButton("projectenPageBtn5", projectenPageNav);
   connectButton("registeren-navBtn5", regerNav);
+  connectButton("loginPageBtn5", loginBtn);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
   // Ref-linken van buttons in de Toevoegen navbar BEGIN
@@ -395,6 +405,7 @@ function bindEvents() {
   connectButton("klantenPageBtn3", klantenPageNav);
   connectButton("projectenPageBtn3", projectenPageNav);
   connectButton("registeren-navBtn3", regerNav);
+  connectButton("loginPageBtn3", loginBtn);
   // Ref-linken van buttons in de Toevoegen navbar END
 
   enableSubmits();
