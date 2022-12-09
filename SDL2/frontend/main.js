@@ -30,11 +30,13 @@ function register(e) {
 
 function projectPosten() {
   let x = idProject.toString()
+  let y = idMedewerker.toString()
 
   data = {
     naam: getValue("projectNaam"),
     begin: getValue("projectBeginDatum"),
     klanten_id: x,
+    user_id: y
     
   
   };
@@ -125,6 +127,7 @@ function getUser() {
       projectUren();
       klantenUren();
       klantenProject()
+      medewerkerProject();
       // showPage("registerPage")
       projectProject();
       userInfo();
@@ -146,6 +149,22 @@ function projectUren() {
     }
   });
 }
+
+function projectUren() {
+  api("projecten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selection").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].naam +
+          "</option>";
+      }
+    }
+  });
+}
+
 
 function projectProject() {
   api("projecten2", "GET").then((res) => {
@@ -220,6 +239,22 @@ function klantenProject() {
     }
   });
 }
+function medewerkerProject() {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionMedewerker").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].firstname +
+          "</option>";
+      }
+    }
+  });
+}
+
 
 let selectionProject = document.querySelector('#selectionKlanten1');
 var idProject = []
@@ -233,6 +268,31 @@ selectionProject.addEventListener('change', () => {
 
 
                   idProject.push(res.id[i].id);
+
+
+                  break;
+              }
+
+
+          }
+
+
+      }
+  })
+})
+
+let selectionMedewerker = document.querySelector('#selectionMedewerker');
+var idMedewerker = []
+
+selectionMedewerker.addEventListener('change', () => {
+  api("medewerker", 'GET').then((res) => {
+      if (res.message == 'success') {
+          for (i = 0; i < res.id.length; i++) {
+              if (res.id[i].id == selectionMedewerker.value) {
+                  console.log(res.id[i].id)
+
+
+                  idMedewerker.push(res.id[i].id);
 
 
                   break;

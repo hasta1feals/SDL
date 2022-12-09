@@ -30,7 +30,23 @@ def get_projecten():
 
     return {'message': 'success', 'id': id}, 201
 
-    
+def get_medewerker(): 
+    qry = '''
+    SELECT
+      firstname, lastname, email, id
+         FROM `users`
+          ORDER BY firstname;
+
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
+
+
 def get_projecten2():
     # qry om users te laten zien
     qry = '''
@@ -103,14 +119,15 @@ def create_projecten():
     # Make the insert query with parameters
     qry = '''
             INSERT INTO 
-              `project` (`klanten_id` ,`begin`, `naam`)
-           VALUES (:klanten_id , :begin, :naam);
+              `project` (`klanten_id` ,`begin`, `naam`, 'user_id')
+           VALUES (:klanten_id , :begin, :naam, :user_id);
     '''
    
     data = {
         "klanten_id": args["klanten_id"],
         "begin": args["begin"],
-        "naam": args["naam"]
+        "naam": args["naam"],
+        "user_id": args["user_id"]
         }
     try:
         id = DB.insert(qry, data)
