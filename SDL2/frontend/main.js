@@ -32,9 +32,10 @@ function projectPosten() {
   let x = idProject.toString()
 
   data = {
-    naam: getValue("password3"),
-    begin: getValue("email3"),
-    klanten_id: x
+    naam: getValue("projectNaam"),
+    begin: getValue("projectBeginDatum"),
+    klanten_id: x,
+    
   
   };
 
