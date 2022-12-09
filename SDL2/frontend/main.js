@@ -26,6 +26,29 @@ function register(e) {
   });
 }
 
+
+
+function projectPosten() {
+  let x = idProject.toString()
+
+  data = {
+    naam: getValue("projectNaam"),
+    begin: getValue("projectBeginDatum"),
+    klanten_id: x,
+    
+  
+  };
+
+  console.log(data);
+
+  // Submit data to API
+  api("projecten", "POST", data).then((res) => {
+    if (res.message == "success") {
+    console.log("gelukt")
+    }
+  });
+}
+
 function login() {
   // Fetch data from html
   data = {
@@ -101,6 +124,7 @@ function getUser() {
       showPage("dashboardPage");
       projectUren();
       klantenUren();
+      klantenProject()
       // showPage("registerPage")
       projectProject();
       userInfo();
@@ -124,7 +148,7 @@ function projectUren() {
 }
 
 function projectProject() {
-  api("projecten", "GET").then((res) => {
+  api("projecten2", "GET").then((res) => {
     if (res.message == "success") {
 
       const table = document.getElementById("myTable1");
@@ -137,7 +161,7 @@ function projectProject() {
         
       // Create an empty <tr> element and add it to the 1st position of the table:
 var row = table.insertRow(i + 1);
-
+console.log(data)
 // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
 var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
@@ -146,6 +170,8 @@ var cell4 = row.insertCell(3);
 
 // Add some text to the new cells:
 cell1.innerHTML = data.naam
+cell2.innerHTML = data.firstname
+cell3.innerHTML = data.klantennaam
 cell4.innerHTML = data.begin
 
         // document.getElementById("deo").innerHTML += '<div>' + res.id[i].naam + '</div>';
@@ -178,6 +204,49 @@ function klantenUren() {
     }
   });
 }
+
+function klantenProject() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionKlanten1").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
+
+let selectionProject = document.querySelector('#selectionKlanten1');
+var idProject = []
+
+selectionProject.addEventListener('change', () => {
+  api("klanten", 'GET').then((res) => {
+      if (res.message == 'success') {
+          for (i = 0; i < res.id.length; i++) {
+              if (res.id[i].id == selectionProject.value) {
+                  console.log(res.id[i].id)
+
+
+                  idProject.push(res.id[i].id);
+
+
+                  break;
+              }
+
+
+          }
+
+
+      }
+  })
+})
+
+
 
 function link() {
   showPage("otpPage");
@@ -263,8 +332,16 @@ function projectenPageNav() {
 function regerNav() {
   showPage("registerPage");
 }
+
+function loginBtn() {
+  showPage("loginPage")
+}
 // Ref-linken van buttons in de navbar END
 
+function projectConfirm() {
+  projectPosten();
+  
+}
 function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
@@ -272,6 +349,7 @@ function bindEvents() {
   connectButton("regop", regerop);
   connectButton("klanten", klanten);
   connectButton("projecten", projecten);
+  connectButton("projectConfirm", projectConfirm);
   // connectButton("confirm", projectToevoegenConfirm);
 
   connectButton("projectCancel", projectToevoegenCancel);
@@ -287,6 +365,8 @@ function bindEvents() {
   connectButton("klantenPageBtn", klantenPageNav);
   connectButton("projectenPageBtn", projectenPageNav);
   connectButton("registeren-navBtn", regerNav);
+  connectButton("loginPageBtn", loginBtn);
+
   // Ref-linken van buttons in de Dashboard navbar END
 
   // Ref-linken van buttons in de Klant Aanmaken navbar BEGIN
@@ -294,6 +374,7 @@ function bindEvents() {
   connectButton("klantenPageBtn1", klantenPageNav);
   connectButton("projectenPageBtn1", projectenPageNav);
   connectButton("registeren-navBtn1", regerNav);
+  connectButton("loginPageBtn1", loginBtn);
   // Ref-linken van buttons in de Klant Aanmaken navbar END
 
   // Ref-linken van buttons in de Klant Overzicht navbar BEGIN
@@ -301,6 +382,7 @@ function bindEvents() {
   connectButton("klantenPageBtn4", klantenPageNav);
   connectButton("projectenPageBtn4", projectenPageNav);
   connectButton("registeren-navBtn4", regerNav);
+  connectButton("loginPageBtn4", loginBtn);
   // Ref-linken van buttons in de Klant Overzicht navbar END
 
   // Ref-linken van buttons in de Project Aanmaken navbar BEGIN
@@ -308,6 +390,7 @@ function bindEvents() {
   connectButton("klantenPageBtn2", klantenPageNav);
   connectButton("projectenPageBtn2", projectenPageNav);
   connectButton("registeren-navBtn2", regerNav);
+  connectButton("loginPageBtn2", loginBtn);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
   // Ref-linken van buttons in de Project Overzicht navbar BEGIN
@@ -315,6 +398,7 @@ function bindEvents() {
   connectButton("klantenPageBtn5", klantenPageNav);
   connectButton("projectenPageBtn5", projectenPageNav);
   connectButton("registeren-navBtn5", regerNav);
+  connectButton("loginPageBtn5", loginBtn);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
   // Ref-linken van buttons in de Toevoegen navbar BEGIN
@@ -322,6 +406,7 @@ function bindEvents() {
   connectButton("klantenPageBtn3", klantenPageNav);
   connectButton("projectenPageBtn3", projectenPageNav);
   connectButton("registeren-navBtn3", regerNav);
+  connectButton("loginPageBtn3", loginBtn);
   // Ref-linken van buttons in de Toevoegen navbar END
 
   enableSubmits();

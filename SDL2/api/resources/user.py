@@ -30,6 +30,27 @@ def get_projecten():
 
     return {'message': 'success', 'id': id}, 201
 
+    
+def get_projecten2():
+    # qry om users te laten zien
+    qry = '''
+   SELECT project.naam , klanten.voornaam klantennaam ,project.begin , users.firstname 
+FROM project
+INNER JOIN users
+ON klanten.id = project.klanten_id
+INNER JOIN klanten
+ON users.id = project.user_id
+
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
+
+
 
 
 def get_klanten():
@@ -82,12 +103,12 @@ def create_projecten():
     # Make the insert query with parameters
     qry = '''
             INSERT INTO 
-              `project` (`user_id` ,`begin`, `naam`)
-           VALUES (:user_id , :begin, :naam);
+              `project` (`klanten_id` ,`begin`, `naam`)
+           VALUES (:klanten_id , :begin, :naam);
     '''
    
     data = {
-        "user_id": args["user"],
+        "klanten_id": args["klanten_id"],
         "begin": args["begin"],
         "naam": args["naam"]
         }
@@ -122,6 +143,8 @@ def create_klanten():
         print('Er is een probleem opgetreden, contact de admin.')
         
     return {'message': 'success', 'id': id}, 201
+
+
 
 
 #kijk ff als het slim is om de secret te hashen kost niet veel moeite maar dubbel check het 
