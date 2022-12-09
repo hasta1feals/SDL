@@ -952,22 +952,28 @@ p {
     height: 40px;
 } 
 
+.h1Text {
+    margin-right: 15%;
+}
+
 .projectNaam {
     margin-top: 5%;
+    margin-left: -5%;
     margin-bottom: 23px;
 }
 
 .projectMedewerker {
-    margin-top: 20px;
+    margin-left: 20%;
+    margin-top: -97px;
 }
 
 .projectBeginDatum {
-    margin-left: 32%;
+    margin-left: 45%;
     margin-top: -92px;
 }
 
 .projectKlant {
-    margin-left: 64%;
+    margin-left: 70%;
     margin-top: -95px;
 }
 /* Project aanmaken END */
