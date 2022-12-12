@@ -124,13 +124,16 @@
 
             <div class="klant">
                 <Label>Klant <br />
-                    <input type="text" id="Klant" placeholder="Klant" />
+                    <input type="text" id="klant" placeholder="Klant" />
+                    </select>
                 </Label>
             </div>
 
             <div class="klantProject">
                 <Label>Project <br />
-                    <input type="text" id="Project" placeholder="Project" />
+                    <select class="projectSelection1" id="selectionKlantProject">
+                        <option id="choose-template" value="template" disabled selected>Project</option>
+                    </select>
                 </Label>
             </div> <br />
 
@@ -154,7 +157,7 @@
 
             <div class="klantHuisnummer">
                 <Label>Huisnummer <br />
-                    <input type="text" id="Huisnummer" placeholder="Huisnummer" />
+                    <input type="text" id="huisnummer1" placeholder="Huisnummer" />
                 </Label>
             </div>
 
@@ -723,7 +726,7 @@
 
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for project">
 
-                <table id="myTable">
+                <table id="myTable2">
                     <tr class="header">
                         <th style="width:14%;">Project</th>
                         <th style="width:14%;">Klant</th>
@@ -733,33 +736,7 @@
                         <th style="width:14%;">Woonplaats</th>
                         <th style="width:16%;">Telefoon</th>
                     </tr>
-                    <tr>
-                        <td>Project Plantenbak</td>
-                        <td>Jane doe</td>
-                        <td>Remiaplein</td>
-                        <td>12</td>
-                        <td>1234 SD</td>
-                        <td>Almere</td>
-                        <td>06 097845671</td>
-                    </tr>
-                    <tr>
-                        <td>Project Karton</td>
-                        <td>John doe</td>
-                        <td>Huppadoek</td>
-                        <td>3</td>
-                        <td>1454 AD</td>
-                        <td>Almere</td>
-                        <td>06 064245648</td>
-                    </tr>
-                    <tr>
-                        <td>Project Regenwater</td>
-                        <td>Steve doe</td>
-                        <td>Ravenlock</td>
-                        <td>126</td>
-                        <td>1190 HE</td>
-                        <td>Almere</td>
-                        <td>06 091648671</td>
-                    </tr>
+                   
                 </table>
             </div>
         </div>
