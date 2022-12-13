@@ -70,9 +70,9 @@ ON users.id = project.user_id
 def get_klanten2():
     # qry om users te laten zien
     qry = '''
-   SELECT klanten.voornaam, klanten.achternaam , klanten.adres, klanten.woonplaats, klanten.huisnummer, klanten.telefoon, klanten.postcode, project.naam
+ SELECT klanten.voornaam, klanten.achternaam , klanten.adres, klanten.woonplaats, klanten.huisnummer, klanten.telefoon, klanten.postcode, project.naam
 FROM klanten
-INNER JOIN project
+left JOIN project
 ON klanten.id = project.klanten_id
 
 
@@ -158,8 +158,8 @@ def create_klanten():
     # Make the insert query with parameters
     qry = '''
           INSERT INTO 
-              `klanten` ( voornaam, woonplaats,huisnummer, adres, postcode, telefoon, projecten_id)
-           VALUES (:voornaam, :woonplaats, :adres,:huisnummer, :postcode, :telefoon, :projecten_id);
+              `klanten` ( voornaam, woonplaats,huisnummer, adres, postcode, telefoon)
+           VALUES (:voornaam, :woonplaats, :adres,:huisnummer, :postcode, :telefoon);
     '''
    
     data = {
@@ -168,8 +168,8 @@ def create_klanten():
         "huisnummer": args["huisnummer"],
         "adres": args["adres"],
         "postcode": args["postcode"],
-        "telefoon": args["telefoon"],
-        "projecten_id": args["projecten_id"]
+        "telefoon": args["telefoon"]
+    
         }
     try:
         id = DB.insert(qry, data)
