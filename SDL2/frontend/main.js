@@ -51,6 +51,43 @@ function projectPosten() {
   });
 }
 
+
+function KlantenPosten() {
+  let x = idKlantenProject.toString()
+  
+
+  data = {
+    voornaam: getValue("klant"),
+    woonplaats: getValue("Woonplaats"),
+    adres: getValue("Straat"),
+    huisnummer: getValue("huisnummer1"),
+    postcode: getValue("Postcode"),
+    telefoon: getValue("Telefoon"),
+    projecten_id: x,
+   
+    
+  
+  };
+
+  console.log(data);
+
+  // Submit data to API
+  api("klanten", "POST", data).then((res) => {
+    if (res.message == "success") {
+    console.log("gelukt")
+    klantenKlanten()
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
 function login() {
   // Fetch data from html
   data = {
@@ -128,8 +165,11 @@ function getUser() {
       klantenUren();
       klantenProject()
       medewerkerProject();
+      klantenNaam();
       // showPage("registerPage")
       projectProject();
+      klantenKlanten();
+      klantenProjectProject();
       userInfo();
     }
   });
@@ -149,6 +189,22 @@ function projectUren() {
     }
   });
 }
+
+function klantenProjectProject() {
+  api("projecten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionKlantProject").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].naam +
+          "</option>";
+      }
+    }
+  });
+}
+
 
 function projectUren() {
   api("projecten", "GET").then((res) => {
@@ -193,15 +249,50 @@ cell2.innerHTML = data.firstname
 cell3.innerHTML = data.klantennaam
 cell4.innerHTML = data.begin
 
-        // document.getElementById("deo").innerHTML += '<div>' + res.id[i].naam + '</div>';
+
+      }
+    }
+  });
+}
 
 
-        // document.getElementById("deo").innerHTML +=
-        //   '<td  value="' +
-        //   res.id[i].id +
-        //   '">' +
-        //   res.id[i].naam +
-        //   " </td>";
+function klantenKlanten() {
+  api("klanten2", "GET").then((res) => {
+    if (res.message == "success") {
+
+      const table = document.getElementById("myTable2");
+
+
+
+
+      for (i = 0; i < res.id.length; i++) {
+        const data = res.id[i];
+        
+      // Create an empty <tr> element and add it to the 1st position of the table:
+var row = table.insertRow(i + 1);
+console.log(data)
+// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+var cell5 = row.insertCell(4);
+var cell6 = row.insertCell(5);
+var cell7 = row.insertCell(6);
+
+
+// Add some text to the new cells:
+cell1.innerHTML = data.naam
+cell2.innerHTML = data.voornaam
+cell3.innerHTML = data.adres
+cell4.innerHTML = data.huisnummer
+cell5.innerHTML = data.postcode
+cell6.innerHTML = data.woonplaats
+cell7.innerHTML = data.telefoon
+
+
+
+
       }
     }
   });
@@ -256,6 +347,25 @@ function medewerkerProject() {
 }
 
 
+
+function klantenNaam() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionKlantKlant").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
+
+
+
 let selectionProject = document.querySelector('#selectionKlanten1');
 var idProject = []
 
@@ -264,10 +374,35 @@ selectionProject.addEventListener('change', () => {
       if (res.message == 'success') {
           for (i = 0; i < res.id.length; i++) {
               if (res.id[i].id == selectionProject.value) {
-                  console.log(res.id[i].id)
 
 
                   idProject.push(res.id[i].id);
+
+
+                  break;
+              }
+
+
+          }
+
+
+      }
+  })
+})
+
+
+
+let selectionKlantenProject = document.querySelector('#selectionKlantProject');
+var idKlantenProject = []
+
+selectionKlantenProject.addEventListener('change', () => {
+  api("klanten", 'GET').then((res) => {
+      if (res.message == 'success') {
+          for (i = 0; i < res.id.length; i++) {
+              if (res.id[i].id == selectionKlantenProject.value) {
+
+                console.log('klantenproject', res.id[i].id)
+                idKlantenProject.push(res.id[i].id);
 
 
                   break;
@@ -289,8 +424,6 @@ selectionMedewerker.addEventListener('change', () => {
       if (res.message == 'success') {
           for (i = 0; i < res.id.length; i++) {
               if (res.id[i].id == selectionMedewerker.value) {
-                  console.log(res.id[i].id)
-
 
                   idMedewerker.push(res.id[i].id);
 
@@ -346,7 +479,12 @@ function projecten() {
 function regerop() {
   showPage("dashboardPage");
 }
-
+function klantenPostenButton(){
+  KlantenPosten();
+ 
+  console.log("test test")
+  
+}
 // Deze is niet meer nodig funcite werkt nu via een html/css verbinding
 // function projectToevoegenConfirm() {
 //   showPage("popupCenter");
@@ -467,6 +605,8 @@ function bindEvents() {
   connectButton("projectenPageBtn3", projectenPageNav);
   connectButton("registeren-navBtn3", regerNav);
   connectButton("loginPageBtn3", loginBtn);
+  connectButton("klantConfirm", klantenPostenButton);
+
   // Ref-linken van buttons in de Toevoegen navbar END
 
   enableSubmits();

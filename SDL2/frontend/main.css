@@ -1073,6 +1073,52 @@ p {
     text-align: left;
 }
 
+
+
+
+#myTable2 {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+  
+#myTable2 th {
+    font-weight: lighter; 
+    text-align: center;
+    padding: 12px;
+    background: #B7CFE6;
+    border: 1px solid #B7CFE6;
+}
+
+#myTable2 td {
+    text-align: center;
+    padding: 12px;
+    background: white;
+    border: 1px solid white;
+    padding-bottom: 50px;
+    font-size: small;
+    font-weight: lighter;
+}
+  
+#myTable2 tr {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+#myTable2 li {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
 .overzicht {
     text-align: left;
     margin-left: 2%;
