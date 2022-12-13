@@ -53,7 +53,7 @@ function projectPosten() {
 
 
 function KlantenPosten() {
-  let x = idKlantenProject.toString()
+
   
 
   data = {
@@ -63,7 +63,7 @@ function KlantenPosten() {
     huisnummer: getValue("huisnummer1"),
     postcode: getValue("Postcode"),
     telefoon: getValue("Telefoon"),
-    projecten_id: x,
+ 
    
     
   
@@ -278,17 +278,16 @@ var cell3 = row.insertCell(2);
 var cell4 = row.insertCell(3);
 var cell5 = row.insertCell(4);
 var cell6 = row.insertCell(5);
-var cell7 = row.insertCell(6);
 
 
 // Add some text to the new cells:
-cell1.innerHTML = data.naam
-cell2.innerHTML = data.voornaam
-cell3.innerHTML = data.adres
-cell4.innerHTML = data.huisnummer
-cell5.innerHTML = data.postcode
-cell6.innerHTML = data.woonplaats
-cell7.innerHTML = data.telefoon
+cell1.innerHTML = data.voornaam
+cell2.innerHTML = data.adres
+cell3.innerHTML = data.huisnummer
+cell4.innerHTML = data.postcode
+cell5.innerHTML = data.woonplaats
+cell6.innerHTML = data.telefoon
+
 
 
 
@@ -392,29 +391,7 @@ selectionProject.addEventListener('change', () => {
 
 
 
-let selectionKlantenProject = document.querySelector('#selectionKlantProject');
-var idKlantenProject = []
 
-selectionKlantenProject.addEventListener('change', () => {
-  api("klanten", 'GET').then((res) => {
-      if (res.message == 'success') {
-          for (i = 0; i < res.id.length; i++) {
-              if (res.id[i].id == selectionKlantenProject.value) {
-
-                console.log('klantenproject', res.id[i].id)
-                idKlantenProject.push(res.id[i].id);
-
-
-                  break;
-              }
-
-
-          }
-
-
-      }
-  })
-})
 
 let selectionMedewerker = document.querySelector('#selectionMedewerker');
 var idMedewerker = []
