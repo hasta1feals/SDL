@@ -70,9 +70,9 @@ ON users.id = project.user_id
 def get_klanten2():
     # qry om users te laten zien
     qry = '''
-   SELECT klanten.voornaam, klanten.achternaam , klanten.adres, klanten.woonplaats, klanten.huisnummer, klanten.telefoon, klanten.postcode, project.naam
+ SELECT klanten.voornaam, klanten.achternaam , klanten.adres, klanten.woonplaats, klanten.huisnummer, klanten.telefoon, klanten.postcode, project.naam
 FROM klanten
-INNER JOIN project
+left JOIN project
 ON klanten.id = project.klanten_id
 
 

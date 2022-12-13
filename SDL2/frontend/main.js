@@ -75,6 +75,7 @@ function KlantenPosten() {
   api("klanten", "POST", data).then((res) => {
     if (res.message == "success") {
     console.log("gelukt")
+    klantenKlanten()
     }
   });
 }
@@ -480,6 +481,9 @@ function regerop() {
 }
 function klantenPostenButton(){
   KlantenPosten();
+ 
+  console.log("test test")
+  
 }
 // Deze is niet meer nodig funcite werkt nu via een html/css verbinding
 // function projectToevoegenConfirm() {
