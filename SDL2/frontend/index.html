@@ -120,7 +120,7 @@
         </nav>
 
         <div class="klantWrapper">
-            <h1>Klant Aanmaken</h1>
+            <h1 class="klantHeader">Klant Aanmaken</h1>
 
             <div class="klant">
                 <Label>Klant <br />
@@ -129,11 +129,9 @@
                 </Label>
             </div>
 
-            <div class="klantProject">
-                <Label>Project <br />
-                    <select class="projectSelection1" id="selectionKlantProject">
-                        <option id="choose-template" value="template" disabled selected>Project</option>
-                    </select>
+            <div class="klantWoonplaats">
+                <Label>Woonplaats <br />
+                    <input type="text" id="Woonplaats" placeholder="Woonplaats" />
                 </Label>
             </div> <br />
 
@@ -148,12 +146,6 @@
                     <input type="text" id="Telefoon" placeholder="Telefoon" />
                 </Label>
             </div>
-
-            <div class="klantWoonplaats">
-                <Label>Woonplaats <br />
-                    <input type="text" id="Woonplaats" placeholder="Woonplaats" />
-                </Label>
-            </div> <br />
 
             <div class="klantHuisnummer">
                 <Label>Huisnummer <br />
@@ -391,7 +383,9 @@
 
             <div class="Medewerker">
                 <Label>Medewerker <br />
-                    <input class="medewerkerInput" type="text" id="Medewerker" placeholder="Medewerker" />
+                    <select class="projectSelection" id="selectionMedewerkerUren">
+                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
+                    </select>
                 </Label>
             </div>
 
@@ -577,28 +571,7 @@
                             <th style="width:5%;">Bonus</th>
                             <th style="width:10%;">Opmerking</th>
                         </tr>
-                        <tr>
-                            <td>31-05-2022</td>
-                            <td>John Doe mdwrk</td>
-                            <td>John Doe klant</td>
-                            <td>Project 1</td>
-                            <td>tel.const/afst</td>
-                            <td>5</td>
-                            <td>ja: 2.50</td>
-                            <td></td>
-                            <td>10,00-12,30 - 13,00-15,30</td>
-                        </tr>
-                        <tr>
-                            <td>31-05-2022</td>
-                            <td>John Doe mdwrk</td>
-                            <td>John Doe klant</td>
-                            <td>Project 1</td>
-                            <td>tel.const/afst</td>
-                            <td>5</td>
-                            <td>ja: 2.50</td>
-                            <td></td>
-                            <td>10,00-12,30 - 13,00-15,30</td>
-                        </tr>
+                      
                     </table>
                 </div>
             </div>
@@ -728,7 +701,6 @@
 
                 <table id="myTable2">
                     <tr class="header">
-                        <th style="width:14%;">Project</th>
                         <th style="width:14%;">Klant</th>
                         <th style="width:14%;">Straat</th>
                         <th style="width:14%;">Huisnummer</th>
@@ -736,7 +708,7 @@
                         <th style="width:14%;">Woonplaats</th>
                         <th style="width:16%;">Telefoon</th>
                     </tr>
-                   
+
                 </table>
             </div>
         </div>
@@ -852,7 +824,7 @@
                         <th style="width:10%;">Project</th>
                         <th style="width:10%;">Medewerker</th>
                         <th style="width:10%;">Klant</th>
-                        <th style="width:10%;">Datum</th>
+                        <th style="width:10%;">Begin Datum</th>
                     </tr>
 
 

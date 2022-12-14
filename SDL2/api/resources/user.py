@@ -70,9 +70,9 @@ ON users.id = project.user_id
 def get_klanten2():
     # qry om users te laten zien
     qry = '''
-   SELECT klanten.voornaam, klanten.achternaam , klanten.adres, klanten.woonplaats, klanten.huisnummer, klanten.telefoon, klanten.postcode, project.naam
+ SELECT klanten.voornaam, klanten.achternaam , klanten.adres, klanten.woonplaats, klanten.huisnummer, klanten.telefoon, klanten.postcode, project.naam
 FROM klanten
-INNER JOIN project
+left JOIN project
 ON klanten.id = project.klanten_id
 
 
@@ -83,6 +83,28 @@ ON klanten.id = project.klanten_id
         print('Er is een probleem opgetreden, contact de admin.');
 
     return {'message': 'success', 'id': id}, 201
+
+
+
+def get_uren2():
+    # qry om users te laten zien
+    qry = '''
+SELECT uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam
+FROM uren
+left JOIN project
+ON uren.id = project.id
+left JOIN users
+ON uren.id = users.id
+left JOIN klanten
+ON uren.id = klanten.id
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201    
 
 
 def get_klanten():
@@ -158,8 +180,8 @@ def create_klanten():
     # Make the insert query with parameters
     qry = '''
           INSERT INTO 
-              `klanten` ( voornaam, woonplaats,huisnummer, adres, postcode, telefoon, projecten_id)
-           VALUES (:voornaam, :woonplaats, :adres,:huisnummer, :postcode, :telefoon, :projecten_id);
+              `klanten` ( voornaam, woonplaats,huisnummer, adres, postcode, telefoon)
+           VALUES (:voornaam, :woonplaats, :adres,:huisnummer, :postcode, :telefoon);
     '''
    
     data = {
@@ -168,8 +190,8 @@ def create_klanten():
         "huisnummer": args["huisnummer"],
         "adres": args["adres"],
         "postcode": args["postcode"],
-        "telefoon": args["telefoon"],
-        "projecten_id": args["projecten_id"]
+        "telefoon": args["telefoon"]
+    
         }
     try:
         id = DB.insert(qry, data)
@@ -177,6 +199,37 @@ def create_klanten():
         print('Er is een probleem opgetreden, contact de admin.')
         
     return {'message': 'success', 'id': id}, 201
+
+
+def create_uren():
+    # Parse all arguments for validity
+    args = request.get_json()
+    # Make the insert query with parameters
+    qry = '''
+          INSERT INTO
+              uren ( datum, activiteit,uren_uren, bonus, opmerking, uren_declarabel, project_id, user_id, klanten_id)
+           VALUES (:datum, :activiteit, :uren_uren, :bonus, :opmerking, :uren_declarabel, :project_id, :user_id, :klanten_id);
+    '''
+   
+    data = {
+        "datum": args["datum"],
+        "activiteit": args["activiteit"],
+        "uren_uren": args["uren_uren"],
+        "bonus": args["bonus"],
+        "opmerking": args["opmerking"],
+        "uren_declarabel": args["uren_declarabel"],
+        "project_id": args["project_id"],
+        "user_id": args["user_id"],
+        "klanten_id": args["klanten_id"]
+    
+        }
+    try:
+        id = DB.insert(qry, data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.')
+        
+    return {'message': 'success', 'id': id}, 201
+
 
 
 
