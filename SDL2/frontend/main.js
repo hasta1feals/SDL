@@ -110,11 +110,8 @@ function KlantenPosten() {
     if (res.message == "success") {
     console.log("gelukt")
     klantenKlanten()
-<<<<<<< HEAD
     }else{
       console.log("niet gelukt")
-=======
->>>>>>> ca038e587e27f7eb9a14eb857dd890d02d4f6a7f
     }
     
   });
@@ -345,7 +342,6 @@ cell4.innerHTML = data.postcode
 cell5.innerHTML = data.woonplaats
 cell6.innerHTML = data.telefoon
 
-<<<<<<< HEAD
 
 
 
@@ -395,8 +391,6 @@ cell7.innerHTML = data.naam
 cell8.innerHTML = data.firstname
 cell9.innerHTML = data.voornaam
 
-=======
->>>>>>> ca038e587e27f7eb9a14eb857dd890d02d4f6a7f
 
 
 
