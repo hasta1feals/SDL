@@ -1041,7 +1041,7 @@
 
             <div class="projectMedewerker">
                 <Label>Medewerker <br />
-                    <select class="projectSelection1" id="selectionMedewerker">
+                    <select class="projectSelection1" id="selectionMedewerkerM">
                         <option id="choose-template" value="template" disabled selected>Medewerker</option>
                     </select>
                 </Label>
@@ -1049,7 +1049,7 @@
 
             <div class="projectKlant">
                 <Label>Klant <br />
-                    <select class="projectSelection1" id="selectionKlanten1">
+                    <select class="projectSelection1" id="selectionKlanten1M">
                         <option id="choose-template" value="template" disabled selected>Klanten</option>
                     </select>
                 </Label>
@@ -1150,13 +1150,15 @@
 
             <div class="Medewerker">
                 <Label>Medewerker <br />
-                    <input class="medewerkerInput" type="text" id="Medewerker" placeholder="Medewerker" />
+                    <select class="projectSelection" id="selectionMedewerkerUrenM">
+                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
+                    </select>
                 </Label>
             </div>
 
             <div class="Project">
                 <Label>Project <br />
-                    <select class="projectSelection" id="selection">
+                    <select class="projectSelection" id="selectionM">
                         <option id="choose-template" value="template" disabled selected>Project</option>
                     </select>
                 </Label>
@@ -1164,7 +1166,7 @@
 
             <div class="Klant">
                 <Label>Klant <br />
-                    <select class="projectSelection" id="selectionKlanten">
+                    <select class="projectSelection" id="selectionKlantenM">
                         <option id="choose-template" value="template" disabled selected>Klanten</option>
                     </select>
                 </Label>
@@ -1200,7 +1202,7 @@
                 </Label>
             </div>
 
-            <a id="cancelM" class="cancel" href="#">Terug</a>
+            <a id="cancel" class="cancel" href="#">Terug</a>
 
             <input type="checkbox" id="click">
             <label for="click" id="confirm" class="confirm" href="#">Toevoegen</label>
@@ -1444,7 +1446,7 @@
 
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for project">
 
-                <table id="myTable2">
+                <table id="myTable2M">
                     <tr class="header">
                         <th style="width:14%;">Klant</th>
                         <th style="width:14%;">Straat</th>
@@ -1552,7 +1554,7 @@
 
                 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for project">
 
-                <table id="myTable1">
+                <table id="myTable1M">
                     <tr class="header">
                         <th style="width:10%;">Project</th>
                         <th style="width:10%;">Medewerker</th>
