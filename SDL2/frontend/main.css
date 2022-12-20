@@ -1126,3 +1126,132 @@ p {
     margin-top: -1%;
 }
   
+
+#myTableM {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+  
+#myTableM th {
+    font-weight: lighter; 
+    text-align: center;
+    padding: 12px;
+    background: #B7CFE6;
+    border: 1px solid #B7CFE6;
+}
+
+#myTableM td {
+    text-align: center;
+    padding: 12px;
+    background: white;
+    border: 1px solid white;
+    padding-bottom: 50px;
+    font-size: small;
+    font-weight: lighter;
+}
+  
+#myTableM tr {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+#myTableM li {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+#myTable1M {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+  
+#myTable1M th {
+    font-weight: lighter; 
+    text-align: center;
+    padding: 12px;
+    background: #B7CFE6;
+    border: 1px solid #B7CFE6;
+}
+
+#myTable1M td {
+    text-align: center;
+    padding: 12px;
+    background: white;
+    border: 1px solid white;
+    padding-bottom: 50px;
+    font-size: small;
+    font-weight: lighter;
+}
+  
+#myTable1M tr {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+#myTable1M li {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+#myTable2M {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #eee;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: -20px;
+}
+  
+#myTable2M th {
+    font-weight: lighter; 
+    text-align: center;
+    padding: 12px;
+    background: #B7CFE6;
+    border: 1px solid #B7CFE6;
+}
+
+#myTable2M td {
+    text-align: center;
+    padding: 12px;
+    background: white;
+    border: 1px solid white;
+    padding-bottom: 50px;
+    font-size: small;
+    font-weight: lighter;
+}
+  
+#myTable2M tr {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+#myTable2M li {
+    border-bottom: 1px solid #ddd;
+    font-weight: 100;
+    padding: 25px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
