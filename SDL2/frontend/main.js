@@ -140,7 +140,7 @@ function getUser() {
       // showPage("otpPage");
       // showQrCode();
       // window.location.href="dashbord.html";
-      showPage("dashboardPageM");
+      showPage("dashboardPage");
       projectUren();
       klantenUren();
       klantenProject();
