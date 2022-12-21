@@ -52,18 +52,16 @@ function urenPosten() {
   let y = idProjectUren.toString();
   let z = idKlantenUren.toString();
 
-
   data = {
-   datum: getValue("Datum"),
-   activiteit: getValue("Activiteit"),
-   uren_uren: getValue("Uren"),
-   bonus: getValue("Bonus"),
-   opmerking: getValue("Opmerking"),
-   uren_declarabel: getValue("Aantal-Declarabel"),
-   project_id: y,
-   user_id: x, 
-   klanten_id: z
-   
+    datum: getValue("Datum"),
+    activiteit: getValue("Activiteit"),
+    uren_uren: getValue("Uren"),
+    bonus: getValue("Bonus"),
+    opmerking: getValue("Opmerking"),
+    uren_declarabel: getValue("Aantal-Declarabel"),
+    project_id: y,
+    user_id: x,
+    klanten_id: z,
   };
 
   console.log(data);
@@ -150,7 +148,6 @@ function showQrCode() {
 }
 
 function userInfo() {
-  //
   api("users", "GET", data).then((res) => {
     text = document.getElementById("ww");
     console.log(res.user.firstname);
@@ -169,12 +166,12 @@ function getUser() {
       // showPage("otpPage");
       // showQrCode();
       // window.location.href="dashbord.html";
-      if(res.user.admin == 1){
+      if (res.user.admin == 1) {
         showPage("dashboardPageM");
         klantenKlanten2();
-      }else{ 
+      } else {
         showPage("dashboardPage");
-       }
+      }
       projectUren();
       klantenUren();
       klantenProject();
@@ -263,7 +260,6 @@ function projectProject() {
   });
 }
 
-
 function UrenUren() {
   api("uren", "GET").then((res) => {
     if (res.message == "success") {
@@ -292,10 +288,10 @@ function UrenUren() {
         cell3.innerHTML = data.voornaam;
         cell4.innerHTML = data.naam;
         cell5.innerHTML = data.activiteit;
-        cell6.innerHTML = data.uren_uren
-       cell7.innerHTML = data.uren_declarabel
-       cell8.innerHTML = data.bonus;
-       cell9.innerHTML = data.opmerking;
+        cell6.innerHTML = data.uren_uren;
+        cell7.innerHTML = data.uren_declarabel;
+        cell8.innerHTML = data.bonus;
+        cell9.innerHTML = data.opmerking;
       }
     }
   });
@@ -331,8 +327,6 @@ function klantenKlanten() {
     }
   });
 }
-
-
 
 function klantenKlanten2() {
   api("klanten2", "GET").then((res) => {
@@ -428,7 +422,6 @@ function klantenNaam() {
   });
 }
 
-
 function medewerkerUren() {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
@@ -440,8 +433,7 @@ function medewerkerUren() {
           '">' +
           res.id[i].firstname +
           "</option>";
-          console.log( res.id[i].firstname);
-
+        console.log(res.id[i].firstname);
       }
     }
   });
@@ -481,8 +473,9 @@ selectionMedewerker.addEventListener("change", () => {
   });
 });
 
-
-let selectionMedewerkerUren = document.querySelector("#selectionMedewerkerUren");
+let selectionMedewerkerUren = document.querySelector(
+  "#selectionMedewerkerUren"
+);
 var idMederwerkerUren = [];
 
 selectionMedewerkerUren.addEventListener("change", () => {
@@ -498,9 +491,6 @@ selectionMedewerkerUren.addEventListener("change", () => {
     }
   });
 });
-
-
-
 
 let selectionProjectUren = document.querySelector("#selection");
 var idProjectUren = [];
@@ -518,10 +508,6 @@ selectionProjectUren.addEventListener("change", () => {
     }
   });
 });
-
-
-
-
 
 let selctionKlantenUren = document.querySelector("#selectionKlanten");
 var idKlantenUren = [];
