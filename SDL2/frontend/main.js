@@ -47,6 +47,35 @@ function projectPosten() {
   });
 }
 
+function urenPosten() {
+  let x = idMederwerkerUren.toString();
+  let y = idProjectUren.toString();
+  let z = idKlantenUren.toString();
+
+
+  data = {
+   datum: getValue("Datum"),
+   activiteit: getValue("Activiteit"),
+   uren_uren: getValue("Uren"),
+   bonus: getValue("Bonus"),
+   opmerking: getValue("Opmerking"),
+   uren_declarabel: getValue("Aantal-Declarabel"),
+   project_id: y,
+   user_id: x, 
+   klanten_id: z
+   
+  };
+
+  console.log(data);
+
+  // Submit data to API
+  api("uren", "POST", data).then((res) => {
+    if (res.message == "success") {
+      console.log("gelukt");
+    }
+  });
+}
+
 function KlantenPosten() {
   data = {
     voornaam: getValue("klant"),
@@ -140,7 +169,12 @@ function getUser() {
       // showPage("otpPage");
       // showQrCode();
       // window.location.href="dashbord.html";
-      showPage("dashboardPage");
+      if(res.user.admin == 1){
+        showPage("dashboardPageM");
+        klantenKlanten2();
+      }else{ 
+        showPage("dashboardPage");
+       }
       projectUren();
       klantenUren();
       klantenProject();
@@ -151,6 +185,8 @@ function getUser() {
       klantenKlanten();
       klantenProjectProject();
       userInfo();
+      medewerkerUren();
+      UrenUren();
     }
   });
 }
@@ -227,10 +263,81 @@ function projectProject() {
   });
 }
 
+
+function UrenUren() {
+  api("uren", "GET").then((res) => {
+    if (res.message == "success") {
+      const table = document.getElementById("myTable");
+
+      for (i = 0; i < res.id.length; i++) {
+        const data = res.id[i];
+
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        var row = table.insertRow(i + 1);
+        console.log(data);
+        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+        var cell9 = row.insertCell(8);
+
+        // Add some text to the new cells:
+        cell1.innerHTML = data.datum;
+        cell2.innerHTML = data.firstname;
+        cell3.innerHTML = data.voornaam;
+        cell4.innerHTML = data.naam;
+        cell5.innerHTML = data.activiteit;
+        cell6.innerHTML = data.uren_uren
+       cell7.innerHTML = data.uren_declarabel
+       cell8.innerHTML = data.bonus;
+       cell9.innerHTML = data.opmerking;
+      }
+    }
+  });
+}
+
 function klantenKlanten() {
   api("klanten2", "GET").then((res) => {
     if (res.message == "success") {
       const table = document.getElementById("myTable2");
+
+      for (i = 0; i < res.id.length; i++) {
+        const data = res.id[i];
+
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        var row = table.insertRow(i + 1);
+        console.log(data);
+        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+
+        // Add some text to the new cells:
+        cell1.innerHTML = data.voornaam;
+        cell2.innerHTML = data.adres;
+        cell3.innerHTML = data.huisnummer;
+        cell4.innerHTML = data.postcode;
+        cell5.innerHTML = data.woonplaats;
+        cell6.innerHTML = data.telefoon;
+      }
+    }
+  });
+}
+
+
+
+function klantenKlanten2() {
+  api("klanten2", "GET").then((res) => {
+    if (res.message == "success") {
+      const table = document.getElementById("myTable2M");
 
       for (i = 0; i < res.id.length; i++) {
         const data = res.id[i];
@@ -321,6 +428,25 @@ function klantenNaam() {
   });
 }
 
+
+function medewerkerUren() {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionMedewerkerUren").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].firstname +
+          "</option>";
+          console.log( res.id[i].firstname);
+
+      }
+    }
+  });
+}
+
 let selectionProject = document.querySelector("#selectionKlanten1");
 var idProject = [];
 
@@ -355,6 +481,64 @@ selectionMedewerker.addEventListener("change", () => {
   });
 });
 
+
+let selectionMedewerkerUren = document.querySelector("#selectionMedewerkerUren");
+var idMederwerkerUren = [];
+
+selectionMedewerkerUren.addEventListener("change", () => {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionMedewerkerUren.value) {
+          idMederwerkerUren.push(res.id[i].id);
+
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+
+let selectionProjectUren = document.querySelector("#selection");
+var idProjectUren = [];
+
+selectionProjectUren.addEventListener("change", () => {
+  api("projecten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionProjectUren.value) {
+          idProjectUren.push(res.id[i].id);
+          console.log(idProjectUren);
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+
+
+let selctionKlantenUren = document.querySelector("#selectionKlanten");
+var idKlantenUren = [];
+
+selctionKlantenUren.addEventListener("change", () => {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selctionKlantenUren.value) {
+          idKlantenUren.push(res.id[i].id);
+
+          break;
+        }
+      }
+    }
+  });
+});
 function link() {
   showPage("otpPage");
 }
@@ -511,6 +695,10 @@ function klantenPostenButtonM() {
   console.log("test test");
 }
 
+function projectConfirm() {
+  showPage(dashboardPageNav);
+}
+
 function bindEvents() {
   // connectButton("confirm", projectToevoegenConfirm);
   connectButton("login", login);
@@ -524,6 +712,7 @@ function bindEvents() {
   connectButton("projectCancel", projectToevoegenCancel);
   connectButton("klantCancel", klantToevoegenCancel);
   connectButton("cancel", dashToevoegenCancel);
+  connectButton("confirm", urenPosten);
 
   connectButton("projectAdd", projectToevoegen);
   connectButton("klantAdd", klantToevoegen);
