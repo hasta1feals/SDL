@@ -47,6 +47,28 @@ function projectPosten() {
   });
 }
 
+
+function projectPosten2() {
+  let x = idProject2.toString();
+  let y = idMedewerker2.toString();
+
+  data = {
+    naam: getValue("projectNaamM"),
+    begin: getValue("projectBeginDatumM"),
+    klanten_id: x,
+    user_id: y,
+  };
+
+  console.log(data);
+
+  // Submit data to API
+  api("projecten", "POST", data).then((res) => {
+    if (res.message == "success") {
+      console.log("gelukt");
+    }
+  });
+}
+
 function urenPosten() {
   let x = idMederwerkerUren.toString();
   let y = idProjectUren.toString();
@@ -172,6 +194,9 @@ function getUser() {
       if(res.user.admin == 1){
         showPage("dashboardPageM");
         klantenKlanten2();
+        projectProject2();
+        klantenProject2();
+        medewerkerProject2()
       }else{ 
         showPage("dashboardPage");
        }
@@ -240,6 +265,33 @@ function projectProject() {
   api("projecten2", "GET").then((res) => {
     if (res.message == "success") {
       const table = document.getElementById("myTable1");
+
+      for (i = 0; i < res.id.length; i++) {
+        const data = res.id[i];
+
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        var row = table.insertRow(i + 1);
+        console.log(data);
+        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+
+        // Add some text to the new cells:
+        cell1.innerHTML = data.naam;
+        cell2.innerHTML = data.firstname;
+        cell3.innerHTML = data.klantennaam;
+        cell4.innerHTML = data.begin;
+      }
+    }
+  });
+}
+
+function projectProject2() {
+  api("projecten2", "GET").then((res) => {
+    if (res.message == "success") {
+      const table = document.getElementById("myTable1M");
 
       for (i = 0; i < res.id.length; i++) {
         const data = res.id[i];
@@ -396,12 +448,45 @@ function klantenProject() {
     }
   });
 }
+
+
+function klantenProject2() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionKlanten1M").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
 function medewerkerProject() {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         console.log(res);
         document.getElementById("selectionMedewerker").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].firstname +
+          "</option>";
+      }
+    }
+  });
+}
+
+function medewerkerProject2() {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionMedewerkerM").innerHTML +=
           '<option value="' +
           res.id[i].id +
           '">' +
@@ -464,6 +549,23 @@ selectionProject.addEventListener("change", () => {
   });
 });
 
+let selectionProject2 = document.querySelector("#selectionKlanten1M");
+var idProject2 = [];
+
+selectionProject2.addEventListener("change", () => {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionProject2.value) {
+          idProject2.push(res.id[i].id);
+
+          break;
+        }
+      }
+    }
+  });
+});
+
 let selectionMedewerker = document.querySelector("#selectionMedewerker");
 var idMedewerker = [];
 
@@ -481,6 +583,23 @@ selectionMedewerker.addEventListener("change", () => {
   });
 });
 
+
+let selectionMedewerker2 = document.querySelector("#selectionMedewerkerM");
+var idMedewerker2 = [];
+
+selectionMedewerker2.addEventListener("change", () => {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionMedewerker2.value) {
+          idMedewerker2.push(res.id[i].id);
+
+          break;
+        }
+      }
+    }
+  });
+});
 
 let selectionMedewerkerUren = document.querySelector("#selectionMedewerkerUren");
 var idMederwerkerUren = [];
@@ -685,7 +804,7 @@ function klantenPostenButton() {
 
 //voor medewerker
 function projectConfirmM() {
-  projectPosten();
+  projectPosten2();
 }
 
 //voor medewerker
