@@ -237,11 +237,6 @@ function getUser() {
       klantenKlanten();
       klantenProjectProject();
       userInfo();
-      userInfo1();
-      userInfo2();
-      userInfoMdwrk();
-      userInfoMdwrk1();
-      userInfoMdwrk2();
       medewerkerUren();
       UrenUren();
       UrenUrenM();
@@ -286,6 +281,9 @@ function projectUren2() {
     }
   });
 }
+
+
+
 function klantenProjectProject() {
   api("projecten", "GET").then((res) => {
     if (res.message == "success") {
@@ -769,7 +767,7 @@ selectionProjectUren.addEventListener("change", () => {
 });
 
 
-let selectionProjectUren2 = document.querySelector("#selection");
+let selectionProjectUren2 = document.querySelector("#selectionM");
 var idProjectUren2 = [];
 
 selectionProjectUren2.addEventListener("change", () => {
