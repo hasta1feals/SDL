@@ -3,7 +3,7 @@ from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from db import DB
 from security import login, me
-from resources.user import create_user, get_otp, get_users, create_projecten, get_projecten, create_klanten, get_klanten, get_projecten2, get_medewerker, get_klanten2, create_uren, get_uren2
+from resources.user import create_user, get_otp, get_users, create_projecten, get_projecten, create_klanten, get_klanten, get_projecten2, get_medewerker, get_klanten2, create_uren, get_uren2, get_usersId, get_uren3, get_medewerker2
 # Create a new Flask application
 app = Flask(__name__)
 app.debug = True
@@ -19,6 +19,8 @@ jwt = JWTManager(app)
 # JWT routes
 app.add_url_rule('/users', None, create_user, methods=['POST'])
 app.add_url_rule('/users', None, get_users, methods=['GET'])
+app.add_url_rule('/users2', None,get_uren3, methods=['GET'])
+
 app.add_url_rule('/auth', None, login, methods=['POST'])
 app.add_url_rule('/me', None, me, methods=['GET'])
 app.add_url_rule('/projecten', None, create_projecten, methods=['POST'])
@@ -29,6 +31,9 @@ app.add_url_rule('/klanten', None, create_klanten, methods=['POST'])
 app.add_url_rule('/klanten', None, get_klanten, methods=['GET'])
 app.add_url_rule('/klanten2', None, get_klanten2, methods=['GET'])
 app.add_url_rule('/medewerker', None, get_medewerker, methods=['GET'])
+app.add_url_rule('/medewerker2', None, get_medewerker2, methods=['GET'])
+
+
 app.add_url_rule('/uren', None, create_uren, methods=['POST'])
 app.add_url_rule('/uren', None, get_uren2, methods=['GET'])
 
