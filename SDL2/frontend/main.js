@@ -175,6 +175,42 @@ function userInfo() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+function userInfo1() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("ww1");
+    console.log(res.user.firstname);
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+function userInfo2() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("ww2");
+    console.log(res.user.firstname);
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+
+function userInfoMdwrk() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("Mdwrk");
+    console.log(res.user.firstname);
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+function userInfoMdwrk1() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("Mdwrk1");
+    console.log(res.user.firstname);
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+function userInfoMdwrk2() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("Mdwrk2");
+    console.log(res.user.firstname);
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
 
 function getUser() {
   // Fetch user data from API
@@ -206,6 +242,11 @@ function getUser() {
       klantenKlanten();
       klantenProjectProject();
       userInfo();
+      userInfo1();
+      userInfo2();
+      userInfoMdwrk();
+      userInfoMdwrk1();
+      userInfoMdwrk2();
       medewerkerUren();
       UrenUren();
     }
