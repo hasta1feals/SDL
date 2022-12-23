@@ -526,7 +526,6 @@ function klantenUren2() {
           '">' +
           res.id[i].voornaam +
           "</option>";
-          console.log(res)
       }
     }
   });
