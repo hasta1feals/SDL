@@ -47,6 +47,8 @@ def get_medewerker():
     return {'message': 'success', 'id': id}, 201
 
 
+
+
 def get_projecten2():
     # qry om users te laten zien
     qry = '''
@@ -92,11 +94,11 @@ def get_uren2():
 SELECT uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam
 FROM uren
 left JOIN project
-ON uren.id = project.id
+ON uren.project_id = project.id
 left JOIN users
-ON uren.id = users.id
+ON uren.user_id = users.id
 left JOIN klanten
-ON uren.id = klanten.id
+ON uren.klanten_id = klanten.id
 
     '''
     try:
@@ -106,6 +108,28 @@ ON uren.id = klanten.id
 
     return {'message': 'success', 'id': id}, 201    
 
+
+
+def get_uren3():
+    # qry om users te laten zien
+    qry = '''
+SELECT uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam
+FROM uren
+left JOIN project
+ON uren.project_id = project.id
+left JOIN users
+ON uren.user_id = users.id
+left JOIN klanten
+ON uren.klanten_id = klanten.id
+where myID = id
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201    
 
 def get_klanten():
     # qry om klantente laten zien!
@@ -207,8 +231,8 @@ def create_uren():
     # Make the insert query with parameters
     qry = '''
           INSERT INTO
-              uren ( datum, activiteit,uren_uren, bonus, opmerking, uren_declarabel, project_id, user_id, klanten_id)
-           VALUES (:datum, :activiteit, :uren_uren, :bonus, :opmerking, :uren_declarabel, :project_id, :user_id, :klanten_id);
+              uren ( datum, activiteit,uren_uren, bonus, opmerking, uren_declarabel, project_id, user_id, klanten_id, myID)
+           VALUES (:datum, :activiteit, :uren_uren, :bonus, :opmerking, :uren_declarabel, :project_id, :user_id, :klanten_id, :myID);
     '''
    
     data = {
@@ -220,7 +244,8 @@ def create_uren():
         "uren_declarabel": args["uren_declarabel"],
         "project_id": args["project_id"],
         "user_id": args["user_id"],
-        "klanten_id": args["klanten_id"]
+        "klanten_id": args["klanten_id"],
+        "myID": args["myID"]
     
         }
     try:
@@ -282,10 +307,87 @@ def get_users():
         user = DB.all(qry, data)
     except Exception:
         print('Er is een probleem opgetreden, contact de admin.')
-
+        
+    print('Er is een probleem opgetreden, contact de admin.')
     #Print alles wat ik hierboven heb gemaakt!
     return {'message': 'success', 'user': user}, 201    
 
+@jwt_required()
+def get_uren3():
+
+    user = get_jwt_identity()
+
+    # qry om users te laten zien
+    qry = '''
+SELECT uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam
+FROM uren
+left JOIN project
+ON uren.project_id = project.id
+left JOIN users
+ON uren.user_id = users.id
+left JOIN klanten
+ON uren.klanten_id = klanten.id
+where myID = :id
+
+    '''
+
+    data = {
+        "id": user["id"]
+    }
+    try:
+        id = DB.all(qry , data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.')
+
+    return {'message': 'success', 'id': id}, 201    
+
+@jwt_required()
+def get_medewerker2(): 
+    user = get_jwt_identity()
+
+    qry = '''
+       SELECT
+      firstname, lastname, email, id
+         FROM `users`
+		  where id = :id
+          ORDER BY firstname
+		 
+    '''
+    
+    data = {
+        "id": user["id"]
+    }
+    try:
+        id = DB.all(qry, data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
 
 
+@jwt_required()
+def get_usersId():
+    # Parse all arguments for validity
+    user = get_jwt_identity()
+    #qry uit de database hier wordt de secret gehaald
+    qry = '''
+     SELECT
+        `id`
+         FROM `users` where `id` = :id
+    '''
+    data = {
+        "id": user["id"]
+    }
+    try:
+        user = DB.all(qry, data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.')
+
+    x = str(user)
+    y = x[8:10]
+
+    #Print alles wat ik hierboven heb gemaakt!
+    print(y )
+   
+    return {'message': 'success', 'user': y}, 201    
 
