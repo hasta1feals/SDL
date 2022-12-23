@@ -205,7 +205,41 @@ function userInfo() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+function userInfo2() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("ww1");
 
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+function userInfo3() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("ww2");
+
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+function userInfoM1() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("Mdwrk");
+
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+function userInfoM2() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("Mdwrk1");
+
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
+function userInfoM3() {
+  api("users", "GET", data).then((res) => {
+    text = document.getElementById("Mdwrk2");
+
+    text.innerText = res.user.firstname + " " + res.user.lastname;
+  });
+}
 function getUser() {
   // Fetch user data from API
   api("me").then((res) => {
@@ -243,6 +277,12 @@ function getUser() {
       medewerkerUren2();
       projectUren2();
       klantenUren2();
+      userInfo2();
+      userInfo3();
+      userInfoM1();
+      userInfoM2();
+      userInfoM3();
+     
     }
   });
 }
