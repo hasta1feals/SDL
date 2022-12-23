@@ -44,7 +44,6 @@ function projectPosten() {
   });
 }
 
-
 function projectPosten2() {
   let x = idProject2.toString();
   let y = idMedewerker2.toString();
@@ -69,7 +68,6 @@ function urenPosten() {
   let y = idProjectUren.toString();
   let z = idKlantenUren.toString();
   let zz = userID.toString();
-
 
   data = {
    datum: getValue("Datum"),
@@ -201,14 +199,12 @@ function showQrCode() {
 }
 
 function userInfo() {
-  //
   api("users", "GET", data).then((res) => {
     text = document.getElementById("ww");
 
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
-var userID = [];
 
 function getUser() {
   // Fetch user data from API
@@ -222,15 +218,15 @@ function getUser() {
       // showPage("otpPage");
       // showQrCode();
       // window.location.href="dashbord.html";
-      if(res.user.admin == 1){
+      if (res.user.admin == 1) {
         showPage("dashboardPageM");
         klantenKlanten2();
         projectProject2();
         klantenProject2();
-        medewerkerProject2()
-      }else{ 
+        medewerkerProject2();
+      } else {
         showPage("dashboardPage");
-       }
+      }
       projectUren();
       klantenUren();
       klantenProject();
@@ -241,6 +237,11 @@ function getUser() {
       klantenKlanten();
       klantenProjectProject();
       userInfo();
+      userInfo1();
+      userInfo2();
+      userInfoMdwrk();
+      userInfoMdwrk1();
+      userInfoMdwrk2();
       medewerkerUren();
       UrenUren();
       UrenUrenM();
@@ -367,7 +368,6 @@ function projectProject2() {
   });
 }
 
-
 function UrenUren() {
   api("uren", "GET").then((res) => {
     if (res.message == "success") {
@@ -432,10 +432,10 @@ function UrenUrenM() {
         cell3.innerHTML = data.voornaam;
         cell4.innerHTML = data.naam;
         cell5.innerHTML = data.activiteit;
-        cell6.innerHTML = data.uren_uren
-       cell7.innerHTML = data.uren_declarabel
-       cell8.innerHTML = data.bonus;
-       cell9.innerHTML = data.opmerking;
+        cell6.innerHTML = data.uren_uren;
+        cell7.innerHTML = data.uren_declarabel;
+        cell8.innerHTML = data.bonus;
+        cell9.innerHTML = data.opmerking;
       }
     }
   });
@@ -470,8 +470,6 @@ function klantenKlanten() {
     }
   });
 }
-
-
 
 function klantenKlanten2() {
   api("klanten2", "GET").then((res) => {
@@ -548,7 +546,6 @@ function klantenProject() {
   });
 }
 
-
 function klantenProject2() {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
@@ -608,7 +605,6 @@ function klantenNaam() {
   });
 }
 
-
 function medewerkerUren() {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
@@ -619,8 +615,7 @@ function medewerkerUren() {
           '">' +
           res.id[i].firstname +
           "</option>";
-          console.log( res.id[i].firstname);
-
+        console.log(res.id[i].firstname);
       }
     }
   });
@@ -697,7 +692,6 @@ selectionMedewerker.addEventListener("change", () => {
   });
 });
 
-
 let selectionMedewerker2 = document.querySelector("#selectionMedewerkerM");
 var idMedewerker2 = [];
 
@@ -715,7 +709,9 @@ selectionMedewerker2.addEventListener("change", () => {
   });
 });
 
-let selectionMedewerkerUren = document.querySelector("#selectionMedewerkerUren");
+let selectionMedewerkerUren = document.querySelector(
+  "#selectionMedewerkerUren"
+);
 var idMederwerkerUren = [];
 
 selectionMedewerkerUren.addEventListener("change", () => {
@@ -732,23 +728,6 @@ selectionMedewerkerUren.addEventListener("change", () => {
   });
 });
 
-
-let selectionMedewerkerUren2 = document.querySelector("#selectionMedewerkerUrenM");
-var idMederwerkerUren2 = [];
-
-selectionMedewerkerUren2.addEventListener("change", () => {
-  api("medewerker", "GET").then((res) => {
-    if (res.message == "success") {
-      for (i = 0; i < res.id.length; i++) {
-        if (res.id[i].id == selectionMedewerkerUren2.value) {
-          idMederwerkerUren2.push(res.id[i].id);
-
-          break;
-        }
-      }
-    }
-  });
-});
 
 
 
@@ -767,24 +746,6 @@ selectionProjectUren.addEventListener("change", () => {
     }
   });
 });
-
-
-let selectionProjectUren2 = document.querySelector("#selectionM");
-var idProjectUren2 = [];
-
-selectionProjectUren2.addEventListener("change", () => {
-  api("projecten", "GET").then((res) => {
-    if (res.message == "success") {
-      for (i = 0; i < res.id.length; i++) {
-        if (res.id[i].id == selectionProjectUren2.value) {
-          idProjectUren2.push(res.id[i].id);
-          break;
-        }
-      }
-    }
-  });
-});
-
 
 
 
