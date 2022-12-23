@@ -526,6 +526,7 @@ function klantenUren2() {
           '">' +
           res.id[i].voornaam +
           "</option>";
+          console.log(res)
       }
     }
   });
@@ -729,6 +730,27 @@ selectionMedewerkerUren.addEventListener("change", () => {
 });
 
 
+let selectionMedewerkerUren2 = document.querySelector(
+  "#selectionMedewerkerUrenM"
+);
+var idMederwerkerUren2 = [];
+
+selectionMedewerkerUren2.addEventListener("change", () => {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionMedewerkerUren2.value) {
+          idMederwerkerUren2.push(res.id[i].id);
+
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
 
 
 let selectionProjectUren = document.querySelector("#selection");
@@ -747,6 +769,22 @@ selectionProjectUren.addEventListener("change", () => {
   });
 });
 
+
+let selectionProjectUren2 = document.querySelector("#selection");
+var idProjectUren2 = [];
+
+selectionProjectUren2.addEventListener("change", () => {
+  api("projecten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionProjectUren2.value) {
+          idProjectUren2.push(res.id[i].id);
+          break;
+        }
+      }
+    }
+  });
+});
 
 
 
