@@ -862,11 +862,6 @@ function regerop() {
   showPage("dashboardPage");
 }
 
-// Deze is niet meer nodig funcite werkt nu via een html/css verbinding
-// function projectToevoegenConfirm() {
-//   showPage("popupCenter");
-// }
-
 // Ref-linken van buttons voor Medewerker: toevoegen -> overzicht BEGIN
 function projectToevoegenCancelM() {
   showPage("projectenPageM");
@@ -926,6 +921,30 @@ function dashToevoegenCancel() {
   showPage("dashboardPage");
 }
 // Ref-linken van buttons voor ADMIN: toevoegen -> overzicht END
+
+// Ref-linken van buttons voor ADMIN: overzicht -> bewerken BEGIN
+function projectBewerken() {
+  showPage("projectBewerken");
+}
+function klantBewerken() {
+  showPage("klantBewerken");
+}
+function dashBewerken() {
+  showPage("toevoegenPageBewerken");
+}
+// Ref-linken van buttons voor ADMIN: overzicht -> bewerken END
+
+// Ref-linken van buttons voor ADMIN: overzicht -> verwijderen BEGIN
+function projectVerwijderen() {
+  showPage("projectVerwijderen");
+}
+function klantVerwijderen() {
+  showPage("klantVerwijderen");
+}
+function dashVerwijderen() {
+  showPage("toevoegenPageVerwijderen");
+}
+// Ref-linken van buttons voor ADMIN: overzicht -> verwijderen END
 
 // Ref-linken van buttons voor ADMIN: overzicht -> toevoegen BEGIN
 function projectToevoegen() {
@@ -1001,6 +1020,7 @@ function klantenPostenButtonM() {
 
 function projectConfirm() {
   showPage(dashboardPageNav);
+  //waarom is dit dat moet het niet het volgende zijn ' projectPosten() '
 }
 
 function bindEvents() {
@@ -1013,18 +1033,41 @@ function bindEvents() {
   connectButton("projecten", projecten);
 
   //voor admin
-  connectButton("projectCancel", projectToevoegenCancel);
-  connectButton("klantCancel", klantToevoegenCancel);
-  connectButton("cancel", dashToevoegenCancel);
-  connectButton("confirm", urenPosten);
-  connectButton("confirmm", urenPosten2);
-
   connectButton("projectAdd", projectToevoegen);
   connectButton("klantAdd", klantToevoegen);
   connectButton("add", dashToevoegen);
 
+  connectButton("projectEdit", projectBewerken);
+  connectButton("klantEdit", klantBewerken);
+  connectButton("edit", dashBewerken);
+
+  connectButton("projectDelete", projectVerwijderen);
+  connectButton("klantDelete", klantVerwijderen);
+  connectButton("delete", dashVerwijderen);
+
+  connectButton("projectCancel", projectToevoegenCancel);
+  connectButton("projectCancelBewerken", projectToevoegenCancel);
+  connectButton("projectCancelVerwijderen", projectToevoegenCancel);
+
+  connectButton("klantCancel", klantToevoegenCancel);
+  connectButton("klantCancelBijwerken", klantToevoegenCancel);
+  connectButton("klantCancelVerwijderen", klantToevoegenCancel);
+
+  connectButton("cancel", dashToevoegenCancel);
+  connectButton("cancelBewerken", dashToevoegenCancel);
+  connectButton("cancelVerwijderen", dashToevoegenCancel);
+
   connectButton("projectConfirm", projectConfirm);
+  connectButton("projectConfirmBijwerken"); // Hier moet een link komen naar project bijwerken functie voor de ADMIN
+  connectButton("projectConfirmVerwijderen"); // Hier moet een link komen naar project verwijderen functie voor de ADMIN
+
   connectButton("klantConfirm", klantenPostenButton);
+  connectButton("klantConfirmBijwerken"); // Hier moet een link komen naar klant bijwerken functie voor de ADMIN
+  connectButton("klantConfirmVerwijderen"); // Hier moet een link komen naar klant verwijderen functie voor de ADMIN
+
+  connectButton("confirm", urenPosten);
+  connectButton("klantConfirmBijwerken"); // Hier moet een link komen naar dash bijwerken functie voor de ADMIN
+  connectButton("projectConfirmVerwijderen"); // Hier moet een link komen naar dash verwijderen functie voor de ADMIN
 
   // voor medewerker
   connectButton("projectAddM", projectToevoegenM);
@@ -1052,12 +1095,16 @@ function bindEvents() {
   connectButton("cancelVerwijderenM", dashToevoegenCancelM);
 
   connectButton("projectConfirmM", projectConfirmM);
-  connectButton("projectConfirmBijwerkenM"); // Hier moet een link komen naar project bijwerken functie
-  connectButton("projectConfirmVerwijderenM"); // Hier moet een link komen naar project verwijderen functie
+  connectButton("projectConfirmBijwerkenM"); // Hier moet een link komen naar project bijwerken functie voor de MEDEWERKER
+  connectButton("projectConfirmVerwijderenM"); // Hier moet een link komen naar project verwijderen functie voor de MEDEWERKER
 
   connectButton("klantConfirmM", klantenPostenButtonM);
-  connectButton("klantConfirmBijwerkenM"); // Hier moet een link komen naar klant bijwerken functie
-  connectButton("klantCancelVerwijderenM"); // Hier moet een link komen naar klant verwijderen functie
+  connectButton("klantConfirmBijwerkenM"); // Hier moet een link komen naar klant bijwerken functie voor de MEDEWERKER
+  connectButton("klantConfirmVerwijderenM"); // Hier moet een link komen naar klant verwijderen functie voor de MEDEWERKER
+
+  connectButton("confirmm", urenPosten2);
+  connectButton("klantConfirmBijwerkenM"); // Hier moet een link komen naar dash bijwerken functie voor de MEDEWERKER
+  connectButton("projectConfirmVerwijderenM"); // Hier moet een link komen naar dash verwijderen functie voor de MEDEWERKER
 
   // ----------- Admin navlinks ------------------------------------------------------------
 
@@ -1077,6 +1124,22 @@ function bindEvents() {
   connectButton("loginPageBtn1", loginBtn);
   // Ref-linken van buttons in de Klant Aanmaken navbar END
 
+  // Ref-linken van buttons in de Klant Bewerken navbar BEGIN
+  connectButton("dashboardPageBtn16", dashboardPageNav);
+  connectButton("klantenPageBtn16", klantenPageNav);
+  connectButton("projectenPageBtn16", projectenPageNav);
+  connectButton("registeren-navBtn16", regerNav);
+  connectButton("loginPageBtn16", loginBtn);
+  // Ref-linken van buttons in de Klant Bewerken navbar END
+
+  // Ref-linken van buttons in de Klant Verwijderen navbar BEGIN
+  connectButton("dashboardPageBtn17", dashboardPageNav);
+  connectButton("klantenPageBtn17", klantenPageNav);
+  connectButton("projectenPageBtn17", projectenPageNav);
+  connectButton("registeren-navBtn17", regerNav);
+  connectButton("loginPageBtn17", loginBtn);
+  // Ref-linken van buttons in de Klant Verwijderen navbar END
+
   // Ref-linken van buttons in de Klant Overzicht navbar BEGIN
   connectButton("dashboardPageBtn4", dashboardPageNav);
   connectButton("klantenPageBtn4", klantenPageNav);
@@ -1093,6 +1156,22 @@ function bindEvents() {
   connectButton("loginPageBtn2", loginBtn);
   // Ref-linken van buttons in de Project Aanmaken navbar END
 
+  // Ref-linken van buttons in de Project Bewerken navbar BEGIN
+  connectButton("dashboardPageBtn18", dashboardPageNav);
+  connectButton("klantenPageBtn18", klantenPageNav);
+  connectButton("projectenPageBtn18", projectenPageNav);
+  connectButton("registeren-navBtn18", regerNav);
+  connectButton("loginPageBtn18", loginBtn);
+  // Ref-linken van buttons in de Project Bewerken navbar END
+
+  // Ref-linken van buttons in de Project Verwijderen navbar BEGIN
+  connectButton("dashboardPageBtn19", dashboardPageNav);
+  connectButton("klantenPageBtn19", klantenPageNav);
+  connectButton("projectenPageBtn19", projectenPageNav);
+  connectButton("registeren-navBtn19", regerNav);
+  connectButton("loginPageBtn19", loginBtn);
+  // Ref-linken van buttons in de Project Verwijderen navbar END
+
   // Ref-linken van buttons in de Project Overzicht navbar BEGIN
   connectButton("dashboardPageBtn5", dashboardPageNav);
   connectButton("klantenPageBtn5", klantenPageNav);
@@ -1108,6 +1187,22 @@ function bindEvents() {
   connectButton("registeren-navBtn3", regerNav);
   connectButton("loginPageBtn3", loginBtn);
   // Ref-linken van buttons in de Toevoegen navbar END
+
+  // Ref-linken van buttons in de Bewerken navbar BEGIN
+  connectButton("dashboardPageBtn20", dashboardPageNav);
+  connectButton("klantenPageBtn20", klantenPageNav);
+  connectButton("projectenPageBtn20", projectenPageNav);
+  connectButton("registeren-navBtn20", regerNav);
+  connectButton("loginPageBtn20", loginBtn);
+  // Ref-linken van buttons in de Bewerken navbar END
+
+  // Ref-linken van buttons in de Verwijderen navbar BEGIN
+  connectButton("dashboardPageBtn21", dashboardPageNav);
+  connectButton("klantenPageBtn21", klantenPageNav);
+  connectButton("projectenPageBtn21", projectenPageNav);
+  connectButton("registeren-navBtn21", regerNav);
+  connectButton("loginPageBtn21", loginBtn);
+  // Ref-linken van buttons in de Verwijderen navbar END
 
   // ---------- Medewerker navlinks ---------------------------------------------------------------
   // Ref-linken van buttons in de Dashboard navbar BEGIN
