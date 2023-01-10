@@ -1067,6 +1067,228 @@
         </div>
     </div>
 
+    <!-- Project Bewerken -->
+    <div class="container hidden" id="projectBewerkenM">
+
+        <nav class="sidenav">
+            <ul class="sidenav-nav">
+                <!--<img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>-->
+
+                <li class="logo-btm">
+                    <a href="#" class="nav-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
+                            <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
+                        </svg>
+                        <span class="link-text"><img class="logo" src="img/logo.png" alt="logo" width="200"
+                                height="75"></img></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="dashboardPageBtn8M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="klantenPageBtn8M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: white; transform: msFilter;">
+                            <path
+                                d="M16.604 11.048a5.67 5.67 0 0 0 .751-3.44c-.179-1.784-1.175-3.361-2.803-4.44l-1.105 1.666c1.119.742 1.8 1.799 1.918 2.974a3.693 3.693 0 0 1-1.072 2.986l-1.192 1.192 1.618.475C18.951 13.701 19 17.957 19 18h2c0-1.789-.956-5.285-4.396-6.952z">
+                            </path>
+                            <path
+                                d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm1.5 7H8c-3.309 0-6 2.691-6 6v1h2v-1c0-2.206 1.794-4 4-4h3c2.206 0 4 1.794 4 4v1h2v-1c0-3.309-2.691-6-6-6z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Klanten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="projectenPageBtn8M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                            </path>
+                            <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                        </svg>
+                        <span class="link-text">Projecten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="loginPageBtn8M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                            <path
+                                d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Uitloggen</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="projectWrapper">
+            <h1 class="h1Text">Project Bewerken</h1>
+
+            <div class="projectNaam">
+                <Label>Project Naam <br />
+                    <input type="text" id="projectNaamBewerkenM" placeholder="Project Naam" />
+                </Label>
+            </div>
+
+            <div class="projectMedewerker">
+                <Label>Medewerker <br />
+                    <select class="projectSelection1" id="selectionMedewerkerBewerkenM">
+                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
+                    </select>
+                </Label>
+            </div> <br />
+
+            <div class="projectKlant">
+                <Label>Klant <br />
+                    <select class="projectSelection1" id="selectionKlanten1BewerkenM">
+                        <option id="choose-template" value="template" disabled selected>Klanten</option>
+                    </select>
+                </Label>
+            </div> <br />
+
+            <div class="projectBeginDatum">
+                <Label>Begin Datum <br />
+                    <input type="date" id="projectBeginDatumBewerkenM" placeholder="Begin Datum" />
+                </Label>
+            </div> <br />
+
+            <a id="projectConfirmBewerkenM" class="projectConfirm" href="#">Toevoegen</a>
+            <a id="projectCancelBewerkenM" class="projectCancel" href="#">Terug</a>
+
+        </div>
+    </div>
+
+    <!-- Project Verwijderen -->
+    <div class="container hidden" id="projectVerwijderenM">
+
+        <nav class="sidenav">
+            <ul class="sidenav-nav">
+                <!--<img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>-->
+
+                <li class="logo-btm">
+                    <a href="#" class="nav-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
+                            <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
+                        </svg>
+                        <span class="link-text"><img class="logo" src="img/logo.png" alt="logo" width="200"
+                                height="75"></img></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="dashboardPageBtn9M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="klantenPageBtn9M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: white; transform: msFilter;">
+                            <path
+                                d="M16.604 11.048a5.67 5.67 0 0 0 .751-3.44c-.179-1.784-1.175-3.361-2.803-4.44l-1.105 1.666c1.119.742 1.8 1.799 1.918 2.974a3.693 3.693 0 0 1-1.072 2.986l-1.192 1.192 1.618.475C18.951 13.701 19 17.957 19 18h2c0-1.789-.956-5.285-4.396-6.952z">
+                            </path>
+                            <path
+                                d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm1.5 7H8c-3.309 0-6 2.691-6 6v1h2v-1c0-2.206 1.794-4 4-4h3c2.206 0 4 1.794 4 4v1h2v-1c0-3.309-2.691-6-6-6z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Klanten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="projectenPageBtn9M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                            </path>
+                            <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                        </svg>
+                        <span class="link-text">Projecten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="loginPageBtn9M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                            <path
+                                d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Uitloggen</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="projectWrapper">
+            <h1 class="h1Text">Project Verwijderen</h1>
+
+            <div class="projectNaam">
+                <Label>Project Naam <br />
+                    <input type="text" id="projectNaamVerwijderenM" placeholder="Project Naam" />
+                </Label>
+            </div>
+
+            <div class="projectMedewerker">
+                <Label>Medewerker <br />
+                    <select class="projectSelection1" id="selectionMedewerkerVerwijderenM">
+                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
+                    </select>
+                </Label>
+            </div> <br />
+
+            <div class="projectKlant">
+                <Label>Klant <br />
+                    <select class="projectSelection1" id="selectionKlanten1VerwijderenM">
+                        <option id="choose-template" value="template" disabled selected>Klanten</option>
+                    </select>
+                </Label>
+            </div> <br />
+
+            <div class="projectBeginDatum">
+                <Label>Begin Datum <br />
+                    <input type="date" id="projectBeginDatumVerwijderenM" placeholder="Begin Datum" />
+                </Label>
+            </div> <br />
+
+            <a id="projectConfirmVerwijderenM" class="projectConfirm" href="#">Toevoegen</a>
+            <a id="projectCancelVerwijderenM" class="projectCancel" href="#">Terug</a>
+
+        </div>
+    </div>
+
     <!-- Toevoegen -->
     <div class="container hidden" id="toevoegenPageM">
 
@@ -1202,23 +1424,529 @@
                 </Label>
             </div>
 
-            <a id="cancel" class="cancel" href="#">Terug</a>
+            <a id="cancelM" class="cancel" href="#">Terug</a>
+            <a id="confirmm" class="confirm" href="#">Toevoegen</a>
 
-            <input type="checkbox" id="click">
-            <label for="click" id="confirmm" class="confirm" href="#">Toevoegen</label>
+        </div>
+    </div>
 
+    <!-- Toevoegen -->
+    <div class="container hidden" id="toevoegenPageBewerkenM">
 
-            <div class="popupCenter" id="popupCenter">
-                <div class="popupContent">
-                    <div class="popupHeader">
-                        <h2>Waarschuwing</h2>
-                    </div>
-                    <p>Weet u zeker dat u dit wil toevoegen</p>
-                    <div class="line"></div>
-                    <a id="popupAccept" class="popupAccept" href="#">JA</a>
-                    <a id="popupDecline" class="popupDecline" href="#">NEE</a>
-                </div>
+        <nav class="sidenav">
+            <ul class="sidenav-nav">
+                <!--<img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>-->
+
+                <li class="logo-btm">
+                    <a href="#" class="nav-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
+                            <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
+                        </svg>
+                        <span class="link-text"><img class="logo" src="img/logo.png" alt="logo" width="200"
+                                height="75"></img></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="dashboardPageBtn10M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="klantenPageBtn10M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: white; transform: msFilter;">
+                            <path
+                                d="M16.604 11.048a5.67 5.67 0 0 0 .751-3.44c-.179-1.784-1.175-3.361-2.803-4.44l-1.105 1.666c1.119.742 1.8 1.799 1.918 2.974a3.693 3.693 0 0 1-1.072 2.986l-1.192 1.192 1.618.475C18.951 13.701 19 17.957 19 18h2c0-1.789-.956-5.285-4.396-6.952z">
+                            </path>
+                            <path
+                                d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm1.5 7H8c-3.309 0-6 2.691-6 6v1h2v-1c0-2.206 1.794-4 4-4h3c2.206 0 4 1.794 4 4v1h2v-1c0-3.309-2.691-6-6-6z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Klanten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="projectenPageBtn10M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                            </path>
+                            <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                        </svg>
+                        <span class="link-text">Projecten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="loginPageBtn10M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                            <path
+                                d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Uitloggen</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="inputWrapper">
+
+            <div class="Datum">
+                <Label>Datum</Label> <br />
+                <input class="datumInput" type="date" id="DatumBewerkenM" placeholder="Datum" />
             </div>
+
+            <div class="Medewerker">
+                <Label>Medewerker <br />
+                    <select class="projectSelection" id="selectionMedewerkerUrenBewerkenM">
+                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
+                    </select>
+                </Label>
+            </div>
+
+            <div class="Project">
+                <Label>Project <br />
+                    <select class="projectSelection" id="selectionBewerkenM">
+                        <option id="choose-template" value="template" disabled selected>Project</option>
+                    </select>
+                </Label>
+            </div>
+
+            <div class="Klant">
+                <Label>Klant <br />
+                    <select class="projectSelection" id="selectionKlantenBewerkenM">
+                        <option id="choose-template" value="template" disabled selected>Klanten</option>
+                    </select>
+                </Label>
+            </div> <br />
+
+            <div class="Activiteit">
+                <Label>Activiteit <br />
+                    <input type="text" id="ActiviteitBewerkenM" placeholder="Activiteit" />
+                </Label>
+            </div>
+
+            <div class="Uren">
+                <Label>Uren <br />
+                    <input type="text" id="UrenBewerkenM" placeholder="Uren" />
+                </Label>
+            </div>
+
+            <div class="Aantal-Declarabel">
+                <Label>Aantal Declarabel <br />
+                    <input type="text" id="Aantal-DeclarabelBewerkenM" placeholder="Aantal-Declarabel" />
+                </Label>
+            </div>
+
+            <div class="Bonus">
+                <Label>Bonus <br />
+                    <input type="text" id="BonusBewerkenM" placeholder="Bonus" />
+                </Label>
+            </div>
+
+            <div class="Opmerking">
+                <Label>Opmerking <br />
+                    <input type="text" id="OpmerkingBewerkenM" placeholder="Opmerking" />
+                </Label>
+            </div>
+
+            <a id="cancelBewerkenM" class="cancel" href="#">Terug</a>
+            <a id="confirmBewerkenM" class="confirm" href="#">Toevoegen</a>
+
+        </div>
+    </div>
+
+    <!-- Toevoegen -->
+    <div class="container hidden" id="toevoegenPageVerwijderenM">
+
+        <nav class="sidenav">
+            <ul class="sidenav-nav">
+                <!--<img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>-->
+
+                <li class="logo-btm">
+                    <a href="#" class="nav-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
+                            <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
+                        </svg>
+                        <span class="link-text"><img class="logo" src="img/logo.png" alt="logo" width="200"
+                                height="75"></img></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="dashboardPageBtn11M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="klantenPageBtn11M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: white; transform: msFilter;">
+                            <path
+                                d="M16.604 11.048a5.67 5.67 0 0 0 .751-3.44c-.179-1.784-1.175-3.361-2.803-4.44l-1.105 1.666c1.119.742 1.8 1.799 1.918 2.974a3.693 3.693 0 0 1-1.072 2.986l-1.192 1.192 1.618.475C18.951 13.701 19 17.957 19 18h2c0-1.789-.956-5.285-4.396-6.952z">
+                            </path>
+                            <path
+                                d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm1.5 7H8c-3.309 0-6 2.691-6 6v1h2v-1c0-2.206 1.794-4 4-4h3c2.206 0 4 1.794 4 4v1h2v-1c0-3.309-2.691-6-6-6z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Klanten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="projectenPageBtn11M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                            </path>
+                            <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                        </svg>
+                        <span class="link-text">Projecten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="loginPageBtn11M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                            <path
+                                d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Uitloggen</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="inputWrapper">
+
+            <div class="Datum">
+                <Label>Datum</Label> <br />
+                <input class="datumInput" type="date" id="DatumVerwijderenM" placeholder="Datum" />
+            </div>
+
+            <div class="Medewerker">
+                <Label>Medewerker <br />
+                    <select class="projectSelection" id="selectionMedewerkerUrenVerwijderenM">
+                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
+                    </select>
+                </Label>
+            </div>
+
+            <div class="Project">
+                <Label>Project <br />
+                    <select class="projectSelection" id="selectionVerwijderenM">
+                        <option id="choose-template" value="template" disabled selected>Project</option>
+                    </select>
+                </Label>
+            </div>
+
+            <div class="Klant">
+                <Label>Klant <br />
+                    <select class="projectSelection" id="selectionKlantenVerwijderenM">
+                        <option id="choose-template" value="template" disabled selected>Klanten</option>
+                    </select>
+                </Label>
+            </div> <br />
+
+            <div class="Activiteit">
+                <Label>Activiteit <br />
+                    <input type="text" id="ActiviteitVerwijderenM" placeholder="Activiteit" />
+                </Label>
+            </div>
+
+            <div class="Uren">
+                <Label>Uren <br />
+                    <input type="text" id="UrenVerwijderenM" placeholder="Uren" />
+                </Label>
+            </div>
+
+            <div class="Aantal-Declarabel">
+                <Label>Aantal Declarabel <br />
+                    <input type="text" id="Aantal-DeclarabelVerwijderenM" placeholder="Aantal-Declarabel" />
+                </Label>
+            </div>
+
+            <div class="Bonus">
+                <Label>Bonus <br />
+                    <input type="text" id="BonusVerwijderenM" placeholder="Bonus" />
+                </Label>
+            </div>
+
+            <div class="Opmerking">
+                <Label>Opmerking <br />
+                    <input type="text" id="OpmerkingVerwijderenM" placeholder="Opmerking" />
+                </Label>
+            </div>
+
+            <a id="cancelVerwijderenM" class="cancel" href="#">Terug</a>
+            <a id="confirmVerwijderenM" class="confirm" href="#">Toevoegen</a>
+
+        </div>
+    </div>
+
+    <!-- Klant Bewerken -->
+    <div class="container hidden" id="klantBewerkenM">
+
+        <nav class="sidenav">
+            <ul class="sidenav-nav">
+                <!--<img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>-->
+
+                <li class="logo-btm">
+                    <a href="#" class="nav-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
+                            <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
+                        </svg>
+                        <span class="link-text"><img class="logo" src="img/logo.png" alt="logo" width="200"
+                                height="75"></img></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="dashboardPageBtn6M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="klantenPageBtn6M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: white; transform: msFilter;">
+                            <path
+                                d="M16.604 11.048a5.67 5.67 0 0 0 .751-3.44c-.179-1.784-1.175-3.361-2.803-4.44l-1.105 1.666c1.119.742 1.8 1.799 1.918 2.974a3.693 3.693 0 0 1-1.072 2.986l-1.192 1.192 1.618.475C18.951 13.701 19 17.957 19 18h2c0-1.789-.956-5.285-4.396-6.952z">
+                            </path>
+                            <path
+                                d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm1.5 7H8c-3.309 0-6 2.691-6 6v1h2v-1c0-2.206 1.794-4 4-4h3c2.206 0 4 1.794 4 4v1h2v-1c0-3.309-2.691-6-6-6z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Klanten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="projectenPageBtn6M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                            </path>
+                            <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                        </svg>
+                        <span class="link-text">Projecten</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="loginPageBtn6M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                            <path
+                                d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Uitloggen</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="klantWrapper">
+            <h1 class="klantHeader">Klant Bijwerken</h1>
+
+            <div class="klant">
+                <Label>Klant <br />
+                    <input type="text" id="klantBijwerken" placeholder="Klant" />
+                    </select>
+                </Label>
+            </div>
+
+            <div class="klantWoonplaats">
+                <Label>Woonplaats <br />
+                    <input type="text" id="WoonplaatsBijwerken" placeholder="Woonplaats" />
+                </Label>
+            </div> <br />
+
+            <div class="klantStraat">
+                <Label>Straat <br />
+                    <input type="text" id="StraatBijwerken" placeholder="Straat" />
+                </Label>
+            </div>
+
+            <div class="klantTelefoon">
+                <Label>Telefoon <br />
+                    <input type="text" id="TelefoonBijwerken" placeholder="Telefoon" />
+                </Label>
+            </div>
+
+            <div class="klantHuisnummer">
+                <Label>Huisnummer <br />
+                    <input type="text" id="huisnummer1Bijwerken" placeholder="Huisnummer" />
+                </Label>
+            </div>
+
+            <div class="klantPostcode">
+                <Label>Postcode <br />
+                    <input type="text" id="PostcodeBijwerken" placeholder="Postcode" />
+                </Label>
+            </div>
+
+            <a id="klantConfirmBijwerkenM" class="klantConfirm" href="#">Toevoegen</a>
+            <a id="klantCancelBijwerkenM" class="klantCancel" href="#">Terug</a>
+
+        </div>
+    </div>
+
+    <!-- Klant Verwijderen -->
+    <div class="container hidden" id="klantVerwijderenM">
+
+        <nav class="sidenav">
+            <ul class="sidenav-nav">
+                <!--<img class="logo" src="img/logo.png" alt="logo" width="200" height="75"></img>-->
+
+                <li class="logo-btm">
+                    <a href="#" class="nav-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="m8.121 12 4.94-4.939-2.122-2.122L3.879 12l7.06 7.061 2.122-2.122z"></path>
+                            <path d="M17.939 4.939 10.879 12l7.06 7.061 2.122-2.122L15.121 12l4.94-4.939z"></path>
+                        </svg>
+                        <span class="link-text"><img class="logo" src="img/logo.png" alt="logo" width="200"
+                                height="75"></img></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="dashboardPageBtn7M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="klantenPageBtn7M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill: white; transform: msFilter;">
+                            <path
+                                d="M16.604 11.048a5.67 5.67 0 0 0 .751-3.44c-.179-1.784-1.175-3.361-2.803-4.44l-1.105 1.666c1.119.742 1.8 1.799 1.918 2.974a3.693 3.693 0 0 1-1.072 2.986l-1.192 1.192 1.618.475C18.951 13.701 19 17.957 19 18h2c0-1.789-.956-5.285-4.396-6.952z">
+                            </path>
+                            <path
+                                d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm1.5 7H8c-3.309 0-6 2.691-6 6v1h2v-1c0-2.206 1.794-4 4-4h3c2.206 0 4 1.794 4 4v1h2v-1c0-3.309-2.691-6-6-6z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Klanten</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="projectenPageBtn7M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z">
+                            </path>
+                            <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"></path>
+                        </svg>
+                        <span class="link-text">Projecten</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="loginPageBtn7M">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path d="M16 13v-2H7V8l-5 4 5 4v-3z"></path>
+                            <path
+                                d="M20 3h-9c-1.103 0-2 .897-2 2v4h2V5h9v14h-9v-4H9v4c0 1.103.897 2 2 2h9c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2z">
+                            </path>
+                        </svg>
+                        <span class="link-text">Uitloggen</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="klantWrapper">
+            <h1 class="klantHeader">Klant Verwijderen</h1>
+
+            <div class="klant">
+                <Label>Klant <br />
+                    <input type="text" id="klantVerwijderen" placeholder="Klant" />
+                    </select>
+                </Label>
+            </div>
+
+            <div class="klantWoonplaats">
+                <Label>Woonplaats <br />
+                    <input type="text" id="WoonplaatsVerwijderen" placeholder="Woonplaats" />
+                </Label>
+            </div> <br />
+
+            <div class="klantStraat">
+                <Label>Straat <br />
+                    <input type="text" id="StraatVerwijderen" placeholder="Straat" />
+                </Label>
+            </div>
+
+            <div class="klantTelefoon">
+                <Label>Telefoon <br />
+                    <input type="text" id="TelefoonVerwijderen" placeholder="Telefoon" />
+                </Label>
+            </div>
+
+            <div class="klantHuisnummer">
+                <Label>Huisnummer <br />
+                    <input type="text" id="huisnummer1Verwijderen" placeholder="Huisnummer" />
+                </Label>
+            </div>
+
+            <div class="klantPostcode">
+                <Label>Postcode <br />
+                    <input type="text" id="PostcodeVerwijderen" placeholder="Postcode" />
+                </Label>
+            </div>
+
+            <a id="klantConfirmVerwijderenM" class="klantConfirm" href="#">Toevoegen</a>
+            <a id="klantCancelVerwijderenM" class="klantCancel" href="#">Terug</a>
+
         </div>
     </div>
 
@@ -1326,7 +2054,7 @@
                             <th style="width:5%;">Bonus</th>
                             <th style="width:10%;">Opmerking</th>
                         </tr>
-                 
+
                     </table>
                 </div>
             </div>
@@ -1417,8 +2145,8 @@
                 <div class="btnWrapper">
                     <a class="filterknop"></a>
                     <a id="klantAddM" class="add" href="#">Toevoegen</a>
-                    <a id="editM" class="edit" href="#">Bewerken</a>
-                    <a id="deleteM" class="delete" href="#">Verwijderen</a>
+                    <a id="klantEditM" class="edit" href="#">Bewerken</a>
+                    <a id="klantDeleteM" class="delete" href="#">Verwijderen</a>
                 </div>
 
                 <h1 class="overzicht">Klant Overzicht</h1>
@@ -1439,8 +2167,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Projecten overzicht page -->
     <div class="container hidden" id="projectenPageM">
@@ -1525,8 +2251,8 @@
                 <div class="btnWrapper">
                     <a class="filterknop"></a>
                     <a id="projectAddM" class="add" href="#">Toevoegen</a>
-                    <a id="editM" class="edit" href="#">Bewerken</a>
-                    <a id="deleteM" class="delete" href="#">Verwijderen</a>
+                    <a id="projectEditM" class="edit" href="#">Bewerken</a>
+                    <a id="projectDeleteM" class="delete" href="#">Verwijderen</a>
                 </div>
 
                 <h1 class="overzicht">Project Overzicht</h1>

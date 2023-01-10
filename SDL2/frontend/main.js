@@ -15,7 +15,6 @@ function register(e) {
     // s: 137173187381783
   };
 
-
   // Submit data to API
   api("users", "POST", data).then((res) => {
     if (res.message == "success") {
@@ -36,7 +35,6 @@ function projectPosten() {
     user_id: y,
   };
 
-
   // Submit data to API
   api("projecten", "POST", data).then((res) => {
     if (res.message == "success") {
@@ -55,7 +53,6 @@ function projectPosten2() {
     user_id: y,
   };
 
-
   // Submit data to API
   api("projecten", "POST", data).then((res) => {
     if (res.message == "success") {
@@ -70,27 +67,24 @@ function urenPosten() {
   let zz = userID.toString();
 
   data = {
-   datum: getValue("Datum"),
-   activiteit: getValue("Activiteit"),
-   uren_uren: getValue("Uren"),
-   bonus: getValue("Bonus"),
-   opmerking: getValue("Opmerking"),
-   uren_declarabel: getValue("Aantal-Declarabel"),
-   project_id: y,
-   user_id: x, 
-   klanten_id: z,
-   myID: zz
+    datum: getValue("Datum"),
+    activiteit: getValue("Activiteit"),
+    uren_uren: getValue("Uren"),
+    bonus: getValue("Bonus"),
+    opmerking: getValue("Opmerking"),
+    uren_declarabel: getValue("Aantal-Declarabel"),
+    project_id: y,
+    user_id: x,
+    klanten_id: z,
+    myID: zz,
   };
-
 
   // Submit data to API
   api("uren", "POST", data).then((res) => {
     if (res.message == "success") {
-    
     }
   });
 }
-
 
 function urenPosten2() {
   let x = idMederwerkerUren2.toString();
@@ -98,34 +92,25 @@ function urenPosten2() {
   let z = idKlantenUren2.toString();
   let zz = userID.toString();
 
-
   data = {
-   datum: getValue("DatumM"),
-   activiteit: getValue("ActiviteitM"),
-   uren_uren: getValue("UrenM"),
-   bonus: getValue("BonusM"),
-   opmerking: getValue("OpmerkingM"),
-   uren_declarabel: getValue("Aantal-DeclarabelM"),
-   project_id: y,
-   user_id: x, 
-   klanten_id: z,
-   myID: zz
+    datum: getValue("DatumM"),
+    activiteit: getValue("ActiviteitM"),
+    uren_uren: getValue("UrenM"),
+    bonus: getValue("BonusM"),
+    opmerking: getValue("OpmerkingM"),
+    uren_declarabel: getValue("Aantal-DeclarabelM"),
+    project_id: y,
+    user_id: x,
+    klanten_id: z,
+    myID: zz,
   };
-
 
   // Submit data to API
   api("uren", "POST", data).then((res) => {
     if (res.message == "success") {
-    
     }
   });
 }
-
-
-
-
-
-
 
 function KlantenPosten() {
   data = {
@@ -136,9 +121,6 @@ function KlantenPosten() {
     postcode: getValue("Postcode"),
     telefoon: getValue("Telefoon"),
   };
-
- 
-
 
   // Submit data to API
   api("klanten", "POST", data).then((res) => {
@@ -205,6 +187,7 @@ function userInfo() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+
 function userInfo2() {
   api("users", "GET", data).then((res) => {
     text = document.getElementById("ww1");
@@ -212,6 +195,7 @@ function userInfo2() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+
 function userInfo3() {
   api("users", "GET", data).then((res) => {
     text = document.getElementById("ww2");
@@ -219,6 +203,7 @@ function userInfo3() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+
 function userInfoM1() {
   api("users", "GET", data).then((res) => {
     text = document.getElementById("Mdwrk");
@@ -226,6 +211,7 @@ function userInfoM1() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+
 function userInfoM2() {
   api("users", "GET", data).then((res) => {
     text = document.getElementById("Mdwrk1");
@@ -233,6 +219,7 @@ function userInfoM2() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+
 function userInfoM3() {
   api("users", "GET", data).then((res) => {
     text = document.getElementById("Mdwrk2");
@@ -240,6 +227,7 @@ function userInfoM3() {
     text.innerText = res.user.firstname + " " + res.user.lastname;
   });
 }
+
 function getUser() {
   // Fetch user data from API
   api("me").then((res) => {
@@ -282,15 +270,11 @@ function getUser() {
       userInfoM1();
       userInfoM2();
       userInfoM3();
-     
     }
   });
 }
 
-
-
 var userID = [];
-
 
 function projectUren() {
   api("projecten", "GET").then((res) => {
@@ -321,8 +305,6 @@ function projectUren2() {
     }
   });
 }
-
-
 
 function klantenProjectProject() {
   api("projecten", "GET").then((res) => {
@@ -433,15 +415,14 @@ function UrenUren() {
         cell3.innerHTML = data.voornaam;
         cell4.innerHTML = data.naam;
         cell5.innerHTML = data.activiteit;
-        cell6.innerHTML = data.uren_uren
-       cell7.innerHTML = data.uren_declarabel
-       cell8.innerHTML = data.bonus;
-       cell9.innerHTML = data.opmerking;
+        cell6.innerHTML = data.uren_uren;
+        cell7.innerHTML = data.uren_declarabel;
+        cell8.innerHTML = data.bonus;
+        cell9.innerHTML = data.opmerking;
       }
     }
   });
 }
-
 
 function UrenUrenM() {
   api("users2", "GET").then((res) => {
@@ -618,11 +599,7 @@ function medewerkerProject2() {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         document.getElementById("selectionMedewerkerM").innerHTML +=
-          '<option value="' +
-          res.id.id +
-          '">' +
-          res.id.firstname +
-          "</option>";
+          '<option value="' + res.id.id + '">' + res.id.firstname + "</option>";
       }
     }
   });
@@ -670,14 +647,10 @@ function medewerkerUren2() {
           '">' +
           res.id[i].firstname +
           "</option>";
-
       }
     }
   });
 }
-
-
-
 
 let selectionProject = document.querySelector("#selectionKlanten1");
 var idProject = [];
@@ -766,7 +739,6 @@ selectionMedewerkerUren.addEventListener("change", () => {
   });
 });
 
-
 let selectionMedewerkerUren2 = document.querySelector(
   "#selectionMedewerkerUrenM"
 );
@@ -786,10 +758,6 @@ selectionMedewerkerUren2.addEventListener("change", () => {
   });
 });
 
-
-
-
-
 let selectionProjectUren = document.querySelector("#selection");
 var idProjectUren = [];
 
@@ -805,7 +773,6 @@ selectionProjectUren.addEventListener("change", () => {
     }
   });
 });
-
 
 let selectionProjectUren2 = document.querySelector("#selectionM");
 var idProjectUren2 = [];
@@ -823,9 +790,6 @@ selectionProjectUren2.addEventListener("change", () => {
   });
 });
 
-
-
-
 let selctionKlantenUren = document.querySelector("#selectionKlanten");
 var idKlantenUren = [];
 
@@ -842,8 +806,6 @@ selctionKlantenUren.addEventListener("change", () => {
     }
   });
 });
-
-
 
 let selctionKlantenUren2 = document.querySelector("#selectionKlantenM");
 var idKlantenUren2 = [];
@@ -929,6 +891,30 @@ function dashToevoegenM() {
 }
 // Ref-linken van buttons voor Medewerker: overzicht -> toevoegen END
 
+// Ref-linken van buttons voor Medewerker: overzicht -> bewerken BEGIN
+function projectBewerkenM() {
+  showPage("projectBewerkenM");
+}
+function klantBewerkenM() {
+  showPage("klantBewerkenM");
+}
+function dashBewerkenM() {
+  showPage("toevoegenPageBewerkenM");
+}
+// Ref-linken van buttons voor Medewerker: overzicht -> bewerken END
+
+// Ref-linken van buttons voor Medewerker: overzicht -> verwijderen BEGIN
+function projectVerwijderenM() {
+  showPage("projectVerwijderenM");
+}
+function klantVerwijderenM() {
+  showPage("klantVerwijderenM");
+}
+function dashVerwijderenM() {
+  showPage("toevoegenPageVerwijderenM");
+}
+// Ref-linken van buttons voor Medewerker: overzicht -> verwijderen END
+
 // Ref-linken van buttons voor ADMIN: toevoegen -> overzicht BEGIN
 function projectToevoegenCancel() {
   showPage("projectenPage");
@@ -989,7 +975,7 @@ function projectenPageNavM() {
 }
 
 function loginBtnM() {
- location.reload();
+  location.reload();
 }
 // Ref-linken van buttons in de Medwerker navbar END
 
@@ -1001,7 +987,6 @@ function projectConfirm() {
 //voor admin
 function klantenPostenButton() {
   KlantenPosten();
-
 }
 
 //voor medewerker
@@ -1012,7 +997,6 @@ function projectConfirmM() {
 //voor medewerker
 function klantenPostenButtonM() {
   KlantenPosten();
-
 }
 
 function projectConfirm() {
@@ -1035,7 +1019,6 @@ function bindEvents() {
   connectButton("confirm", urenPosten);
   connectButton("confirmm", urenPosten2);
 
-
   connectButton("projectAdd", projectToevoegen);
   connectButton("klantAdd", klantToevoegen);
   connectButton("add", dashToevoegen);
@@ -1048,12 +1031,33 @@ function bindEvents() {
   connectButton("klantAddM", klantToevoegenM);
   connectButton("addM", dashToevoegenM);
 
+  connectButton("projectEditM", projectBewerkenM);
+  connectButton("klantEditM", klantBewerkenM);
+  connectButton("editM", dashBewerkenM);
+
+  connectButton("projectDeleteM", projectVerwijderenM);
+  connectButton("klantDeleteM", klantVerwijderenM);
+  connectButton("deleteM", dashVerwijderenM);
+
   connectButton("projectCancelM", projectToevoegenCancelM);
+  connectButton("projectCancelBewerkenM", projectToevoegenCancelM);
+  connectButton("projectCancelVerwijderenM", projectToevoegenCancelM);
+
   connectButton("klantCancelM", klantToevoegenCancelM);
+  connectButton("klantCancelBewerkenM", klantToevoegenCancelM);
+  connectButton("klantCancelVerwijderenM", klantToevoegenCancelM);
+
   connectButton("cancelM", dashToevoegenCancelM);
+  connectButton("cancelBewerkenM", dashToevoegenCancelM);
+  connectButton("cancelVerwijderenM", dashToevoegenCancelM);
 
   connectButton("projectConfirmM", projectConfirmM);
+  connectButton("projectConfirmBijwerkenM"); // Hier moet een link komen naar project bijwerken functie
+  connectButton("projectConfirmVerwijderenM"); // Hier moet een link komen naar project verwijderen functie
+
   connectButton("klantConfirmM", klantenPostenButtonM);
+  connectButton("klantConfirmBijwerkenM"); // Hier moet een link komen naar klant bijwerken functie
+  connectButton("klantCancelVerwijderenM"); // Hier moet een link komen naar klant verwijderen functie
 
   // ----------- Admin navlinks ------------------------------------------------------------
 
@@ -1120,6 +1124,20 @@ function bindEvents() {
   connectButton("loginPageBtn1M", loginBtnM);
   // Ref-linken van buttons in de Klant Aanmaken navbar END
 
+  // Ref-linken van buttons in de Klant Bewerken navbar BEGIN
+  connectButton("dashboardPageBtn6M", dashboardPageNavM);
+  connectButton("klantenPageBtn6M", klantenPageNavM);
+  connectButton("projectenPageBtn6M", projectenPageNavM);
+  connectButton("loginPageBtn6M", loginBtnM);
+  // Ref-linken van buttons in de Klant Bewerken navbar END
+
+  // Ref-linken van buttons in de Klant Verwijderen navbar BEGIN
+  connectButton("dashboardPageBtn7M", dashboardPageNavM);
+  connectButton("klantenPageBtn7M", klantenPageNavM);
+  connectButton("projectenPageBtn7M", projectenPageNavM);
+  connectButton("loginPageBtn7M", loginBtnM);
+  // Ref-linken van buttons in de Klant Verwijderen navbar END
+
   // Ref-linken van buttons in de Klant Overzicht navbar BEGIN
   connectButton("dashboardPageBtn4M", dashboardPageNavM);
   connectButton("klantenPageBtn4M", klantenPageNavM);
@@ -1133,6 +1151,20 @@ function bindEvents() {
   connectButton("projectenPageBtn2M", projectenPageNavM);
   connectButton("loginPageBtn2M", loginBtnM);
   // Ref-linken van buttons in de Project Aanmaken navbar END
+
+  // Ref-linken van buttons in de Project Bewerken navbar BEGIN
+  connectButton("dashboardPageBtn8M", dashboardPageNavM);
+  connectButton("klantenPageBtn8M", klantenPageNavM);
+  connectButton("projectenPageBtn8M", projectenPageNavM);
+  connectButton("loginPageBtn8M", loginBtnM);
+  // Ref-linken van buttons in de Project Bewerken navbar END
+
+  // Ref-linken van buttons in de Project Verwijderen navbar BEGIN
+  connectButton("dashboardPageBtn9M", dashboardPageNavM);
+  connectButton("klantenPageBtn9M", klantenPageNavM);
+  connectButton("projectenPageBtn9M", projectenPageNavM);
+  connectButton("loginPageBtn9M", loginBtnM);
+  // Ref-linken van buttons in de Project Verwijderen navbar END
 
   // Ref-linken van buttons in de Project Overzicht navbar BEGIN
   connectButton("dashboardPageBtn5M", dashboardPageNavM);
@@ -1148,6 +1180,20 @@ function bindEvents() {
   connectButton("loginPageBtn3M", loginBtnM);
   // Ref-linken van buttons in de Toevoegen navbar END
 
+  // Ref-linken van buttons in de Toevoegen Bewerken navbar BEGIN
+  connectButton("dashboardPageBtn10M", dashboardPageNavM);
+  connectButton("klantenPageBtn10M", klantenPageNavM);
+  connectButton("projectenPageBtn10M", projectenPageNavM);
+  connectButton("loginPageBtn10M", loginBtnM);
+  // Ref-linken van buttons in de Toevoegen Bewerken navbar END
+
+  // Ref-linken van buttons in de Toevoegen Verwijderen navbar BEGIN
+  connectButton("dashboardPageBtn11M", dashboardPageNavM);
+  connectButton("klantenPageBtn11M", klantenPageNavM);
+  connectButton("projectenPageBtn11M", projectenPageNavM);
+  connectButton("loginPageBtn11M", loginBtnM);
+  // Ref-linken van buttons in de Toevoegen Verwijderen navbar END
+
   enableSubmits();
 }
 
@@ -1158,7 +1204,7 @@ function enableSubmits() {
       console.log(e);
       let target = e.target;
       while (!target.className.includes("input")) {
-        console.log(target);  
+        console.log(target);
         target = target.parentElement;
       }
       target.parentElement.getElementsByTagName("button")[0].click(); // click the first button
