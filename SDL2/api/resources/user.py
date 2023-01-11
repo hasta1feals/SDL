@@ -185,15 +185,16 @@ def create_projecten():
     # Make the insert query with parameters
     qry = '''
             INSERT INTO 
-              `project` (`klanten_id` ,`begin`, `naam`, 'user_id')
-           VALUES (:klanten_id , :begin, :naam, :user_id);
+              `project` (`klanten_id` ,`begin`, `naam`, 'user_id', 'show')
+           VALUES (:klanten_id , :begin, :naam, :user_id, :show);
     '''
    
     data = {
         "klanten_id": args["klanten_id"],
         "begin": args["begin"],
         "naam": args["naam"],
-        "user_id": args["user_id"]
+        "user_id": args["user_id"],
+        "show": args["show"]
         }
     try:
         id = DB.insert(qry, data)

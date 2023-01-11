@@ -59,6 +59,7 @@ function projectPosten() {
   data = {
     naam: getValue("projectNaam"),
     begin: getValue("projectBeginDatum"),
+    show: 0,
     klanten_id: x,
     user_id: y,
   };
@@ -75,8 +76,9 @@ function projectPosten2() {
   let y = idMedewerker2.toString();
 
   data = {
-    naam: getValue("s"),
+    naam: getValue("projectNaamM"),
     begin: getValue("projectBeginDatumM"),
+    show: 0,
     klanten_id: x,
     user_id: y,
   };
@@ -1406,7 +1408,7 @@ function klantenPostenButtonM() {
 }
 
 function projectConfirm() {
-  showPage(dashboardPageNav);
+  projectPosten() 
   //waarom is dit dat moet het niet het volgende zijn ' projectPosten() '
 }
 
