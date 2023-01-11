@@ -162,6 +162,26 @@ function KlantenPosten() {
 }
 
 
+function KlantenPosten2() {
+  data = {
+    voornaam: getValue("klantm"),
+    woonplaats: getValue("Woonplaatsm"),
+    adres: getValue("Straatm"),
+    huisnummer: getValue("huisnummer1m"),
+    postcode: getValue("Postcodem"),
+    telefoon: getValue("Telefoonm"),
+    show:0
+  };
+
+  // Submit data to API
+  api("klanten", "POST", data).then((res) => {
+    if (res.message == "success") {
+      // klantenKlanten2();
+    }
+  });
+}
+
+
 function projectVerwijder() {
   let x = idProjectver.toString();
   data = {
@@ -773,7 +793,7 @@ function klantVer2() {
           '<option value="' +
           res.id[i].id +
           '">' +
-          res.id[i].voornaam + " " + res.id[i].achternaam +
+          res.id[i].voornaam + 
           "</option>";
       }
     }
@@ -1404,7 +1424,7 @@ function projectConfirmM() {
 
 //voor medewerker
 function klantenPostenButtonM() {
-  KlantenPosten();
+  KlantenPosten2();
 }
 
 function projectConfirm() {
