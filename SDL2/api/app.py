@@ -20,7 +20,6 @@ jwt = JWTManager(app)
 app.add_url_rule('/users', None, create_user, methods=['POST'])
 app.add_url_rule('/users', None, get_users, methods=['GET'])
 app.add_url_rule('/users2', None,get_uren3, methods=['GET'])
-
 app.add_url_rule('/auth', None, login, methods=['POST'])
 app.add_url_rule('/me', None, me, methods=['GET'])
 app.add_url_rule('/projecten', None, create_projecten, methods=['POST'])
@@ -34,8 +33,6 @@ app.add_url_rule('/medewerker', None, get_medewerker, methods=['GET'])
 app.add_url_rule('/medewerker2', None, get_medewerker2, methods=['GET'])
 app.add_url_rule('/projectV', None, delete_project, methods=['PATCH'])
 app.add_url_rule('/klantenV', None, delete_klanten, methods=['PATCH'])
-
-
 app.add_url_rule('/uren', None, create_uren, methods=['POST'])
 app.add_url_rule('/uren', None, get_uren2, methods=['GET'])
 

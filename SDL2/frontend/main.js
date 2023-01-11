@@ -6,6 +6,12 @@ function register(e) {
     alert("Passwords do not match");
     return;
   }
+  
+
+  if(getValue("email3")){
+    !/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/gim.test(getValue("email3")) ? alert("Email is not valid") : null;
+  }
+  }
   data = {
     password: getValue("password3"),
     email: getValue("email3"),
@@ -13,6 +19,28 @@ function register(e) {
     lastname: getValue("achternaam"),
     admin: 0,
     // s: 137173187381783
+  };
+
+  // Submit data to API
+  api("users", "POST", data).then((res) => {
+    if (res.message == "success") {
+      userAanmaken();
+      alert("Account created");
+    }
+  });
+
+
+
+function projectBer() {
+
+  x = idProjectber2.toString()
+  // Check if passwords match
+  data = {
+    begin: getValue("b"),
+    firstname: getValue("m"),
+    klantennaam: getValue("k"),
+    id:x
+
   };
 
   // Submit data to API
@@ -229,6 +257,7 @@ function login2fa() {
       setCookie("token", res.access_token, 365);
       // window.location.href="dashbord.html";
       userInfo();
+
       showPage("dashboardPage");
     } else {
       alert("Credentials are incorrect");
@@ -236,10 +265,31 @@ function login2fa() {
   });
 }
 
+
+
+
+function login2faM() {
+  // Fetch data from html
+          showQrCodeM();
+      showPage("dashboardPageM");
+  
+
+}
 function showQrCode() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
   api("otpp", "GET", data).then((res) => {
     img = document.getElementById("qr");
+    img.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+      res.barcode;
+  });
+}
+
+
+function showQrCodeM() {
+  // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
+  api("otpp", "GET", data).then((res) => {
+    img = document.getElementById("qrM");
     img.src =
       "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
       res.barcode;
@@ -303,18 +353,24 @@ function getUser() {
       ).innerText = `Welcome, ${res.user.firstname} ${res.user.lastname}`;
 
       userID.push(res.user.id);
-      // showPage("otpPage");
-      // showQrCode();
+      showPage("otpPage");
+      showQrCode();
       // window.location.href="dashbord.html";
       if (res.user.admin == 1) {
-        showPage("dashboardPageM");
+        showPage("otpPageM");
+        showQrCodeM();
+
+       
         klantenKlanten2();
         projectProject2();
         klantenProject2();
         medewerkerProject2();
       } else {
-        showPage("dashboardPage");
+        showPage("otpPage");
+        projectProject();
+
       }
+      projectBer();
       klantVer2();
       projectVer();
       klantVer();
@@ -324,7 +380,6 @@ function getUser() {
       medewerkerProject();
       klantenNaam();
       // showPage("registerPage")
-      projectProject();
       klantenKlanten();
       klantenProjectProject();
       userInfo();
@@ -404,6 +459,21 @@ function projectVer() {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         document.getElementById("selectverwijdenproject").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].naam +
+          "</option>";
+      }
+    }
+  });
+}
+
+function projectBer() {
+  api("projecten2", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionMedewerkerBewerkenM1").innerHTML +=
           '<option value="' +
           res.id[i].id +
           '">' +
@@ -773,7 +843,11 @@ function medewerkerProject2() {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         document.getElementById("selectionMedewerkerM").innerHTML +=
-          '<option value="' + res.id.id + '">' + res.id.firstname + "</option>";
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].firstname +
+          "</option>";
       }
     }
   });
@@ -972,6 +1046,31 @@ selectionProjectVer2.addEventListener("change", () => {
   });
 });
 
+
+
+let selectionProjectBer2 = document.querySelector("#selectionMedewerkerBewerkenM1");
+var idProjectber2 = [];
+
+selectionProjectBer2.addEventListener("change", () => {
+  api("projecten2", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionProjectBer2.value) {
+          console.log("dadak")
+          document.getElementsByClassName("klan2")[0].placeholder = res.id[i].klantennaam;
+          document.getElementsByClassName("med2")[0].placeholder = res.id[i].firstname;
+          document.getElementsByClassName("beg2")[0].placeholder = res.id[i].begin;
+
+
+
+
+          idProjectber2.push(res.id[i].id)
+          break;
+        }
+      }
+    }
+  });
+});
 
 
 let selectionProjectVer= document.querySelector("#selectverwijdenproject");
@@ -1327,6 +1426,7 @@ connectButton("klantConfirmVerwijderenM1",klantenVerwijder22)
   // connectButton("confirm", projectToevoegenConfirm);
   connectButton("login", login);
   connectButton("login2fa", login2fa);
+  connectButton("login2faM", login2faM);
   connectButton("reg", register);
   connectButton("regop", regerop);
   connectButton("klanten", klanten);

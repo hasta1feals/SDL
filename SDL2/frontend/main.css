@@ -258,6 +258,19 @@ h1{
     font-size: 18px;
     border-radius: 5px;
 }
+#login2faM{
+    width: 288.09px;
+    border: none;
+    margin-left: 119px;
+    
+    outline: none;
+    height: 40px;
+    background:  #42447D;
+
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+}
 
 #qrbutton{
     width: 288.09px;

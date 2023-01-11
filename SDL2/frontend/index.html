@@ -33,6 +33,28 @@
         </div>
     </div>
 
+
+
+        <!-- 2fa page -->
+        <div class="container hidden" id="otpPageM">
+            <div class="loginbox">
+                <h1>2FA</h1>
+                <form>
+                    <div class="loginlogin">
+                        <input type="text" name="Code" placeholder="Code" id="code" />
+                        <br>
+    
+                        <button type='button' id="login2faM"> Login</button>
+                        <button type='button' onclick="qrbtn()" id="qrbutton"> Qr code</button>
+                        <br>
+                        <div id="qr1">
+                            <img id="qrM" src="" alt="qr" class="qr">
+                        </div>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
     <!-- Klant Aanmaken -->
     <div class="container hidden" id="klantAanmaken">
 
@@ -1961,30 +1983,28 @@
             <h1 class="h1Text">Project Bewerken</h1>
 
             <div class="projectNaam">
-                <Label>Project Naam <br />
-                    <input type="text" id="projectNaamBewerkenM" placeholder="Project Naam" />
+                <Label>Project naam <br />
+                    <select class="projectSelection1" id="selectionMedewerkerBewerkenM1">
+                        <option id="choose-template" value="template" disabled selected>Project naam</option>
+                    </select>
                 </Label>
             </div>
 
             <div class="projectMedewerker">
                 <Label>Medewerker <br />
-                    <select class="projectSelection1" id="selectionMedewerkerBewerkenM">
-                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
-                    </select>
+                    <input type="text" class="med2" id="m" placeholder="Medewerker" />
                 </Label>
             </div> <br />
 
             <div class="projectKlant">
                 <Label>Klant <br />
-                    <select class="projectSelection1" id="selectionKlanten1BewerkenM">
-                        <option id="choose-template" value="template" disabled selected>Klanten</option>
-                    </select>
+                    <input type="text" class="klan2" id="k" placeholder="Klant" />
                 </Label>
             </div> <br />
 
             <div class="projectBeginDatum">
                 <Label>Begin Datum <br />
-                    <input type="date" id="projectBeginDatumBewerkenM" placeholder="Begin Datum" />
+                    <input type="text" class="beg2" id="b" placeholder="Begin Datum" />
                 </Label>
             </div> <br />
 
