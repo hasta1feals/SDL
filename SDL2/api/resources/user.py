@@ -52,12 +52,13 @@ def get_medewerker():
 def get_projecten2():
     # qry om users te laten zien
     qry = '''
-   SELECT project.naam , klanten.voornaam klantennaam ,project.begin , users.firstname 
+   SELECT project.naam, project.id, klanten.voornaam klantennaam ,project.begin , users.firstname 
 FROM project
 INNER JOIN users
 ON klanten.id = project.klanten_id
 INNER JOIN klanten
 ON users.id = project.user_id
+ where project.show = 0
 
 
     '''
@@ -69,6 +70,9 @@ ON users.id = project.user_id
     return {'message': 'success', 'id': id}, 201
 
 
+
+
+
 def get_klanten2():
     # qry om users te laten zien
     qry = '''
@@ -76,7 +80,7 @@ def get_klanten2():
 FROM klanten
 left JOIN project
 ON klanten.id = project.klanten_id
-
+WHERE klanten.show = 0;
 
     '''
     try:
@@ -255,6 +259,53 @@ def create_uren():
         
     return {'message': 'success', 'id': id}, 201
 
+
+@jwt_required()
+def delete_project():
+    user = get_jwt_identity()
+
+    args = request.get_json()
+    print(user)
+
+    qry = '''
+ UPDATE project SET `show` = :show
+WHERE id = :id;
+
+    '''
+    data = {
+    
+          "id": args["id"],
+        "show": 1
+       
+        }
+    
+    model = DB.update(qry,data)
+    
+    return {'message': 'success', 'id': model}, 201
+
+
+@jwt_required()
+def delete_klanten():
+    user = get_jwt_identity()
+
+    args = request.get_json()
+    print(user)
+
+    qry = '''
+ UPDATE klanten SET `show` = :show
+WHERE id = :id;
+
+    '''
+    data = {
+    
+          "id": args["id"],
+        "show": 1
+       
+        }
+    
+    model = DB.update(qry,data)
+    
+    return {'message': 'success', 'id': model}, 201
 
 
 

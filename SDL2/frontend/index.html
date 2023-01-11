@@ -387,43 +387,45 @@
             <h1 class="klantHeader">Klant Verwijderen</h1>
 
             <div class="klant">
-                <Label>Klant <br />
-                    <input type="text" id="klantVerwijderen" placeholder="Klant" />
-                    </select>
-                </Label>
+                    <Label>Klant<br />
+                        <select class="projectSelection1" id="klantselectverwijderen">
+                            <option id="choose-template" value="template" disabled selected>Klant</option>
+                        </select>
+                    </Label>
+                
             </div>
 
             <div class="klantWoonplaats">
                 <Label>Woonplaats <br />
-                    <input type="text" id="WoonplaatsVerwijderen" placeholder="Woonplaats" />
+                    <input type="text" class="woonplaatsVer" id="WoonplaatsVerwijderen" placeholder="Woonplaats" />
                 </Label>
             </div> <br />
 
             <div class="klantStraat">
                 <Label>Straat <br />
-                    <input type="text" id="StraatVerwijderen" placeholder="Straat" />
+                    <input type="text" class="streetVer" id="StraatVerwijderen" placeholder="Straat" />
                 </Label>
             </div>
 
             <div class="klantTelefoon">
                 <Label>Telefoon <br />
-                    <input type="text" id="TelefoonVerwijderen" placeholder="Telefoon" />
+                    <input type="text"class="telefoonVer" id="TelefoonVerwijderen" placeholder="Telefoon" />
                 </Label>
             </div>
 
             <div class="klantHuisnummer">
                 <Label>Huisnummer <br />
-                    <input type="text" id="huisnummer1Verwijderen" placeholder="Huisnummer" />
+                    <input type="text" class="huisnummerVer" id="huisnummer1Verwijderen" placeholder="Huisnummer" />
                 </Label>
             </div>
 
             <div class="klantPostcode">
                 <Label>Postcode <br />
-                    <input type="text" id="PostcodeVerwijderen" placeholder="Postcode" />
+                    <input type="text" class="postcodeVer" id="PostcodeVerwijderen" placeholder="Postcdd-dode" />
                 </Label>
             </div>
 
-            <a id="klantConfirmVerwijderen" class="klantConfirm" href="#">Toevoegen</a>
+            <a id="klantConfirmVerwijderen1" class="klantConfirm" href="#">Verwijderen</a>
             <a id="klantCancelVerwijderen" class="klantCancel" href="#">Terug</a>
 
         </div>
@@ -766,33 +768,33 @@
 
             <div class="projectNaam">
                 <Label>Project Naam <br />
-                    <input type="text" id="projectNaamVerwijderen" placeholder="Project Naam" />
+                    <select class="projectSelection1" id="selectverwijdenproject">
+                        <option id="choose-template" value="template" disabled selected>Project</option>
+                    </select>
                 </Label>
             </div>
 
             <div class="projectMedewerker">
-                <Label>Medewerker <br />
-                    <select class="projectSelection1" id="selectionMedewerkerVerwijderen">
-                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
-                    </select>
-                </Label>
+             
+                    <Label>Medewerker <br />
+                        <input type="text" class="mederwerkerVer" placeholder="Medewerker" />
+                    </Label>
             </div> <br />
 
             <div class="projectKlant">
                 <Label>Klant <br />
-                    <select class="projectSelection1" id="selectionKlanten1Verwijderen">
-                        <option id="choose-template" value="template" disabled selected>Klanten</option>
-                    </select>
+                  
+                        <input type="text" class="klantVer" placeholder="Klant" />
                 </Label>
             </div> <br />
 
             <div class="projectBeginDatum">
                 <Label>Begin Datum <br />
-                    <input type="date" id="projectBeginDatumVerwijderen" placeholder="Begin Datum" />
+                    <input type="text" class="beginVer" placeholder="Begin Datum" />
                 </Label>
             </div> <br />
 
-            <a id="projectConfirmVerwijderen" class="projectConfirm" href="#">Toevoegen</a>
+            <a id="projectConfirmVerwijderen1" class="projectConfirm" href="#">Verwijderen</a>
             <a id="projectCancelVerwijderen" class="projectCancel" href="#">Terug</a>
 
         </div>
@@ -2070,34 +2072,28 @@
             <h1 class="h1Text">Project Verwijderen</h1>
 
             <div class="projectNaam">
-                <Label>Project Naam <br />
-                    <input type="text" id="projectNaamVerwijderenM" placeholder="Project Naam" />
+                <Label>Project <br />
+                    <select class="projectSelection1" id="selectionKlanten1VerwijderenM">
+                        <option id="choose-template" value="template" disabled selected>Project</option>
+                    </select>
                 </Label>
             </div>
 
             <div class="projectMedewerker">
-                <Label>Medewerker <br />
-                    <select class="projectSelection1" id="selectionMedewerkerVerwijderenM">
-                        <option id="choose-template" value="template" disabled selected>Medewerker</option>
-                    </select>
-                </Label>
+
+                    <Label>Medewerker <br /> <input class="klantVer2" type="text" id="Uren" placeholder="Medewerker" /> </Label>
+             
             </div> <br />
 
             <div class="projectKlant">
-                <Label>Klant <br />
-                    <select class="projectSelection1" id="selectionKlanten1VerwijderenM">
-                        <option id="choose-template" value="template" disabled selected>Klanten</option>
-                    </select>
-                </Label>
+                <Label>Klanten <br /> <input class="mederwerkerVer2" type="text" id="Uren" placeholder="Klanten" /> </Label>
             </div> <br />
 
             <div class="projectBeginDatum">
-                <Label>Begin Datum <br />
-                    <input type="date" id="projectBeginDatumVerwijderenM" placeholder="Begin Datum" />
-                </Label>
+                <Label>Datum <br /> <input class="beginVer2" type="text" id="Uren" placeholder="Datum" /> </Label>
             </div> <br />
 
-            <a id="projectConfirmVerwijderenM" class="projectConfirm" href="#">Toevoegen</a>
+            <a id="projectConfirmVerwijderenM1" class="projectConfirm" href="#">Verwijderen</a>
             <a id="projectCancelVerwijderenM" class="projectCancel" href="#">Terug</a>
 
         </div>
@@ -2723,42 +2719,43 @@
 
             <div class="klant">
                 <Label>Klant <br />
-                    <input type="text" id="klantVerwijderen" placeholder="Klant" />
+                    <select class="projectSelection1" id="selectionKlanten1B">
+                        <option id="choose-template" value="template" disabled selected>Klanten</option>
                     </select>
                 </Label>
             </div>
 
             <div class="klantWoonplaats">
                 <Label>Woonplaats <br />
-                    <input type="text" id="WoonplaatsVerwijderen" placeholder="Woonplaats" />
+                    <input class="woonplaatsVer2" type="text" id="WoonplaatsVerwijderen" placeholder="Woonplaats" />
                 </Label>
             </div> <br />
 
             <div class="klantStraat">
                 <Label>Straat <br />
-                    <input type="text" id="StraatVerwijderen" placeholder="Straat" />
+                    <input class="streetVer2" type="text" id="StraatVerwijderen" placeholder="Straat" />
                 </Label>
             </div>
 
             <div class="klantTelefoon">
                 <Label>Telefoon <br />
-                    <input type="text" id="TelefoonVerwijderen" placeholder="Telefoon" />
+                    <input type="text" class="telefoonVer2" id="TelefoonVerwijderen" placeholder="Telefoon" />
                 </Label>
             </div>
 
             <div class="klantHuisnummer">
                 <Label>Huisnummer <br />
-                    <input type="text" id="huisnummer1Verwijderen" placeholder="Huisnummer" />
+                    <input type="text" class="huisnummerVer2" id="huisnummer1Verwijderen" placeholder="Huisnummer" />
                 </Label>
             </div>
 
             <div class="klantPostcode">
                 <Label>Postcode <br />
-                    <input type="text" id="PostcodeVerwijderen" placeholder="Postcode" />
+                    <input type="text" class="postcodeVer2" id="PostcodeVerwijderen" placeholder="Postcode" />
                 </Label>
             </div>
 
-            <a id="klantConfirmVerwijderenM" class="klantConfirm" href="#">Toevoegen</a>
+            <a id="klantConfirmVerwijderenM1" class="klantConfirm" href="#">Verwijderen</a>
             <a id="klantCancelVerwijderenM" class="klantCancel" href="#">Terug</a>
 
         </div>
