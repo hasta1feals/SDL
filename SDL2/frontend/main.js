@@ -156,7 +156,7 @@ function KlantenPosten() {
   // Submit data to API
   api("klanten", "POST", data).then((res) => {
     if (res.message == "success") {
-      klantenKlanten();
+      // klantenKlanten();
     }
   });
 }

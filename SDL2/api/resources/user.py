@@ -209,8 +209,8 @@ def create_klanten():
     # Make the insert query with parameters
     qry = '''
           INSERT INTO 
-              `klanten` ( voornaam, woonplaats,huisnummer, adres, postcode, telefoon)
-           VALUES (:voornaam, :woonplaats, :adres,:huisnummer, :postcode, :telefoon);
+              `klanten` ( voornaam, woonplaats,huisnummer, adres, postcode, telefoon, 'show')
+           VALUES (:voornaam, :woonplaats, :adres,:huisnummer, :postcode, :telefoon, :show);
     '''
    
     data = {
@@ -219,7 +219,8 @@ def create_klanten():
         "huisnummer": args["huisnummer"],
         "adres": args["adres"],
         "postcode": args["postcode"],
-        "telefoon": args["telefoon"]
+        "telefoon": args["telefoon"],
+        "show": args["show"]
     
         }
     try:
