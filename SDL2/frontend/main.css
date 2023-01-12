@@ -610,7 +610,7 @@ p {
 
 /* Deze wordt gebruikt in de pop up */
 .inputWrapper .confirm {
-    background: #004CD0;  
+    background: #1E8034;  
     color: #FFFFFF; 
     float: right;
     position: absolute;
@@ -815,7 +815,7 @@ p {
 }
 
 .klantWrapper .klantConfirm {
-    background: #004CD0;  
+    background: #1E8034;  
     color: #FFFFFF; 
     float: right;
     position: absolute;
@@ -925,7 +925,7 @@ p {
 }
 
 .projectWrapper .projectConfirm {
-    background: #004CD0;  
+    background: #1E8034;  
     color: #FFFFFF; 
     float: right;
     position: absolute;
