@@ -1,5 +1,61 @@
 //Verscrikkele manier en onveilige manier om een qr code te genereren. Vraag bram ff hoe je dit beter kan doen. En waarom je geen import stateMENTS mag gebruiken in js
 
+let x = Date.now = function() { return new Date().getTime(); };
+
+function exportTableToExcel(tableID, filename = ''){
+
+
+
+  var downloadLink;
+  var dataType = 'application/vnd.ms-excel';
+  var tableSelect = document.getElementById(tableID);
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+
+  // Specify file name
+  filename = filename?filename+'.xls':'excel_data.xls';
+
+//create dowanliad link element
+  downloadLink = document.createElement("a");
+
+  document.body.appendChild(downloadLink);
+  if(navigator.msSaveOrOpenBlob){
+    var blob = new Blob(['\ufeff', tableHTML], {
+      type: dataType
+    });
+    navigator.msSaveOrOpenBlob( blob, filename);
+  }else{
+    // Create a link to the file
+    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+    // Setting the file name
+    downloadLink.download = filename;
+
+    //triggering the function
+    downloadLink.click();
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function register(e) {
   // Check if passwords match
   if (getValue("password3") != getValue("password4")) {
