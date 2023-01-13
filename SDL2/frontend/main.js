@@ -62,41 +62,38 @@ function register(e) {
     alert("Passwords do not match");
     return;
   }
-  
 
-  if(getValue("email3")){
-    !/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/gim.test(getValue("email3")) ? alert("Email is not valid") : null;
+  if (getValue("email3")) {
+    !/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/gim.test(getValue("email3"))
+      ? alert("Email is not valid")
+      : null;
   }
+}
+data = {
+  password: getValue("password3"),
+  email: getValue("email3"),
+  firstname: getValue("voornaam"),
+  lastname: getValue("achternaam"),
+  admin: 0,
+  // s: 137173187381783
+};
+
+// Submit data to API
+api("users", "POST", data).then((res) => {
+  if (res.message == "success") {
+    userAanmaken();
+    alert("Account created");
   }
-  data = {
-    password: getValue("password3"),
-    email: getValue("email3"),
-    firstname: getValue("voornaam"),
-    lastname: getValue("achternaam"),
-    admin: 0,
-    // s: 137173187381783
-  };
-
-  // Submit data to API
-  api("users", "POST", data).then((res) => {
-    if (res.message == "success") {
-      userAanmaken();
-      alert("Account created");
-    }
-  });
-
-
+});
 
 function projectBer() {
-
-  x = idProjectber2.toString()
+  x = idProjectber2.toString();
   // Check if passwords match
   data = {
     begin: getValue("b"),
     firstname: getValue("m"),
     klantennaam: getValue("k"),
-    id:x
-
+    id: x,
   };
 
   // Submit data to API
@@ -206,7 +203,7 @@ function KlantenPosten() {
     huisnummer: getValue("huisnummer1"),
     postcode: getValue("Postcode"),
     telefoon: getValue("Telefoon"),
-    show:0
+    show: 0,
   };
 
   // Submit data to API
@@ -217,7 +214,6 @@ function KlantenPosten() {
   });
 }
 
-
 function KlantenPosten2() {
   data = {
     voornaam: getValue("klantm"),
@@ -226,7 +222,7 @@ function KlantenPosten2() {
     huisnummer: getValue("huisnummer1m"),
     postcode: getValue("Postcodem"),
     telefoon: getValue("Telefoonm"),
-    show:0
+    show: 0,
   };
 
   // Submit data to API
@@ -237,69 +233,60 @@ function KlantenPosten2() {
   });
 }
 
-
 function projectVerwijder() {
   let x = idProjectver.toString();
   data = {
-   id: x
+    id: x,
   };
 
   // Submit data to API
   api("projectV", "PATCH", data).then((res) => {
     if (res.message == "success") {
-     console.log("succes");
+      console.log("succes");
     }
   });
-
 }
 
 function projectVerwijder2() {
   let x = idProjectver2.toString();
   data = {
-   id: x
+    id: x,
   };
 
   // Submit data to API
   api("projectV", "PATCH", data).then((res) => {
     if (res.message == "success") {
-     console.log("succes");
+      console.log("succes");
     }
   });
-
 }
-
-
 
 function klantenVerwijder() {
   let x = idKlantver.toString();
   data = {
-   id: x
+    id: x,
   };
 
   // Submit data to API
   api("klantenV", "PATCH", data).then((res) => {
     if (res.message == "success") {
-     console.log("succes");
+      console.log("succes");
     }
   });
-
 }
-
-
 
 function klantenVerwijder2() {
   let x = idKlantver2.toString();
   data = {
-   id: x
+    id: x,
   };
 
   // Submit data to API
   api("klantenV", "PATCH", data).then((res) => {
     if (res.message == "success") {
-     console.log("succes");
+      console.log("succes");
     }
   });
-
 }
 
 function login() {
@@ -343,15 +330,10 @@ function login2fa() {
   });
 }
 
-
-
-
 function login2faM() {
   // Fetch data from html
-          showQrCodeM();
-      showPage("dashboardPageM");
-  
-
+  showQrCodeM();
+  showPage("dashboardPageM");
 }
 function showQrCode() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
@@ -362,7 +344,6 @@ function showQrCode() {
       res.barcode;
   });
 }
-
 
 function showQrCodeM() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
@@ -438,7 +419,6 @@ function getUser() {
         showPage("otpPageM");
         showQrCodeM();
 
-       
         klantenKlanten2();
         projectProject2();
         klantenProject2();
@@ -446,13 +426,12 @@ function getUser() {
       } else {
         showPage("otpPage");
         projectProject();
-
       }
       projectBer();
       klantVer2();
       projectVer();
       klantVer();
-      projectUren();  
+      projectUren();
       klantenUren();
       klantenProject();
       medewerkerProject();
@@ -494,7 +473,6 @@ function projectUren() {
   });
 }
 
-
 function projectUren() {
   api("uren", "GET").then((res) => {
     if (res.message == "success") {
@@ -510,11 +488,6 @@ function projectUren() {
   });
 }
 
-
-
-
-
-
 function projectUren2() {
   api("projecten", "GET").then((res) => {
     if (res.message == "success") {
@@ -529,8 +502,6 @@ function projectUren2() {
     }
   });
 }
-
-
 
 function projectVer() {
   api("projecten2", "GET").then((res) => {
@@ -562,7 +533,6 @@ function projectBer() {
   });
 }
 
-
 function projectVer2() {
   api("projecten2", "GET").then((res) => {
     if (res.message == "success") {
@@ -577,7 +547,6 @@ function projectVer2() {
     }
   });
 }
-
 
 function klantenProjectProject() {
   api("projecten", "GET").then((res) => {
@@ -823,7 +792,6 @@ function klantenUren() {
   });
 }
 
-
 function klantVer() {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
@@ -832,14 +800,14 @@ function klantVer() {
           '<option value="' +
           res.id[i].id +
           '">' +
-          res.id[i].voornaam + " " + res.id[i].achternaam +
+          res.id[i].voornaam +
+          " " +
+          res.id[i].achternaam +
           "</option>";
       }
     }
   });
 }
-
-
 
 function klantVer2() {
   api("klanten", "GET").then((res) => {
@@ -849,13 +817,12 @@ function klantVer2() {
           '<option value="' +
           res.id[i].id +
           '">' +
-          res.id[i].voornaam + 
+          res.id[i].voornaam +
           "</option>";
       }
     }
   });
 }
-
 
 function klantenUren2() {
   api("klanten", "GET").then((res) => {
@@ -1100,7 +1067,9 @@ selectionProjectUren.addEventListener("change", () => {
   });
 });
 
-let selectionProjectVer2 = document.querySelector("#selectionKlanten1VerwijderenM");
+let selectionProjectVer2 = document.querySelector(
+  "#selectionKlanten1VerwijderenM"
+);
 var idProjectver2 = [];
 
 selectionProjectVer2.addEventListener("change", () => {
@@ -1108,15 +1077,15 @@ selectionProjectVer2.addEventListener("change", () => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionProjectVer2.value) {
-          console.log("dadak")
-          document.getElementsByClassName("klantVer2")[0].placeholder = res.id[i].klantennaam;
-          document.getElementsByClassName("mederwerkerVer2")[0].placeholder = res.id[i].firstname;
-          document.getElementsByClassName("beginVer2")[0].placeholder = res.id[i].begin;
+          console.log("dadak");
+          document.getElementsByClassName("klantVer2")[0].placeholder =
+            res.id[i].klantennaam;
+          document.getElementsByClassName("mederwerkerVer2")[0].placeholder =
+            res.id[i].firstname;
+          document.getElementsByClassName("beginVer2")[0].placeholder =
+            res.id[i].begin;
 
-
-
-
-          idProjectver2.push(res.id[i].id)
+          idProjectver2.push(res.id[i].id);
           break;
         }
       }
@@ -1124,9 +1093,9 @@ selectionProjectVer2.addEventListener("change", () => {
   });
 });
 
-
-
-let selectionProjectBer2 = document.querySelector("#selectionMedewerkerBewerkenM1");
+let selectionProjectBer2 = document.querySelector(
+  "#selectionMedewerkerBewerkenM1"
+);
 var idProjectber2 = [];
 
 selectionProjectBer2.addEventListener("change", () => {
@@ -1134,15 +1103,15 @@ selectionProjectBer2.addEventListener("change", () => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionProjectBer2.value) {
-          console.log("dadak")
-          document.getElementsByClassName("klan2")[0].placeholder = res.id[i].klantennaam;
-          document.getElementsByClassName("med2")[0].placeholder = res.id[i].firstname;
-          document.getElementsByClassName("beg2")[0].placeholder = res.id[i].begin;
+          console.log("dadak");
+          document.getElementsByClassName("klan2")[0].placeholder =
+            res.id[i].klantennaam;
+          document.getElementsByClassName("med2")[0].placeholder =
+            res.id[i].firstname;
+          document.getElementsByClassName("beg2")[0].placeholder =
+            res.id[i].begin;
 
-
-
-
-          idProjectber2.push(res.id[i].id)
+          idProjectber2.push(res.id[i].id);
           break;
         }
       }
@@ -1150,8 +1119,7 @@ selectionProjectBer2.addEventListener("change", () => {
   });
 });
 
-
-let selectionProjectVer= document.querySelector("#selectverwijdenproject");
+let selectionProjectVer = document.querySelector("#selectverwijdenproject");
 var idProjectver = [];
 
 selectionProjectVer.addEventListener("change", () => {
@@ -1159,15 +1127,15 @@ selectionProjectVer.addEventListener("change", () => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionProjectVer.value) {
-          console.log("dadak")
-          document.getElementsByClassName("klantVer")[0].placeholder = res.id[i].klantennaam;
-          document.getElementsByClassName("mederwerkerVer")[0].placeholder = res.id[i].firstname;
-          document.getElementsByClassName("beginVer")[0].placeholder = res.id[i].begin;
+          console.log("dadak");
+          document.getElementsByClassName("klantVer")[0].placeholder =
+            res.id[i].klantennaam;
+          document.getElementsByClassName("mederwerkerVer")[0].placeholder =
+            res.id[i].firstname;
+          document.getElementsByClassName("beginVer")[0].placeholder =
+            res.id[i].begin;
 
-
-
-
-          idProjectver.push(res.id[i].id)
+          idProjectver.push(res.id[i].id);
           break;
         }
       }
@@ -1175,28 +1143,27 @@ selectionProjectVer.addEventListener("change", () => {
   });
 });
 
-
-let selectionKlantenVer= document.querySelector("#klantselectverwijderen");
+let selectionKlantenVer = document.querySelector("#klantselectverwijderen");
 var idKlantver = [];
 
 selectionKlantenVer.addEventListener("change", () => {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
-        console.log("dadak")
+        console.log("dadak");
         if (res.id[i].id == selectionKlantenVer.value) {
-         
-          document.getElementsByClassName("woonplaatsVer")[0].placeholder = res.id[i].woonplaats;
-          document.getElementsByClassName("streetVer")[0].placeholder = res.id[i].adres;
-          document.getElementsByClassName("huisnummerVer")[0].placeholder = res.id[i].huisnummer;
-          document.getElementsByClassName("postcodeVer")[0].placeholder = res.id[i].postcode;
-          document.getElementsByClassName("telefoonVer")[0].placeholder = res.id[i].telefoon;
+          document.getElementsByClassName("woonplaatsVer")[0].placeholder =
+            res.id[i].woonplaats;
+          document.getElementsByClassName("streetVer")[0].placeholder =
+            res.id[i].adres;
+          document.getElementsByClassName("huisnummerVer")[0].placeholder =
+            res.id[i].huisnummer;
+          document.getElementsByClassName("postcodeVer")[0].placeholder =
+            res.id[i].postcode;
+          document.getElementsByClassName("telefoonVer")[0].placeholder =
+            res.id[i].telefoon;
 
-
-
-
-
-          idKlantver.push(res.id[i].id)
+          idKlantver.push(res.id[i].id);
           break;
         }
       }
@@ -1204,37 +1171,33 @@ selectionKlantenVer.addEventListener("change", () => {
   });
 });
 
-
-
-let selectionKlantenVer2= document.querySelector("#selectionKlanten1B");
+let selectionKlantenVer2 = document.querySelector("#selectionKlanten1B");
 var idKlantver2 = [];
 
 selectionKlantenVer2.addEventListener("change", () => {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
-        console.log("dadak")
+        console.log("dadak");
         if (res.id[i].id == selectionKlantenVer2.value) {
-         
-          document.getElementsByClassName("woonplaatsVer2")[0].placeholder = res.id[i].woonplaats;
-          document.getElementsByClassName("streetVer2")[0].placeholder = res.id[i].adres;
-          document.getElementsByClassName("huisnummerVer2")[0].placeholder = res.id[i].huisnummer;
-          document.getElementsByClassName("postcodeVer2")[0].placeholder = res.id[i].postcode;
-          document.getElementsByClassName("telefoonVer2")[0].placeholder = res.id[i].telefoon;
+          document.getElementsByClassName("woonplaatsVer2")[0].placeholder =
+            res.id[i].woonplaats;
+          document.getElementsByClassName("streetVer2")[0].placeholder =
+            res.id[i].adres;
+          document.getElementsByClassName("huisnummerVer2")[0].placeholder =
+            res.id[i].huisnummer;
+          document.getElementsByClassName("postcodeVer2")[0].placeholder =
+            res.id[i].postcode;
+          document.getElementsByClassName("telefoonVer2")[0].placeholder =
+            res.id[i].telefoon;
 
-
-
-
-
-          idKlantver2.push(res.id[i].id)
+          idKlantver2.push(res.id[i].id);
           break;
         }
       }
     }
   });
 });
-
-
 
 let selectionProjectUren2 = document.querySelector("#selectionM");
 var idProjectUren2 = [];
@@ -1484,24 +1447,37 @@ function klantenPostenButtonM() {
 }
 
 function projectConfirm() {
-  projectPosten() 
+  projectPosten();
   //waarom is dit dat moet het niet het volgende zijn ' projectPosten() '
 }
 
-
 function projectVerwijderen2() {
-
   projectVerwijder2();
-
 }
 
 function klantenVerwijder22() {
   klantenVerwijder2();
 }
+
+function QrCodeShow() {
+  showPage("QRCodePage");
+}
+
 function bindEvents() {
-connectButton("klantConfirmVerwijderenM1",klantenVerwijder22)
-  connectButton("klantConfirmVerwijderen1", klantenVerwijder)
-  // connectButton("confirm", projectToevoegenConfirm);
+  connectButton("QRCodeShowKA", QrCodeShow);
+  connectButton("QRCodeShowKB", QrCodeShow);
+  connectButton("QRCodeShowKV", QrCodeShow);
+
+  connectButton("QRCodeShowPA", QrCodeShow);
+  connectButton("QRCodeShowPB", QrCodeShow);
+  connectButton("QRCodeShowPV", QrCodeShow);
+
+  connectButton("QRCodeShowUA", QrCodeShow);
+  connectButton("QRCodeShowUB", QrCodeShow);
+  connectButton("QRCodeShowUV", QrCodeShow);
+
+  connectButton("klantConfirmVerwijderenM1", klantenVerwijder22);
+  connectButton("klantConfirmVerwijderen1", klantenVerwijder);
   connectButton("login", login);
   connectButton("login2fa", login2fa);
   connectButton("login2faM", login2faM);
@@ -1529,8 +1505,6 @@ connectButton("klantConfirmVerwijderenM1",klantenVerwijder22)
   connectButton("projectConfirmVerwijderen1", projectVerwijderen1);
   connectButton("projectConfirmVerwijderenM1", projectVerwijderen2);
 
-  
-
   connectButton("klantCancel", klantToevoegenCancel);
   connectButton("klantCancelBijwerken", klantToevoegenCancel);
   connectButton("klantCancelVerwijderen", klantToevoegenCancel);
@@ -1555,7 +1529,6 @@ connectButton("klantConfirmVerwijderenM1",klantenVerwijder22)
   connectButton("projectAddM", projectToevoegenM);
   connectButton("klantAddM", klantToevoegenM);
   connectButton("addM", dashToevoegenM);
- 
 
   connectButton("projectEditM", projectBewerkenM);
   connectButton("klantEditM", klantBewerkenM);

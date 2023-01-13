@@ -33,28 +33,44 @@
         </div>
     </div>
 
-
-
-        <!-- 2fa page -->
-        <div class="container hidden" id="otpPageM">
-            <div class="loginbox">
-                <h1>2FA</h1>
-                <form>
-                    <div class="loginlogin">
-                        <input type="text" name="Code" placeholder="Code" id="code" />
-                        <br>
-    
-                        <button type='button' id="login2faM"> Login</button>
-                        <button type='button' onclick="qrbtn()" id="qrbutton"> Qr code</button>
-                        <br>
-                        <div id="qr1">
-                            <img id="qrM" src="" alt="qr" class="qr">
-                        </div>
-                        <br>
+    <!-- QRCode page -->
+    <div class="container hidden" id="QRCodePage">
+        <div class="loginbox">
+            <h1>QR Code</h1>
+            <form>
+                <div class="loginlogin">
+                    <button type='button' onclick="qrbtn()" id="qrbutton"> Qr code</button>
+                    <br>
+                    <div id="qr1">
+                        <img id="qrShow" src="" alt="qr" class="qr">
                     </div>
-                </form>
-            </div>
+                    <br>
+                </div>
+            </form>
         </div>
+    </div>
+
+    <!-- 2fa page Medewerker -->
+    <div class="container hidden" id="otpPageM">
+        <div class="loginbox">
+            <h1>2FA</h1>
+            <form>
+                <div class="loginlogin">
+                    <input type="text" name="Code" placeholder="Code" id="code" />
+                    <br>
+
+                    <button type='button' id="login2faM"> Login</button>
+                    <button type='button' onclick="qrbtn()" id="qrbutton"> Qr code</button>
+                    <br>
+                    <!-- <div id="qr1">
+                        <img id="qrM" src="" alt="qr" class="qr">
+                    </div> -->
+                    <br>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Klant Aanmaken -->
     <div class="container hidden" id="klantAanmaken">
 
@@ -118,11 +134,24 @@
                     <a href="#" class="nav-link" id="registeren-navBtn1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             style="fill:white; transform: msFilter;">
+                            <!-- Dit moet nog anders maar hoe A~ -->
                             <path
                                 d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 8a3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4 3.91 3.91 0 0 0-4 4zm6 0a1.91 1.91 0 0 1-2 2 1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2zM4 18a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v1h2v-1a5 5 0 0 0-5-5H7a5 5 0 0 0-5 5v1h2z">
                             </path>
                         </svg>
                         <span class="link-text">Registratie</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="QRCodeShowKA">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            style="fill:white; transform: msFilter;">
+                            <path
+                                d="M19 8h-2v3h-3v2h3v3h2v-3h3v-2h-3zM4 8a3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4 3.91 3.91 0 0 0-4 4zm6 0a1.91 1.91 0 0 1-2 2 1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2zM4 18a3 3 0 0 1 3-3h2a3 3 0 0 1 3 3v1h2v-1a5 5 0 0 0-5-5H7a5 5 0 0 0-5 5v1h2z">
+                            </path>
+                        </svg>
+                        <span class="link-text">QR Code</span>
                     </a>
                 </li>
 
@@ -409,12 +438,12 @@
             <h1 class="klantHeader">Klant Verwijderen</h1>
 
             <div class="klant">
-                    <Label>Klant<br />
-                        <select class="projectSelection1" id="klantselectverwijderen">
-                            <option id="choose-template" value="template" disabled selected>Klant</option>
-                        </select>
-                    </Label>
-                
+                <Label>Klant<br />
+                    <select class="projectSelection1" id="klantselectverwijderen">
+                        <option id="choose-template" value="template" disabled selected>Klant</option>
+                    </select>
+                </Label>
+
             </div>
 
             <div class="klantWoonplaats">
@@ -431,7 +460,7 @@
 
             <div class="klantTelefoon">
                 <Label>Telefoon <br />
-                    <input type="text"class="telefoonVer" id="TelefoonVerwijderen" placeholder="Telefoon" />
+                    <input type="text" class="telefoonVer" id="TelefoonVerwijderen" placeholder="Telefoon" />
                 </Label>
             </div>
 
@@ -797,16 +826,16 @@
             </div>
 
             <div class="projectMedewerker">
-             
-                    <Label>Medewerker <br />
-                        <input type="text" class="mederwerkerVer" placeholder="Medewerker" />
-                    </Label>
+
+                <Label>Medewerker <br />
+                    <input type="text" class="mederwerkerVer" placeholder="Medewerker" />
+                </Label>
             </div> <br />
 
             <div class="projectKlant">
                 <Label>Klant <br />
-                  
-                        <input type="text" class="klantVer" placeholder="Klant" />
+
+                    <input type="text" class="klantVer" placeholder="Klant" />
                 </Label>
             </div> <br />
 
@@ -2101,12 +2130,14 @@
 
             <div class="projectMedewerker">
 
-                    <Label>Medewerker <br /> <input class="klantVer2" type="text" id="Uren" placeholder="Medewerker" /> </Label>
-             
+                <Label>Medewerker <br /> <input class="klantVer2" type="text" id="Uren" placeholder="Medewerker" />
+                </Label>
+
             </div> <br />
 
             <div class="projectKlant">
-                <Label>Klanten <br /> <input class="mederwerkerVer2" type="text" id="Uren" placeholder="Klanten" /> </Label>
+                <Label>Klanten <br /> <input class="mederwerkerVer2" type="text" id="Uren" placeholder="Klanten" />
+                </Label>
             </div> <br />
 
             <div class="projectBeginDatum">
