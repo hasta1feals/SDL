@@ -39,34 +39,11 @@ function exportTableToExcel(tableID, filename = ''){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function register(e) {
   // Check if passwords match
   if (getValue("password3") != getValue("password4")) {
     alert("Passwords do not match");
     return;
-  }
-
-  if (getValue("email3")) {
-    !/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/gim.test(getValue("email3"))
-      ? alert("Email is not valid")
-      : null;
   }
 }
 data = {
@@ -332,9 +309,28 @@ function login2fa() {
 
 function login2faM() {
   // Fetch data from html
-  showQrCodeM();
-  showPage("dashboardPageM");
+  data = {
+    otp_code: getValue("code1"),
+  };
+  // Submit data to API
+  api("otpp", "GET", data).then((res) => {
+   
+    if (res.otp == getValue("code1")) {
+      console.log(res.otp);
+      // Save the received JWT in a cookie
+      setCookie("token", res.access_token, 365);
+      // window.location.href="dashbord.html";
+      userInfo();
+
+      showPage("dashboardPageM");
+    } else {
+      alert("Credentials are incorrect");
+    }
+  });
 }
+
+
+
 function showQrCode() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
   api("otpp", "GET", data).then((res) => {
@@ -414,10 +410,10 @@ function getUser() {
       userID.push(res.user.id);
       showPage("otpPage");
       showQrCode();
+      showQrCodeM();
       // window.location.href="dashbord.html";
       if (res.user.admin == 1) {
         showPage("otpPageM");
-        showQrCodeM();
 
         klantenKlanten2();
         projectProject2();
