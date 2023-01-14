@@ -23,11 +23,11 @@
 
                     <button type='button' id="login2fa"> Login</button>
                     <button type='button' onclick="qrbtn()" id="qrbutton"> Qr code</button>
-                    <br>
+                    <!-- <br>
                     <div id="qr1">
                         <img id="qr" src="" alt="qr" class="qr">
                     </div>
-                    <br>
+                    <br> -->
                 </div>
             </form>
         </div>
@@ -61,11 +61,11 @@
 
                     <button type='button' id="login2faM"> Login</button>
                     <button type='button' onclick="qrbtn()" id="qrbutton"> Qr code</button>
-                    <br>
+                    <!-- <br>
                     <div id="qr1">
                         <img id="qrM" src="" alt="qr" class="qr">
                     </div>
-                    <br>
+                    <br> -->
                 </div>
             </form>
         </div>
@@ -304,6 +304,13 @@
 
         <div class="klantWrapper">
             <h1 class="klantHeader">Klant Bijwerken</h1>
+
+            <div class="klantSelect">
+                <Label>Klant Selecteren<br />
+                    <input type="text" id="klantSelectBijwerken" placeholder="Klanten" />
+                    </select>
+                </Label>
+            </div>
 
             <div class="klant">
                 <Label>Klant <br />
@@ -694,6 +701,12 @@
         <div class="projectWrapper">
             <h1 class="h1Text">Project Bewerken</h1>
 
+            <div class="projectSelect">
+                <Label>Project Selecteren <br />
+                    <input type="text" id="projectSelectBewerken" placeholder="Project Selecteren" />
+                </Label>
+            </div>
+
             <div class="projectNaam">
                 <Label>Project Naam <br />
                     <input type="text" id="projectNaamBewerken" placeholder="Project Naam" />
@@ -939,6 +952,8 @@
 
         <div class="inputWrapper">
 
+            <h1 class="h1Text">Toevoegen</h1>
+
             <div class="Datum">
                 <Label>Datum</Label> <br />
                 <input class="datumInput" type="date" id="Datum" placeholder="Datum" />
@@ -1104,6 +1119,8 @@
 
         <div class="inputWrapper">
 
+            <h1 class="h1Text">Bewerken</h1>
+
             <div class="Datum">
                 <Label>Datum</Label> <br />
                 <input class="datumInput" type="date" id="DatumBewerken" placeholder="Datum" />
@@ -1256,6 +1273,8 @@
         </nav>
 
         <div class="inputWrapper">
+
+            <h1 class="h1Text">Verwijderen</h1>
 
             <div class="Datum">
                 <Label>Datum</Label> <br />
@@ -2011,6 +2030,12 @@
         <div class="projectWrapper">
             <h1 class="h1Text">Project Bewerken</h1>
 
+            <div class="projectSelect">
+                <Label>Project Selecteren <br />
+                    <input type="text" id="projectSelectBewerkenM" placeholder="Project Selecteren" />
+                </Label>
+            </div>
+
             <div class="projectNaam">
                 <Label>Project naam <br />
                     <select class="projectSelection1" id="selectionMedewerkerBewerkenM1">
@@ -2226,6 +2251,8 @@
 
         <div class="inputWrapper">
 
+            <h1 class="h1Text">Toevoegen</h1>
+
             <div class="Datum">
                 <Label>Datum</Label> <br />
                 <input class="datumInput" type="date" id="DatumM" placeholder="Datum" />
@@ -2366,6 +2393,8 @@
         </nav>
 
         <div class="inputWrapper">
+
+            <h1 class="h1Text">Bewerken</h1>
 
             <div class="Datum">
                 <Label>Datum</Label> <br />
@@ -2508,6 +2537,8 @@
 
         <div class="inputWrapper">
 
+            <h1 class="h1Text">Verwijderen</h1>
+
             <div class="Datum">
                 <Label>Datum</Label> <br />
                 <input class="datumInput" type="date" id="DatumVerwijderenM" placeholder="Datum" />
@@ -2649,40 +2680,47 @@
         <div class="klantWrapper">
             <h1 class="klantHeader">Klant Bijwerken</h1>
 
+            <div class="klantSelect">
+                <Label>Klant Selecteren<br />
+                    <input type="text" id="klantSelectBijwerkenM" placeholder="Klanten" />
+                    </select>
+                </Label>
+            </div>
+
             <div class="klant">
                 <Label>Klant <br />
-                    <input type="text" id="klantBijwerken" placeholder="Klant" />
+                    <input type="text" id="klantBijwerkenM" placeholder="Klant" />
                     </select>
                 </Label>
             </div>
 
             <div class="klantWoonplaats">
                 <Label>Woonplaats <br />
-                    <input type="text" id="WoonplaatsBijwerken" placeholder="Woonplaats" />
+                    <input type="text" id="WoonplaatsBijwerkenM" placeholder="Woonplaats" />
                 </Label>
             </div> <br />
 
             <div class="klantStraat">
                 <Label>Straat <br />
-                    <input type="text" id="StraatBijwerken" placeholder="Straat" />
+                    <input type="text" id="StraatBijwerkenM" placeholder="Straat" />
                 </Label>
             </div>
 
             <div class="klantTelefoon">
                 <Label>Telefoon <br />
-                    <input type="text" id="TelefoonBijwerken" placeholder="Telefoon" />
+                    <input type="text" id="TelefoonBijwerkenM" placeholder="Telefoon" />
                 </Label>
             </div>
 
             <div class="klantHuisnummer">
                 <Label>Huisnummer <br />
-                    <input type="text" id="huisnummer1Bijwerken" placeholder="Huisnummer" />
+                    <input type="text" id="huisnummer1BijwerkenM" placeholder="Huisnummer" />
                 </Label>
             </div>
 
             <div class="klantPostcode">
                 <Label>Postcode <br />
-                    <input type="text" id="PostcodeBijwerken" placeholder="Postcode" />
+                    <input type="text" id="PostcodeBijwerkenM" placeholder="Postcode" />
                 </Label>
             </div>
 

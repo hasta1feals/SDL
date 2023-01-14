@@ -1,32 +1,30 @@
 //Verscrikkele manier en onveilige manier om een qr code te genereren. Vraag bram ff hoe je dit beter kan doen. En waarom je geen import stateMENTS mag gebruiken in js
 
-let x = Date.now = function() { return new Date().getTime(); };
+let x = (Date.now = function () {
+  return new Date().getTime();
+});
 
-function exportTableToExcel(tableID, filename = ''){
-
-
-
+function exportTableToExcel(tableID, filename = "") {
   var downloadLink;
-  var dataType = 'application/vnd.ms-excel';
+  var dataType = "application/vnd.ms-excel";
   var tableSelect = document.getElementById(tableID);
-  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
 
   // Specify file name
-  filename = filename?filename+'.xls':'excel_data.xls';
+  filename = filename ? filename + ".xls" : "excel_data.xls";
 
-//create dowanliad link element
+  //create dowanliad link element
   downloadLink = document.createElement("a");
 
   document.body.appendChild(downloadLink);
-  if(navigator.msSaveOrOpenBlob){
-    var blob = new Blob(['\ufeff', tableHTML], {
-      type: dataType
+  if (navigator.msSaveOrOpenBlob) {
+    var blob = new Blob(["\ufeff", tableHTML], {
+      type: dataType,
     });
-    navigator.msSaveOrOpenBlob( blob, filename);
-  }else{
+    navigator.msSaveOrOpenBlob(blob, filename);
+  } else {
     // Create a link to the file
-    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    downloadLink.href = "data:" + dataType + ", " + tableHTML;
 
     // Setting the file name
     downloadLink.download = filename;
@@ -34,10 +32,7 @@ function exportTableToExcel(tableID, filename = ''){
     //triggering the function
     downloadLink.click();
   }
-
 }
-
-
 
 function register(e) {
   // Check if passwords match
@@ -314,7 +309,6 @@ function login2faM() {
   };
   // Submit data to API
   api("otpp", "GET", data).then((res) => {
-   
     if (res.otp == getValue("code1")) {
       console.log(res.otp);
       // Save the received JWT in a cookie
@@ -328,8 +322,6 @@ function login2faM() {
     }
   });
 }
-
-
 
 function showQrCode() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
@@ -1459,6 +1451,10 @@ function QrCodeShow() {
   showPage("QRCodePage");
 }
 
+// function TEMP() {
+//   showPage("dashboardPageM");
+// }
+
 function bindEvents() {
   connectButton("QRCodeShowKA", QrCodeShow);
   connectButton("QRCodeShowKB", QrCodeShow);
@@ -1477,6 +1473,9 @@ function bindEvents() {
   connectButton("login", login);
   connectButton("login2fa", login2fa);
   connectButton("login2faM", login2faM);
+
+  // connectButton("login2faM", TEMP);
+
   connectButton("reg", register);
   connectButton("regop", regerop);
   connectButton("klanten", klanten);

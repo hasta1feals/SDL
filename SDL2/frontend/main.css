@@ -968,6 +968,10 @@ p {
     margin-right: 15%;
 }
 
+.projectSelect {
+    margin-left: -5% !important;
+}
+
 .projectNaam {
     margin-top: 5%;
     margin-left: -5%;
