@@ -650,6 +650,10 @@ p {
     height: 40px;
 } 
 
+.ProjectSelect{
+    margin-bottom: 5%;
+}
+
 .Datum {
     margin-bottom: 20px;
 }
@@ -853,6 +857,11 @@ p {
     width: 120px;
     height: 40px;
 } 
+
+.klantSelect {
+    margin-top: 5%;
+
+}
 
 .klant {
     margin-top: 5%;
