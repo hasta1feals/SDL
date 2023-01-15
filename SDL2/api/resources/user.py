@@ -50,7 +50,7 @@ def get_medewerker():
 def get_uren(): 
     qry = '''
     select * from uren
-
+    where show = 0
     '''
     try:
         id = DB.all(qry)
@@ -140,7 +140,7 @@ WHERE klanten.show = 0;
 def get_uren2():
     # qry om users te laten zien
     qry = '''
-SELECT uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam
+SELECT uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam, uren.show
 FROM uren
 left JOIN project
 ON uren.project_id = project.id
@@ -148,6 +148,7 @@ left JOIN users
 ON uren.user_id = users.id
 left JOIN klanten
 ON uren.klanten_id = klanten.id
+where uren.show = 0
 
     '''
     try:
@@ -283,8 +284,8 @@ def create_uren():
     # Make the insert query with parameters
     qry = '''
           INSERT INTO
-              uren ( datum, activiteit,uren_uren, bonus, opmerking, uren_declarabel, project_id, user_id, klanten_id, myID)
-           VALUES (:datum, :activiteit, :uren_uren, :bonus, :opmerking, :uren_declarabel, :project_id, :user_id, :klanten_id, :myID);
+              uren ( datum, activiteit,uren_uren, bonus, opmerking, uren_declarabel, project_id, user_id, klanten_id, myID, show)
+           VALUES (:datum, :activiteit, :uren_uren, :bonus, :opmerking, :uren_declarabel, :project_id, :user_id, :klanten_id, :myID, :show);
     '''
    
     data = {
@@ -297,7 +298,8 @@ def create_uren():
         "project_id": args["project_id"],
         "user_id": args["user_id"],
         "klanten_id": args["klanten_id"],
-        "myID": args["myID"]
+        "myID": args["myID"],
+        "show": args["show"]
     
         }
     try:

@@ -132,6 +132,7 @@ function urenPosten() {
     user_id: x,
     klanten_id: z,
     myID: zz,
+    show: 0,
   };
 
   // Submit data to API
