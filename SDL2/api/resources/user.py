@@ -16,10 +16,11 @@ from datetime import date
 def get_projecten():
     # qry om users te laten zien
     qry = '''
-    SELECT
+ SELECT
       *
          FROM `project`
-          ORDER BY naam;
+		 Where `show` = 0
+          ORDER BY naam
 
 
     '''
@@ -46,8 +47,40 @@ def get_medewerker():
 
     return {'message': 'success', 'id': id}, 201
 
+@jwt_required
+def project_bewerken():
+    # Parse all arguments for validity
+    args = request.get_json()
+    # Make the insert query with parameters
+    qry = '''
+    SET naam = :naam , begin = :begin
+WHERE id = (SELECT project.id FROM project
+INNER JOIN klanten ON klanten.id = project.klanten_id
+INNER JOIN users ON users.id = project.user_id
+WHERE project.id = :project.id);
 
+UPDATE klanten
+SET voornaam = :voornaam
+WHERE id = (SELECT klanten_id FROM project
+WHERE id = :klanten.id);
 
+UPDATE users
+SET firstname = :firstname
+WHERE id = (SELECT user_id FROM project
+WHERE id = :user.id);
+    '''
+    data = {
+    
+          "naam": args["naam"],
+        "begin": args["begin"]
+       
+        }
+    try:
+        DB.execute(qry, data)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
 
 def get_projecten2():
     # qry om users te laten zien
@@ -278,6 +311,34 @@ WHERE id = :id;
     
           "id": args["id"],
         "show": 1
+       
+        }
+    
+    model = DB.update(qry,data)
+    
+    return {'message': 'success', 'id': model}, 201
+
+@jwt_required()
+def update_project():
+    user = get_jwt_identity()
+
+    args = request.get_json()
+    print(user)
+
+    qry = '''
+    UPDATE project
+  SET klanten_id = :klanten_id , begin = :begin, naam = :naam, user_id = :user_id
+
+WHERE id = :id;
+
+    '''
+    data = {
+    
+          "id": args["id"],
+        "klanten_id": args["klanten_id"],
+        "begin": args["begin"],
+        "naam": args["naam"],
+        "user_id": args["user_id"]
        
         }
     

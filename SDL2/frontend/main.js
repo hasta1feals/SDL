@@ -261,6 +261,27 @@ function klantenVerwijder2() {
   });
 }
 
+
+function projectUpdate() {
+  let x = idBewerkenKlan.toString();
+  let y = idBewerkenMed.toString();
+  let z = idBewerkenOptie.toString();
+  data = {
+    naam: getValue("projectNaamBewerken"),
+    id: z,
+    klanten_id: x,
+    user_id: y,
+    begin: getValue("projectBeginDatumBewerken"),
+  };
+
+  // Submit data to API
+  api("projectB", "PATCH", data).then((res) => {
+    if (res.message == "success") {
+      console.log("succes");
+    }
+  });
+}
+
 function login() {
   // Fetch data from html
   data = {
@@ -405,16 +426,20 @@ function getUser() {
       showQrCodeM();
       // window.location.href="dashbord.html";
       if (res.user.admin == 1) {
-        showPage("otpPageM");
-
+        // showPage("otpPageM");
+        showPage("dashboardPageM");
         klantenKlanten2();
         projectProject2();
         klantenProject2();
         medewerkerProject2();
       } else {
-        showPage("otpPage");
+              
+        projectBewerken11();
+        // showPage("otpPage");
+        showPage("dashboardPage");
         projectProject();
       }
+      klantenNaam23();
       projectBer();
       klantVer2();
       projectVer();
@@ -440,6 +465,7 @@ function getUser() {
       userInfoM2();
       userInfoM3();
       projectVer2();
+      medewerkerBewerkenAdmin();
     }
   });
 }
@@ -460,6 +486,25 @@ function projectUren() {
     }
   });
 }
+
+
+
+function projectBewerken11() {
+  api("projecten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionProjectBewerken1131").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].naam +
+          "</option>";
+      }
+    }
+  });
+}
+
+
 
 function projectUren() {
   api("uren", "GET").then((res) => {
@@ -901,6 +946,22 @@ function klantenNaam() {
   });
 }
 
+
+function klantenNaam23() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionKlanten1Bewerken").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
+
 function medewerkerUren() {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
@@ -932,6 +993,32 @@ function medewerkerUren2() {
     }
   });
 }
+
+function medewerkerBewerkenAdmin() {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionMedewerkerBewerken11").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].firstname +
+          "</option>";
+      }
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
 
 let selectionProject = document.querySelector("#selectionKlanten1");
 var idProject = [];
@@ -1056,8 +1143,7 @@ selectionProjectUren.addEventListener("change", () => {
 });
 
 let selectionProjectVer2 = document.querySelector(
-  "#selectionKlanten1VerwijderenM"
-);
+  "#selectionKlanten1VerwijderenM");
 var idProjectver2 = [];
 
 selectionProjectVer2.addEventListener("change", () => {
@@ -1080,6 +1166,8 @@ selectionProjectVer2.addEventListener("change", () => {
     }
   });
 });
+
+
 
 let selectionProjectBer2 = document.querySelector(
   "#selectionMedewerkerBewerkenM1"
@@ -1107,6 +1195,28 @@ selectionProjectBer2.addEventListener("change", () => {
   });
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let selectionProjectVer = document.querySelector("#selectverwijdenproject");
 var idProjectver = [];
 
@@ -1130,6 +1240,76 @@ selectionProjectVer.addEventListener("change", () => {
     }
   });
 });
+
+
+// HIER BEGINT
+let selectionBewerkenOptie = document.querySelector("#selectionProjectBewerken1131");
+var idBewerkenOptie = [];
+
+selectionBewerkenOptie.addEventListener("change", () => {
+  api("projecten2", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionBewerkenOptie.value) {
+          console.log("dadak");
+          document.getElementsByClassName("projectNaamBer")[0].placeholder =
+            res.id[i].naam;
+            document.getElementById ("projectBeginDatumBewerken").value =
+            res.id[i].begin;
+
+          
+
+            idBewerkenOptie.push(res.id[i].id);
+          break;
+        }
+      }
+    }
+  });
+});
+
+let selectionBewerkenMed = document.querySelector("#selectionMedewerkerBewerken11");
+var idBewerkenMed = [];
+
+selectionBewerkenMed.addEventListener("change", () => {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionBewerkenMed.value) {
+
+          
+
+            idBewerkenMed.push(res.id[i].id);
+            console.log(idBewerkenMed);
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+let selectionBewerkenKlan = document.querySelector("#selectionKlanten1Bewerken");
+var idBewerkenKlan = [];
+
+selectionBewerkenKlan.addEventListener("change", () => {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionBewerkenKlan.value) {
+        
+          idBewerkenKlan.push(res.id[i].id);
+          console.log(idBewerkenKlan);
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+
 
 let selectionKlantenVer = document.querySelector("#klantselectverwijderen");
 var idKlantver = [];
@@ -1454,8 +1634,12 @@ function QrCodeShow() {
 // function TEMP() {
 //   showPage("dashboardPageM");
 // }
+function proejctVeranderen111() {
+ projectUpdate();
+}
 
 function bindEvents() {
+  connectButton("projectConfirmBewerken", proejctVeranderen111);
   connectButton("QRCodeShowKA", QrCodeShow);
   connectButton("QRCodeShowKB", QrCodeShow);
   connectButton("QRCodeShowKV", QrCodeShow);
