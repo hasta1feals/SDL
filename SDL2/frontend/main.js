@@ -417,7 +417,7 @@ function login2faM() {
 function showQrCode() {
   // hier roep ik otp aan en kan ik de qr code van pakken, dit is 1000000000% niet veilig ik moet ff vragen als ik een libary kan gebruiken in js
   api("otpp", "GET", data).then((res) => {
-    img = document.getElementById("qr");
+    img = document.getElementById("qrShow");
     img.src =
       "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
       res.barcode;
