@@ -220,10 +220,9 @@ function projectVerwijder() {
   });
 }
 
-
 function urenwissen() {
   let x = idUrenVerwijderen.toString();
-  
+
   data = {
     id: x,
   };
@@ -235,9 +234,6 @@ function urenwissen() {
     }
   });
 }
-
-
-
 
 function klantenBewerken111() {
   let x = idKlantKlant.toString();
@@ -496,16 +492,16 @@ function getUser() {
       showQrCodeM();
       // window.location.href="dashbord.html";
       if (res.user.admin == 1) {
-        // showPage("otpPageM");
-        showPage("dashboardPageM");
+        showPage("otpPageM");
+        // showPage("dashboardPageM");
         klantenKlanten2();
         projectProject2();
         klantenProject2();
         medewerkerProject2();
       } else {
         projectBewerken11();
-        // showPage("otpPage");
-        showPage("dashboardPage");
+        showPage("otpPage");
+        // showPage("dashboardPage");
         projectProject();
       }
       urenVer13();
@@ -1547,7 +1543,7 @@ selectionUrenVer.addEventListener("change", () => {
           document.getElementsByClassName("bonus23")[0].placeholder =
             res.id[i].bonus;
 
-            idUrenVer.push(res.id[i].id);
+          idUrenVer.push(res.id[i].id);
           break;
         }
       }
@@ -1555,13 +1551,13 @@ selectionUrenVer.addEventListener("change", () => {
   });
 });
 
-
-let selectionUrenVerwijdern = document.querySelector("#selectionSelectVerwijderen1");
+let selectionUrenVerwijdern = document.querySelector(
+  "#selectionSelectVerwijderen1"
+);
 var idUrenVerwijderen = [];
 
 selectionUrenVerwijdern.addEventListener("change", () => {
   api("uren2", "GET").then((res) => {
-   
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionUrenVerwijdern.value) {
@@ -1582,7 +1578,7 @@ selectionUrenVerwijdern.addEventListener("change", () => {
           document.getElementsByClassName("bonus1233")[0].placeholder =
             res.id[i].bonus;
 
-            idUrenVerwijderen.push(res.id[i].id);
+          idUrenVerwijderen.push(res.id[i].id);
           break;
         }
       }
@@ -1963,7 +1959,7 @@ function bindEvents() {
   connectButton("klanten", klanten);
   connectButton("projecten", projecten);
   connectButton("confirmVerwijderen11", urenwissen4);
-  
+
   //voor admin
   connectButton("projectAdd", projectToevoegen);
   connectButton("klantAdd", klantToevoegen);
