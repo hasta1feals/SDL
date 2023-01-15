@@ -41,22 +41,22 @@ function register(e) {
     return;
   }
 
-data = {
-  password: getValue("password3"),
-  email: getValue("email3"),
-  firstname: getValue("voornaam"),
-  lastname: getValue("achternaam"),
-  admin: 0,
-  // s: 137173187381783
-};
+  data = {
+    password: getValue("password3"),
+    email: getValue("email3"),
+    firstname: getValue("voornaam"),
+    lastname: getValue("achternaam"),
+    admin: 0,
+    // s: 137173187381783
+  };
 
-// Submit data to API
-api("users", "POST", data).then((res) => {
-  if (res.message == "success") {
-    userAanmaken();
-    alert("Account created");
-  }
-});
+  // Submit data to API
+  api("users", "POST", data).then((res) => {
+    if (res.message == "success") {
+      userAanmaken();
+      alert("Account created");
+    }
+  });
 }
 function projectBer() {
   x = idProjectber2.toString();
@@ -220,8 +220,6 @@ function projectVerwijder() {
   });
 }
 
-
-
 function klantenBewerken111() {
   let x = idKlantKlant.toString();
   data = {
@@ -232,7 +230,6 @@ function klantenBewerken111() {
     huisnummer: getValue("huisnummer1Bijwerken"),
     postcode: getValue("PostcodeBijwerken"),
     telefoon: getValue("TelefoonBijwerken"),
-    
   };
 
   // Submit data to API
@@ -242,9 +239,6 @@ function klantenBewerken111() {
     }
   });
 }
-
-
-
 
 function projectVerwijder2() {
   let x = idProjectver2.toString();
@@ -288,7 +282,6 @@ function klantenVerwijder2() {
   });
 }
 
-
 function projectUpdate() {
   let x = idBewerkenKlan.toString();
   let y = idBewerkenMed.toString();
@@ -309,19 +302,13 @@ function projectUpdate() {
   });
 }
 
-
-
-
-
 //debo
-
 
 function urenUpdate123() {
   let x = idUrenProj1.toString();
   let y = idUrenMed1.toString();
   let z = idUrenKlant.toString();
   let zz = idUrenVer.toString();
-
 
   data = {
     activiteit: getValue("ActiviteitBewerken"),
@@ -332,29 +319,19 @@ function urenUpdate123() {
     uren_declarabel: getValue("Aantal-DeclarabelBewerken"),
     opmerking: getValue("OpmerkingBewerken"),
 
-
     project_id: x,
     user_id: y,
     klanten_id: z,
     id: zz,
-
-   
   };
 
   // Submit data to API
   api("urenB", "PATCH", data).then((res) => {
     if (res.message == "success") {
-
       console.log("succes");
     }
   });
 }
-
-
-
-
-
-
 
 function login() {
   // Fetch data from html
@@ -507,7 +484,6 @@ function getUser() {
         klantenProject2();
         medewerkerProject2();
       } else {
-              
         projectBewerken11();
         // showPage("otpPage");
         showPage("dashboardPage");
@@ -566,8 +542,6 @@ function projectUren() {
   });
 }
 
-
-
 function urenBewerken123() {
   api("uren2", "GET").then((res) => {
     if (res.message == "success") {
@@ -582,7 +556,6 @@ function urenBewerken123() {
     }
   });
 }
-
 
 function projectBewerken11() {
   api("projecten", "GET").then((res) => {
@@ -613,7 +586,6 @@ function projectBerwerken000() {
     }
   });
 }
-
 
 function projectUren() {
   api("uren", "GET").then((res) => {
@@ -689,7 +661,6 @@ function projectVer2() {
     }
   });
 }
-
 
 function klantenBewerken1212() {
   api("klanten", "GET").then((res) => {
@@ -981,7 +952,6 @@ function klantVer2() {
   });
 }
 
-
 function klantBer() {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
@@ -996,7 +966,6 @@ function klantBer() {
     }
   });
 }
-
 
 function klantenUren2() {
   api("klanten", "GET").then((res) => {
@@ -1087,7 +1056,6 @@ function klantenNaam() {
   });
 }
 
-
 function klantenNaam23() {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
@@ -1151,7 +1119,6 @@ function medewerkerBewerkenAdmin() {
   });
 }
 
-
 function medewerkerBewerkenAdminuren() {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
@@ -1167,15 +1134,6 @@ function medewerkerBewerkenAdminuren() {
     }
   });
 }
-
-
-
-
-
-
-
-
-
 
 let selectionProject = document.querySelector("#selectionKlanten1");
 var idProject = [];
@@ -1300,7 +1258,8 @@ selectionProjectUren.addEventListener("change", () => {
 });
 
 let selectionProjectVer2 = document.querySelector(
-  "#selectionKlanten1VerwijderenM");
+  "#selectionKlanten1VerwijderenM"
+);
 var idProjectver2 = [];
 
 selectionProjectVer2.addEventListener("change", () => {
@@ -1323,8 +1282,6 @@ selectionProjectVer2.addEventListener("change", () => {
     }
   });
 });
-
-
 
 let selectionProjectBer2 = document.querySelector(
   "#selectionMedewerkerBewerkenM1"
@@ -1352,8 +1309,9 @@ selectionProjectBer2.addEventListener("change", () => {
   });
 });
 
-
-let selectionBewerKlantenKlanten = document.querySelector("#klantSelectBijwerken");
+let selectionBewerKlantenKlanten = document.querySelector(
+  "#klantSelectBijwerken"
+);
 var idKlantKlant = [];
 
 selectionBewerKlantenKlanten.addEventListener("change", () => {
@@ -1370,41 +1328,22 @@ selectionBewerKlantenKlanten.addEventListener("change", () => {
           document.getElementsByClassName("stra")[0].placeholder =
             res.id[i].adres;
 
-            document.getElementsByClassName("tell")[0].placeholder =
+          document.getElementsByClassName("tell")[0].placeholder =
             res.id[i].telefoon;
 
-            document.getElementsByClassName("hui")[0].placeholder =
+          document.getElementsByClassName("hui")[0].placeholder =
             res.id[i].huisnummer;
 
-            document.getElementsByClassName("pos")[0].placeholder =
+          document.getElementsByClassName("pos")[0].placeholder =
             res.id[i].postcode;
 
-            idKlantKlant.push(res.id[i].id);
+          idKlantKlant.push(res.id[i].id);
           break;
         }
       }
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 let selectionProjectVer = document.querySelector("#selectverwijdenproject");
 var idProjectver = [];
@@ -1430,9 +1369,10 @@ selectionProjectVer.addEventListener("change", () => {
   });
 });
 
-
 // HIER BEGINT
-let selectionBewerkenOptie = document.querySelector("#selectionProjectBewerken1131");
+let selectionBewerkenOptie = document.querySelector(
+  "#selectionProjectBewerken1131"
+);
 var idBewerkenOptie = [];
 
 selectionBewerkenOptie.addEventListener("change", () => {
@@ -1443,12 +1383,10 @@ selectionBewerkenOptie.addEventListener("change", () => {
           console.log("dadak");
           document.getElementsByClassName("projectNaamBer")[0].placeholder =
             res.id[i].naam;
-            document.getElementById ("projectBeginDatumBewerken").value =
+          document.getElementById("projectBeginDatumBewerken").value =
             res.id[i].begin;
 
-          
-
-            idBewerkenOptie.push(res.id[i].id);
+          idBewerkenOptie.push(res.id[i].id);
           break;
         }
       }
@@ -1456,7 +1394,9 @@ selectionBewerkenOptie.addEventListener("change", () => {
   });
 });
 
-let selectionBewerkenMed = document.querySelector("#selectionMedewerkerBewerken11");
+let selectionBewerkenMed = document.querySelector(
+  "#selectionMedewerkerBewerken11"
+);
 var idBewerkenMed = [];
 
 selectionBewerkenMed.addEventListener("change", () => {
@@ -1464,11 +1404,8 @@ selectionBewerkenMed.addEventListener("change", () => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionBewerkenMed.value) {
-
-          
-
-            idBewerkenMed.push(res.id[i].id);
-            console.log(idBewerkenMed);
+          idBewerkenMed.push(res.id[i].id);
+          console.log(idBewerkenMed);
           break;
         }
       }
@@ -1476,17 +1413,16 @@ selectionBewerkenMed.addEventListener("change", () => {
   });
 });
 
-
-let selectionBewerkenKlan = document.querySelector("#selectionKlanten1Bewerken");
+let selectionBewerkenKlan = document.querySelector(
+  "#selectionKlanten1Bewerken"
+);
 var idBewerkenKlan = [];
 
 selectionBewerkenKlan.addEventListener("change", () => {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
-      
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionBewerkenKlan.value) {
-        
           idBewerkenKlan.push(res.id[i].id);
           console.log(idBewerkenKlan);
           break;
@@ -1496,19 +1432,14 @@ selectionBewerkenKlan.addEventListener("change", () => {
   });
 });
 
-
-
-
 let selectionUrenKlant = document.querySelector("#selectionKlantenBewerken");
 var idUrenKlant = [];
 
 selectionUrenKlant.addEventListener("change", () => {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
-      
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionUrenKlant.value) {
-        
           idUrenKlant.push(res.id[i].id);
 
           break;
@@ -1518,19 +1449,17 @@ selectionUrenKlant.addEventListener("change", () => {
   });
 });
 
-
-
 //jasmine
-let selectionUrenMed1 = document.querySelector("#selectionMedewerkerUrenBewerken");
+let selectionUrenMed1 = document.querySelector(
+  "#selectionMedewerkerUrenBewerken"
+);
 var idUrenMed1 = [];
 
 selectionUrenMed1.addEventListener("change", () => {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
-      
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionUrenMed1.value) {
-        
           idUrenMed1.push(res.id[i].id);
 
           break;
@@ -1540,8 +1469,6 @@ selectionUrenMed1.addEventListener("change", () => {
   });
 });
 
-
-
 let selectionUrenProj1 = document.querySelector("#selectionBewerken");
 var idUrenProj1 = [];
 
@@ -1549,10 +1476,8 @@ selectionUrenProj1.addEventListener("change", () => {
   api("projecten", "GET").then((res) => {
     console.log("test222");
     if (res.message == "success") {
-      
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionUrenProj1.value) {
-        
           idUrenProj1.push(res.id[i].id);
           console.log("test");
           break;
@@ -1562,19 +1487,6 @@ selectionUrenProj1.addEventListener("change", () => {
   });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 let selectionUrenVer = document.querySelector("#selectionSelectBewerken1");
 var idUrenVer = [];
 
@@ -1582,46 +1494,31 @@ selectionUrenVer.addEventListener("change", () => {
   api("uren2", "GET").then((res) => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
-       
         if (res.id[i].id == selectionUrenVer.value) {
-
-          document.getElementById ("DatumBewerken").value =
-          res.id[i].datum;
+          document.getElementById("DatumBewerken").value = res.id[i].datum;
 
           document.getElementsByClassName("acti1")[0].placeholder =
             res.id[i].activiteit;
 
-            document.getElementsByClassName("ure1")[0].placeholder =
+          document.getElementsByClassName("ure1")[0].placeholder =
             res.id[i].uren_uren;
 
-            document.getElementsByClassName("opm1")[0].placeholder =
+          document.getElementsByClassName("opm1")[0].placeholder =
             res.id[i].opmerking;
 
-            
-            document.getElementsByClassName("ure23")[0].placeholder =
+          document.getElementsByClassName("ure23")[0].placeholder =
             res.id[i].uren_declarabel;
 
-            document.getElementsByClassName("bonus23")[0].placeholder =
+          document.getElementsByClassName("bonus23")[0].placeholder =
             res.id[i].bonus;
-       
-       
 
-            idUrenVer.push(res.id[i].id);
+          idUrenVer.push(res.id[i].id);
           break;
         }
       }
     }
   });
 });
-
-
-
-
-
-
-
-
-
 
 let selectionKlantenVer = document.querySelector("#klantselectverwijderen");
 var idKlantver = [];
@@ -1947,7 +1844,7 @@ function QrCodeShow() {
 //   showPage("dashboardPageM");
 // }
 function proejctVeranderen111() {
- projectUpdate();
+  projectUpdate();
 }
 
 function klantenBijwerken15() {
@@ -1959,7 +1856,8 @@ function urenUpdaten() {
 }
 
 function bindEvents() {
-  connectButton("projectConfirmBewerken", proejctVeranderen111);
+  connectButton("qranu", regerop);
+
   connectButton("QRCodeShowKA", QrCodeShow);
   connectButton("QRCodeShowKB", QrCodeShow);
   connectButton("QRCodeShowKV", QrCodeShow);
@@ -1967,11 +1865,17 @@ function bindEvents() {
   connectButton("QRCodeShowPA", QrCodeShow);
   connectButton("QRCodeShowPB", QrCodeShow);
   connectButton("QRCodeShowPV", QrCodeShow);
-  connectButton("confirmBewerken", urenUpdaten);
-  
+
   connectButton("QRCodeShowUA", QrCodeShow);
   connectButton("QRCodeShowUB", QrCodeShow);
   connectButton("QRCodeShowUV", QrCodeShow);
+
+  connectButton("QRCodeShowK", QrCodeShow);
+  connectButton("QRCodeShowP", QrCodeShow);
+  connectButton("QRCodeShowU", QrCodeShow);
+
+  connectButton("confirmBewerken", urenUpdaten);
+  connectButton("projectConfirmBewerken", proejctVeranderen111);
 
   connectButton("klantConfirmVerwijderenM1", klantenVerwijder22);
   connectButton("klantConfirmVerwijderen1", klantenVerwijder);
