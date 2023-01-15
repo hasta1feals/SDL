@@ -47,6 +47,18 @@ def get_medewerker():
 
     return {'message': 'success', 'id': id}, 201
 
+def get_uren(): 
+    qry = '''
+    select * from uren
+
+    '''
+    try:
+        id = DB.all(qry)
+    except Exception:
+        print('Er is een probleem opgetreden, contact de admin.');
+
+    return {'message': 'success', 'id': id}, 201
+
 @jwt_required
 def project_bewerken():
     # Parse all arguments for validity
@@ -174,6 +186,7 @@ def get_klanten():
     SELECT
       *
          FROM `klanten`
+         where `show` = 0
          ORDER BY voornaam;
 
 
@@ -323,7 +336,7 @@ def update_project():
     user = get_jwt_identity()
 
     args = request.get_json()
-    print(user)
+
 
     qry = '''
     UPDATE project
@@ -346,6 +359,72 @@ WHERE id = :id;
     
     return {'message': 'success', 'id': model}, 201
 
+
+@jwt_required()
+def update_uren():
+    user = get_jwt_identity()
+
+    args = request.get_json()
+ 
+
+    qry = '''
+   UPDATE uren
+  SET activiteit = :activiteit, bonus = :bonus, datum = :datum, klanten_id = :klanten_id, myID = :myID, opmerking = :opmerking,
+  project_id = :project_id,  uren_declarabel = :uren_declarabel, uren_uren = :uren_uren, user_id = :user_id
+
+WHERE id = :id 
+
+    '''
+    data = {
+    
+          "id": args["id"],
+        "activiteit": args["activiteit"],
+        "bonus": args["bonus"],
+        "datum": args["datum"],
+        "klanten_id": args["klanten_id"],
+        "myID": args["myID"],
+        "opmerking": args["opmerking"],
+        "project_id": args["project_id"],
+        "uren_declarabel": args["uren_declarabel"],
+        "uren_uren": args["uren_uren"],
+        "user_id": args["user_id"]
+        }
+    
+    model = DB.update(qry,data)
+    
+    return {'message': 'success', 'id': model}, 201
+
+
+
+@jwt_required()
+def update_klanten():
+    user = get_jwt_identity()
+
+    args = request.get_json()
+    print(user)
+
+    qry = '''
+      UPDATE klanten
+  SET voornaam = :voornaam , woonplaats = :woonplaats, adres = :adres, huisnummer = :huisnummer , postcode = :postcode, telefoon = :telefoon
+WHERE id = :id;
+
+    '''
+    data = {
+    
+            "id": args["id"],
+        "voornaam": args["voornaam"],
+        "woonplaats": args["woonplaats"],
+        "adres": args["adres"],
+        "huisnummer": args["huisnummer"],
+        "postcode": args["postcode"],
+        "telefoon": args["telefoon"]
+
+
+        }
+    
+    model = DB.update(qry,data)
+    
+    return {'message': 'success', 'id': model}, 201
 
 @jwt_required()
 def delete_klanten():

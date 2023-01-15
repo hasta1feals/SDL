@@ -40,7 +40,7 @@ function register(e) {
     alert("Passwords do not match");
     return;
   }
-}
+
 data = {
   password: getValue("password3"),
   email: getValue("email3"),
@@ -57,7 +57,7 @@ api("users", "POST", data).then((res) => {
     alert("Account created");
   }
 });
-
+}
 function projectBer() {
   x = idProjectber2.toString();
   // Check if passwords match
@@ -219,6 +219,32 @@ function projectVerwijder() {
   });
 }
 
+
+
+function klantenBewerken111() {
+  let x = idKlantKlant.toString();
+  data = {
+    id: x,
+    voornaam: getValue("klantBijwerken"),
+    woonplaats: getValue("WoonplaatsBijwerken"),
+    adres: getValue("StraatBijwerken"),
+    huisnummer: getValue("huisnummer1Bijwerken"),
+    postcode: getValue("PostcodeBijwerken"),
+    telefoon: getValue("TelefoonBijwerken"),
+    
+  };
+
+  // Submit data to API
+  api("klantenB", "PATCH", data).then((res) => {
+    if (res.message == "success") {
+      console.log("succes");
+    }
+  });
+}
+
+
+
+
 function projectVerwijder2() {
   let x = idProjectver2.toString();
   data = {
@@ -281,6 +307,53 @@ function projectUpdate() {
     }
   });
 }
+
+
+
+
+
+//debo
+
+
+function urenUpdate123() {
+  let x = idUrenProj1.toString();
+  let y = idUrenMed1.toString();
+  let z = idUrenKlant.toString();
+  let zz = idUrenVer.toString();
+
+
+  data = {
+    activiteit: getValue("ActiviteitBewerken"),
+    uren_uren: getValue("UrenBewerken"),
+    datum: getValue("DatumBewerken"),
+    bonus: getValue("BonusBewerken"),
+    myID: y,
+    uren_declarabel: getValue("Aantal-DeclarabelBewerken"),
+    opmerking: getValue("OpmerkingBewerken"),
+
+
+    project_id: x,
+    user_id: y,
+    klanten_id: z,
+    id: zz,
+
+   
+  };
+
+  // Submit data to API
+  api("urenB", "PATCH", data).then((res) => {
+    if (res.message == "success") {
+
+      console.log("succes");
+    }
+  });
+}
+
+
+
+
+
+
 
 function login() {
   // Fetch data from html
@@ -449,7 +522,9 @@ function getUser() {
       klantenProject();
       medewerkerProject();
       klantenNaam();
+      urenBewerken123();
       // showPage("registerPage")
+      klantBer();
       klantenKlanten();
       klantenProjectProject();
       userInfo();
@@ -466,6 +541,9 @@ function getUser() {
       userInfoM3();
       projectVer2();
       medewerkerBewerkenAdmin();
+      klantenBewerken1212();
+      projectBerwerken000();
+      medewerkerBewerkenAdminuren();
     }
   });
 }
@@ -489,6 +567,22 @@ function projectUren() {
 
 
 
+function urenBewerken123() {
+  api("uren2", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionSelectBewerken1").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].activiteit +
+          "</option>";
+      }
+    }
+  });
+}
+
+
 function projectBewerken11() {
   api("projecten", "GET").then((res) => {
     if (res.message == "success") {
@@ -504,6 +598,20 @@ function projectBewerken11() {
   });
 }
 
+function projectBerwerken000() {
+  api("projecten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionBewerken").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].naam +
+          "</option>";
+      }
+    }
+  });
+}
 
 
 function projectUren() {
@@ -581,6 +689,21 @@ function projectVer2() {
   });
 }
 
+
+function klantenBewerken1212() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("klantSelectBijwerken").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
 function klantenProjectProject() {
   api("projecten", "GET").then((res) => {
     if (res.message == "success") {
@@ -857,6 +980,23 @@ function klantVer2() {
   });
 }
 
+
+function klantBer() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionKlantenBewerken").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
+
+
 function klantenUren2() {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
@@ -1010,6 +1150,22 @@ function medewerkerBewerkenAdmin() {
   });
 }
 
+
+function medewerkerBewerkenAdminuren() {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        console.log(res);
+        document.getElementById("selectionMedewerkerUrenBewerken").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].firstname +
+          "</option>";
+      }
+    }
+  });
+}
 
 
 
@@ -1196,7 +1352,39 @@ selectionProjectBer2.addEventListener("change", () => {
 });
 
 
+let selectionBewerKlantenKlanten = document.querySelector("#klantSelectBijwerken");
+var idKlantKlant = [];
 
+selectionBewerKlantenKlanten.addEventListener("change", () => {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionBewerKlantenKlanten.value) {
+          document.getElementsByClassName("klantNam")[0].placeholder =
+            res.id[i].voornaam;
+
+          document.getElementsByClassName("Woonpla")[0].placeholder =
+            res.id[i].woonplaats;
+
+          document.getElementsByClassName("stra")[0].placeholder =
+            res.id[i].adres;
+
+            document.getElementsByClassName("tell")[0].placeholder =
+            res.id[i].telefoon;
+
+            document.getElementsByClassName("hui")[0].placeholder =
+            res.id[i].huisnummer;
+
+            document.getElementsByClassName("pos")[0].placeholder =
+            res.id[i].postcode;
+
+            idKlantKlant.push(res.id[i].id);
+          break;
+        }
+      }
+    }
+  });
+});
 
 
 
@@ -1306,6 +1494,129 @@ selectionBewerkenKlan.addEventListener("change", () => {
     }
   });
 });
+
+
+
+
+let selectionUrenKlant = document.querySelector("#selectionKlantenBewerken");
+var idUrenKlant = [];
+
+selectionUrenKlant.addEventListener("change", () => {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionUrenKlant.value) {
+        
+          idUrenKlant.push(res.id[i].id);
+
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+//jasmine
+let selectionUrenMed1 = document.querySelector("#selectionMedewerkerUrenBewerken");
+var idUrenMed1 = [];
+
+selectionUrenMed1.addEventListener("change", () => {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionUrenMed1.value) {
+        
+          idUrenMed1.push(res.id[i].id);
+
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+let selectionUrenProj1 = document.querySelector("#selectionBewerken");
+var idUrenProj1 = [];
+
+selectionUrenProj1.addEventListener("change", () => {
+  api("projecten", "GET").then((res) => {
+    console.log("test222");
+    if (res.message == "success") {
+      
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionUrenProj1.value) {
+        
+          idUrenProj1.push(res.id[i].id);
+          console.log("test");
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let selectionUrenVer = document.querySelector("#selectionSelectBewerken1");
+var idUrenVer = [];
+
+selectionUrenVer.addEventListener("change", () => {
+  api("uren2", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+       
+        if (res.id[i].id == selectionUrenVer.value) {
+
+          document.getElementById ("DatumBewerken").value =
+          res.id[i].datum;
+
+          document.getElementsByClassName("acti1")[0].placeholder =
+            res.id[i].activiteit;
+
+            document.getElementsByClassName("ure1")[0].placeholder =
+            res.id[i].uren_uren;
+
+            document.getElementsByClassName("opm1")[0].placeholder =
+            res.id[i].opmerking;
+
+            
+            document.getElementsByClassName("ure23")[0].placeholder =
+            res.id[i].uren_declarabel;
+
+            document.getElementsByClassName("bonus23")[0].placeholder =
+            res.id[i].bonus;
+       
+       
+
+            idUrenVer.push(res.id[i].id);
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+
+
 
 
 
@@ -1638,6 +1949,14 @@ function proejctVeranderen111() {
  projectUpdate();
 }
 
+function klantenBijwerken15() {
+  klantenBewerken111();
+}
+
+function urenUpdaten() {
+  urenUpdate123();
+}
+
 function bindEvents() {
   connectButton("projectConfirmBewerken", proejctVeranderen111);
   connectButton("QRCodeShowKA", QrCodeShow);
@@ -1647,7 +1966,8 @@ function bindEvents() {
   connectButton("QRCodeShowPA", QrCodeShow);
   connectButton("QRCodeShowPB", QrCodeShow);
   connectButton("QRCodeShowPV", QrCodeShow);
-
+  connectButton("confirmBewerken", urenUpdaten);
+  
   connectButton("QRCodeShowUA", QrCodeShow);
   connectButton("QRCodeShowUB", QrCodeShow);
   connectButton("QRCodeShowUV", QrCodeShow);
@@ -1697,11 +2017,11 @@ function bindEvents() {
   connectButton("projectConfirmVerwijderen"); // Hier moet een link komen naar project verwijderen functie voor de ADMIN
 
   connectButton("klantConfirm", klantenPostenButton);
-  connectButton("klantConfirmBijwerken"); // Hier moet een link komen naar klant bijwerken functie voor de ADMIN
+  connectButton("klantConfirmBijwerken", klantenBijwerken15); // Hier moet een link komen naar klant bijwerken functie voor de ADMIN
   connectButton("klantConfirmVerwijderen"); // Hier moet een link komen naar klant verwijderen functie voor de ADMIN
 
   connectButton("confirm", urenPosten);
-  connectButton("klantConfirmBijwerken"); // Hier moet een link komen naar dash bijwerken functie voor de ADMIN
+
   connectButton("projectConfirmVerwijderen"); // Hier moet een link komen naar dash verwijderen functie voor de ADMIN
 
   // voor medewerker
