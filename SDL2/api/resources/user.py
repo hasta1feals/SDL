@@ -334,6 +334,31 @@ WHERE id = :id;
     return {'message': 'success', 'id': model}, 201
 
 @jwt_required()
+def delete_uren():
+    user = get_jwt_identity()
+
+    args = request.get_json()
+    print(user)
+
+    qry = '''
+  UPDATE uren
+  SET `show` = 1
+
+WHERE id = :id
+
+    '''
+    data = {
+    
+          "id": args["id"]
+    
+        }
+    
+    model = DB.update(qry,data)
+    
+    return {'message': 'success', 'id': model}, 201
+
+    
+@jwt_required()
 def update_project():
     user = get_jwt_identity()
 
