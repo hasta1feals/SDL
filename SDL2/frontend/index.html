@@ -2182,15 +2182,16 @@
 
             <div class="projectSelect">
                 <Label>Project Selecteren <br />
-                    <input type="text" id="projectSelectBewerkenM" placeholder="Project Selecteren" />
+                    <select class="projectSelection1" id="selectionMedewerkerBewerkenM1">
+                        <option id="choose-template" value="template" disabled selected>Project naam</option>
+                    </select>
+                   
                 </Label>
             </div>
 
             <div class="projectNaam">
                 <Label>Project naam <br />
-                    <select class="projectSelection1" id="selectionMedewerkerBewerkenM1">
-                        <option id="choose-template" value="template" disabled selected>Project naam</option>
-                    </select>
+                    <input type="text" id="projectSelectBewerken22M" placeholder="Project" />
                 </Label>
             </div>
 
@@ -2212,7 +2213,7 @@
                 </Label>
             </div> <br />
 
-            <a id="projectConfirmBewerkenM" class="projectConfirm" href="#">Toevoegen</a>
+            <a id="projectConfirmBewerkenM" class="projectConfirm" href="#">Bewerken</a>
             <a id="projectCancelBewerkenM" class="projectCancel" href="#">Terug</a>
 
         </div>

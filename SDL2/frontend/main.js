@@ -77,6 +77,28 @@ function projectBer() {
   });
 }
 
+
+
+function projectBerwerkenM() {
+  x = idProjectber2.toString();
+  // Check if passwords match
+  data = {
+    naam: getValue("projectSelectBewerken22M"),
+    begin: getValue("b"),
+    firstname: getValue("m"),
+    klantennaam: getValue("k"),
+    id: x,
+  };
+
+  // Submit data to API
+  api("projectB", "PATCH", data).then((res) => {
+    if (res.message == "success") {
+     console.log("succes");
+    }
+  });
+}
+
+
 function projectPosten() {
   let x = idProject.toString();
   let y = idMedewerker.toString();
@@ -492,16 +514,16 @@ function getUser() {
       showQrCodeM();
       // window.location.href="dashbord.html";
       if (res.user.admin == 1) {
-        showPage("otpPageM");
-        // showPage("dashboardPageM");
+        // showPage("otpPageM");
+        showPage("dashboardPageM");
         klantenKlanten2();
         projectProject2();
         klantenProject2();
         medewerkerProject2();
       } else {
         projectBewerken11();
-        showPage("otpPage");
-        // showPage("dashboardPage");
+        // showPage("otpPage");
+        showPage("dashboardPage");
         projectProject();
       }
       urenVer13();
@@ -1333,6 +1355,7 @@ selectionProjectBer2.addEventListener("change", () => {
             res.id[i].begin;
 
           idProjectber2.push(res.id[i].id);
+          console.log(idProjectber2)
           break;
         }
       }
@@ -1924,8 +1947,13 @@ function urenUpdaten() {
 function urenwissen4() {
   urenwissen();
 }
+
+function projectBewerten() {
+  projectBerwerkenM();
+}
 function bindEvents() {
   connectButton("qranu", regerop);
+  connectButton("projectConfirmBewerkenM", projectBewerten);
 
   connectButton("QRCodeShowKA", QrCodeShow);
   connectButton("QRCodeShowKB", QrCodeShow);
