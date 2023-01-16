@@ -2191,25 +2191,31 @@
 
             <div class="projectNaam">
                 <Label>Project naam <br />
-                    <input type="text" id="projectSelectBewerken22M" placeholder="Project" />
+                    <input type="text" class="popsmoke" id="projectSelectBewerken22M" placeholder="Project" />
                 </Label>
             </div>
 
             <div class="projectMedewerker">
                 <Label>Medewerker <br />
-                    <input type="text" class="med2" id="m" placeholder="Medewerker" />
+                    <select class="projectSelection1" id="m">
+                        <option id="choose-template" value="template" disabled selected>Medewerker </option>
+                    </select>
+                   
                 </Label>
             </div> <br />
 
             <div class="projectKlant">
                 <Label>Klant <br />
-                    <input type="text" class="klan2" id="k" placeholder="Klant" />
+
+                    <select class="projectSelection1" id="klanm">
+                        <option id="choose-template" value="template" disabled selected>Klant </option>
+                    </select>
                 </Label>
             </div> <br />
 
             <div class="projectBeginDatum">
                 <Label>Begin Datum <br />
-                    <input type="text" class="beg2" id="b" placeholder="Begin Datum" />
+                    <input type="date" class="beg2" id="b" placeholder="Begin Datum" />
                 </Label>
             </div> <br />
 

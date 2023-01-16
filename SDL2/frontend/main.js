@@ -60,19 +60,21 @@ function register(e) {
 }
 function projectBer() {
   x = idProjectber2.toString();
+  y = idBewerkenK23.toString();
+  z =idBewerkenProjecten3.toString();
   // Check if passwords match
   data = {
+    naam: getValue("projectSelectBewerken22"),
     begin: getValue("b"),
-    firstname: getValue("m"),
-    klantennaam: getValue("k"),
+    user_id: z,
+    klanten_id: y,
     id: x,
   };
 
   // Submit data to API
-  api("users", "POST", data).then((res) => {
+  api("projectB", "PATCH", data).then((res) => {
     if (res.message == "success") {
-      userAanmaken();
-      alert("Account created");
+      console.log("succes");
     }
   });
 }
@@ -81,12 +83,16 @@ function projectBer() {
 
 function projectBerwerkenM() {
   x = idProjectber2.toString();
+  z = idBewerkenProjecten3.toString();
+  y = idBewerkenK23.toString();
+
+
   // Check if passwords match
   data = {
     naam: getValue("projectSelectBewerken22M"),
     begin: getValue("b"),
-    firstname: getValue("m"),
-    klantennaam: getValue("k"),
+    user_id:z,
+    klanten_id: y,
     id: x,
   };
 
@@ -526,6 +532,7 @@ function getUser() {
         showPage("dashboardPage");
         projectProject();
       }
+      medewerkerProjectBewerken123();
       urenVer13();
       klantenNaam23();
       projectBer();
@@ -559,6 +566,7 @@ function getUser() {
       klantenBewerken1212();
       projectBerwerken000();
       medewerkerBewerkenAdminuren();
+      klantenBewerken1212M();
     }
   });
 }
@@ -729,6 +737,30 @@ function klantenBewerken1212() {
     }
   });
 }
+
+
+
+function klantenBewerken1212M() {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("klanm").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].voornaam +
+          "</option>";
+      }
+    }
+  });
+}
+
+
+
+
+
+
+
 function klantenProjectProject() {
   api("projecten", "GET").then((res) => {
     if (res.message == "success") {
@@ -1079,6 +1111,24 @@ function medewerkerProject() {
   });
 }
 
+
+function medewerkerProjectBewerken123() {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("m").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].firstname +
+          "</option>";
+      }
+    }
+  });
+}
+
+
+
 function medewerkerProject2() {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
@@ -1342,20 +1392,20 @@ let selectionProjectBer2 = document.querySelector(
 var idProjectber2 = [];
 
 selectionProjectBer2.addEventListener("change", () => {
-  api("projecten2", "GET").then((res) => {
+  api("projecten", "GET").then((res) => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionProjectBer2.value) {
           console.log("dadak");
-          document.getElementsByClassName("klan2")[0].placeholder =
-            res.id[i].klantennaam;
-          document.getElementsByClassName("med2")[0].placeholder =
-            res.id[i].firstname;
-          document.getElementsByClassName("beg2")[0].placeholder =
+     
+          document.getElementsByClassName("popsmoke")[0].placeholder =
+            res.id[i].naam;
+            document.getElementById("b").value =
             res.id[i].begin;
 
           idProjectber2.push(res.id[i].id);
           console.log(idProjectber2)
+          console.log(res.id[i].id)
           break;
         }
       }
@@ -1466,6 +1516,55 @@ selectionBewerkenMed.addEventListener("change", () => {
     }
   });
 });
+
+
+
+
+let selectionBewerkenProject123 = document.querySelector(
+  "#m"
+);
+var idBewerkenProjecten3 = [];
+
+selectionBewerkenProject123.addEventListener("change", () => {
+  api("medewerker", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionBewerkenProject123.value) {
+          idBewerkenProjecten3.push(res.id[i].id);
+         
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+let selectionBewerkenKlanten12 = document.querySelector(
+  "#klanm"
+);
+var idBewerkenK23 = [];
+
+selectionBewerkenKlanten12.addEventListener("change", () => {
+  api("klanten", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionBewerkenKlanten12.value) {
+          idBewerkenK23.push(res.id[i].id);
+          console.log(idBewerkenK23);
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
+
+
+
 
 let selectionBewerkenKlan = document.querySelector(
   "#selectionKlanten1Bewerken"

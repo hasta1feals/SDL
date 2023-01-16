@@ -374,7 +374,7 @@ WHERE id = :id;
     '''
     data = {
     
-          "id": args["id"],
+        "id": args["id"],
         "klanten_id": args["klanten_id"],
         "begin": args["begin"],
         "naam": args["naam"],
