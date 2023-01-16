@@ -262,6 +262,22 @@ function urenwissen() {
     }
   });
 }
+
+
+
+function urenwissenM() {
+  let x = idUrenbewerken33.toString();
+  data = {
+    id: x,
+  };
+
+  // Submit data to API
+  api("urenV", "PATCH", data).then((res) => {
+    if (res.message == "success") {
+      console.log("succes");
+    }
+  });
+}
 function klantenKlantenBewerken111() {
   let x = idKlantklantklant.toString();
   data = {
@@ -577,20 +593,21 @@ function getUser() {
       showQrCodeM();
       // window.location.href="dashbord.html";
       if (res.user.admin == 1) {
-        // showPage("otpPageM");
-        showPage("dashboardPageM");
+        showPage("otpPageM");
+        // showPage("dashboardPageM");
         klantenKlanten2();
         projectProject2();
         klantenProject2();
         medewerkerProject2();
       } else {
         projectBewerken11();
-        // showPage("otpPage");
-        showPage("dashboardPage");
+        showPage("otpPage");
+        // showPage("dashboardPage");
         projectProject();
       }
       medewerkerProjectBewerken123();
       urenVer13();
+      urenVer13M();
       klantenNaam23();
       projectBer();
       klantVer2();
@@ -759,6 +776,21 @@ function urenVer13() {
   });
 }
 
+
+function urenVer13M() {
+  api("users2", "GET").then((res) => {
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        document.getElementById("selectionSelectVerwijderen2").innerHTML +=
+          '<option value="' +
+          res.id[i].id +
+          '">' +
+          res.id[i].activiteit +
+          "</option>";
+      }
+    }
+  });
+}
 function projectVer() {
   api("projecten2", "GET").then((res) => {
     if (res.message == "success") {
@@ -1910,6 +1942,55 @@ selectionurenBewerken32.addEventListener("change", () => {
 
 
 
+let selectionurenBewerken321 = document.querySelector("#selectionSelectVerwijderen2");
+var idUrenbewerken33 = [];
+
+selectionurenBewerken321.addEventListener("change", () => {
+  
+  api("users2", "GET").then((res) => {
+   
+    if (res.message == "success") {
+      for (i = 0; i < res.id.length; i++) {
+        if (res.id[i].id == selectionurenBewerken321.value) {
+          console.log("test");
+
+          document.getElementById("DatumVerwijderenM").value = res.id[i].datum;
+
+          document.getElementsByClassName("12")[0].placeholder =
+            res.id[i].activiteit;
+
+          document.getElementsByClassName("123")[0].placeholder =
+            res.id[i].uren_uren;
+
+          document.getElementsByClassName("124")[0].placeholder =
+            res.id[i].opmerking;
+
+          document.getElementsByClassName("125")[0].placeholder =
+            res.id[i].uren_declarabel;
+
+          document.getElementsByClassName("126")[0].placeholder =
+            res.id[i].bonus;
+            document.getElementsByClassName("33")[0].placeholder =
+            res.id[i].naam;
+            document.getElementsByClassName("333")[0].placeholder =
+            res.id[i].voornaam;
+            document.getElementsByClassName("43")[0].placeholder =
+            res.id[i].firstname;
+
+
+            idUrenbewerken33.push(res.id[i].id);
+            console.log(idUrenbewerken33);
+
+            
+          break;
+        }
+      }
+    }
+  });
+});
+
+
+
 
 
 
@@ -2369,11 +2450,22 @@ function klantKlantBewerken2(){
 function urenBewerkenMedewerkers() {
   urenUpdate987();
 }
+
+
+
+function urerVEt() {
+  urenwissenM();
+}
+
+
+
 function bindEvents() {
   connectButton("qranu", regerop);
   connectButton("projectConfirmBewerkenM", projectBewerten);
   connectButton("klantConfirmBijwerkenM", klantKlantBewerken2);
   connectButton("confirmBewerkenM", urenBewerkenMedewerkers);
+  connectButton("confirmVerwijderenM2", urerVEt);
+
 
 
 
