@@ -1019,7 +1019,7 @@ p {
 }
 /* Project aanmaken END */
 
-#myInput {
+.searchBar {
     width: 100%;
     font-size: 13px;
     padding: 12px 20px 12px 40px;

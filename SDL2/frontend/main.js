@@ -2428,12 +2428,12 @@ function deleteCookie(cname) {
 
 bindEvents();
 
-function myFunction() {
+function myFunction(tableName, input1) {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
+  input = document.getElementById(input1);
   filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
+  table = document.getElementById(tableName);
   tr = table.getElementsByTagName("tr");
 
   // Loop through all table rows, and hide those who don't match the search query
@@ -2457,4 +2457,18 @@ function myFunction() {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
