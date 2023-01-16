@@ -208,6 +208,7 @@ function KlantenPosten2() {
 
 function projectVerwijder() {
   let x = idProjectver.toString();
+  console.log(x);
   data = {
     id: x,
   };
@@ -222,7 +223,6 @@ function projectVerwijder() {
 
 function urenwissen() {
   let x = idUrenVerwijderen.toString();
-
   data = {
     id: x,
   };
@@ -378,7 +378,7 @@ function login2fa() {
   api("otpp", "GET", data).then((res) => {
     if (res.otp == getValue("code")) {
       // Save the received JWT in a cookie
-      setCookie("token", res.access_token, 365);
+      // setCookie("token", res.access_token, 365);
       // window.location.href="dashbord.html";
       userInfo();
 
@@ -399,7 +399,7 @@ function login2faM() {
     if (res.otp == getValue("code1")) {
       console.log(res.otp);
       // Save the received JWT in a cookie
-      setCookie("token", res.access_token, 365);
+      // setCookie("token", res.access_token, 365);
       // window.location.href="dashbord.html";
       userInfo();
 
@@ -1949,9 +1949,16 @@ function bindEvents() {
   connectButton("klantConfirmVerwijderenM1", klantenVerwijder22);
   connectButton("klantConfirmVerwijderen1", klantenVerwijder);
   connectButton("login", login);
-  connectButton("login2fa", login2fa);
+  connectButton("login2fa", test);
   connectButton("login2faM", login2faM);
 
+  
+function test(){
+login2fa();
+
+
+
+}
   // connectButton("login2faM", TEMP);
 
   connectButton("reg", register);
