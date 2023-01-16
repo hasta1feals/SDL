@@ -539,7 +539,7 @@ def get_uren3():
 
     # qry om users te laten zien
     qry = '''
-SELECT uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam
+SELECT uren.id, uren.klanten_id, uren.myID, uren.datum, uren.activiteit, uren.uren_uren, uren.bonus, uren.opmerking, uren.uren_declarabel, project.naam, users.firstname, klanten.voornaam
 FROM uren
 left JOIN project
 ON uren.project_id = project.id
@@ -560,6 +560,7 @@ where myID = :id
         print('Er is een probleem opgetreden, contact de admin.')
 
     return {'message': 'success', 'id': id}, 201    
+
 
 @jwt_required()
 def get_medewerker2(): 
