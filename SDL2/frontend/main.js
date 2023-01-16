@@ -2428,10 +2428,10 @@ function deleteCookie(cname) {
 
 bindEvents();
 
-function myFunction(tableName, input1) {
+function myFunction(tableName, inputs) {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById(input1);
+  input = document.getElementById(inputs);
   filter = input.value.toUpperCase();
   table = document.getElementById(tableName);
   tr = table.getElementsByTagName("tr");
