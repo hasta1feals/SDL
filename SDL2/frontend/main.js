@@ -245,6 +245,9 @@ function projectVerwijder() {
   api("projectV", "PATCH", data).then((res) => {
     if (res.message == "success") {
       console.log("succes");
+      const table = document.getElementById("myTable1");
+      table.innerHTML =""
+      projectProject();
     }
   });
 }
@@ -254,13 +257,26 @@ function urenwissen() {
   data = {
     id: x,
   };
-
+  
   // Submit data to API
-  api("urenV", "PATCH", data).then((res) => {
-    if (res.message == "success") {
-      console.log("succes");
-    }
-  });
+  // api("urenV", "PATCH", data).then((res) => {
+  //   if (res.message == "success") {
+  //     console.log("succes");
+  //   }
+  // });
+
+  fetch("http://127.0.0.1:5000/" + "urenV", {
+    method: "PATCH",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + getCookie("token"),
+    },
+    body: JSON.stringify(data),
+  })
+  
+  // .then((res) => res.json());
+  
 }
 
 
@@ -954,7 +970,7 @@ function projectProject() {
   api("projecten2", "GET").then((res) => {
     if (res.message == "success") {
       const table = document.getElementById("myTable1");
-
+      
       for (i = 0; i < res.id.length; i++) {
         const data = res.id[i];
 
@@ -2386,6 +2402,7 @@ function projectConfirm() {
 
 function projectVerwijderen1() {
   projectVerwijder();
+
 }
 //voor admin
 function klantenPostenButton() {
@@ -2434,8 +2451,10 @@ function urenUpdaten() {
   urenUpdate123();
 }
 
-function urenwissen4() {
+function urenwissen4(e) {
+  e.preventDefault();
   urenwissen();
+  
 }
 
 function projectBewerten() {
@@ -2508,6 +2527,9 @@ login2fa();
   connectButton("klanten", klanten);
   connectButton("projecten", projecten);
   connectButton("confirmVerwijderen11", urenwissen4);
+  connectButton("test7", ()=>{
+    console.log("test7")
+  });
 
   //voor admin
   connectButton("projectAdd", projectToevoegen);
@@ -2773,7 +2795,7 @@ login2fa();
 
 function enableSubmits() {
   document.body.addEventListener("keydown", function (e) {
-    if (e.key == "Enter") {
+    if (e.key == "Enter") {button
       // if enter is pressed
       console.log(e);
       let target = e.target;

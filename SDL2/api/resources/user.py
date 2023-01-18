@@ -1,6 +1,7 @@
 from flask import request
 from flask_bcrypt import generate_password_hash
 from db import DB
+from flask import request, jsonify
 import pyotp
 import string    
 import random # define the random module  
@@ -355,7 +356,9 @@ WHERE id = :id
     
     model = DB.update(qry,data)
     
-    return {'message': 'success', 'id': model}, 201
+    # return {'message': 'success', 'id': model}, 200
+
+    return jsonify(message='success'), 200
 
     
 @jwt_required()
@@ -363,21 +366,23 @@ def update_project():
     user = get_jwt_identity()
 
     args = request.get_json()
-
+    print(args)
 
     qry = '''
     UPDATE project
-  SET klanten_id = :klanten_id , begin = :begin, naam = :naam, user_id = :user_id
+  SET klanten_id = coalesce(:klanten_id,klanten_id) ,begin=coalesce(:begin,begin),naam=coalesce(:naam,naam), user_id =coalesce(:user_id,user_id)
 
 WHERE id = :id;
 
     '''
+    naam = None if args["naam"] == "" else args["naam"]
+    print(naam)
     data = {
     
         "id": args["id"],
         "klanten_id": args["klanten_id"],
         "begin": args["begin"],
-        "naam": args["naam"],
+        "naam": naam,
         "user_id": args["user_id"]
        
         }
