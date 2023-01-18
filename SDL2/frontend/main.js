@@ -1159,7 +1159,6 @@ function klantVer() {
           '">' +
           res.id[i].voornaam +
           " " +
-          res.id[i].achternaam +
           "</option>";
       }
     }
@@ -2457,17 +2456,17 @@ function urerVEt() {
 
 //Deze uit het comment halen om zonder 2fa in te loggen t/m lijn 2466
 
-// function TEMP() {
-//   showPage("dashboardPage");
-// }
+function TEMP() {
+  showPage("dashboardPage");
+}
 
-// function TEMP2() {
-//   showPage("dashboardPageM");
-// }
+function TEMP2() {
+  showPage("dashboardPageM");
+}
 
 function bindEvents() {
-  // connectButton("login2fa", TEMP);
-  // connectButton("login2faM", TEMP2);
+  connectButton("login2fa", TEMP);
+  connectButton("login2faM", TEMP2);
 
 
 
@@ -2502,8 +2501,8 @@ function bindEvents() {
   connectButton("klantConfirmVerwijderenM1", klantenVerwijder22);
   connectButton("klantConfirmVerwijderen1", klantenVerwijder);
   connectButton("login", login);
-  //connectButton("login2fa", test);
-  //connectButton("login2faM", login2faM);
+  // connectButton("login2fa", test);
+  // connectButton("login2faM", login2faM);
 
   
 function test(){

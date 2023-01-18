@@ -357,27 +357,28 @@ WHERE id = :id
     
     return {'message': 'success', 'id': model}, 201
 
-    
 @jwt_required()
 def update_project():
     user = get_jwt_identity()
 
     args = request.get_json()
-
+    print(args)
 
     qry = '''
     UPDATE project
-  SET klanten_id = :klanten_id , begin = :begin, naam = :naam, user_id = :user_id
+  SET klanten_id = coalesce(:klanten_id,klanten_id) ,begin=coalesce(:begin,begin),naam=coalesce(:naam,naam), user_id =coalesce(:user_id,user_id)
 
 WHERE id = :id;
 
     '''
+    naam = None if args["naam"] == "" else args["naam"]
+    print(naam)
     data = {
     
         "id": args["id"],
         "klanten_id": args["klanten_id"],
         "begin": args["begin"],
-        "naam": args["naam"],
+        "naam": naam,
         "user_id": args["user_id"]
        
         }
@@ -385,7 +386,6 @@ WHERE id = :id;
     model = DB.update(qry,data)
     
     return {'message': 'success', 'id': model}, 201
-
 
 @jwt_required()
 def update_uren():
@@ -396,25 +396,37 @@ def update_uren():
 
     qry = '''
    UPDATE uren
-  SET activiteit = :activiteit, bonus = :bonus, datum = :datum, klanten_id = :klanten_id, myID = :myID, opmerking = :opmerking,
-  project_id = :project_id,  uren_declarabel = :uren_declarabel, uren_uren = :uren_uren, user_id = :user_id
+  SET activiteit = coalesce(:activiteit,activiteit), bonus = coalesce(:bonus,bonus), datum = coalesce(:datum,datum), klanten_id = coalesce(:klanten_id,klanten_id), myID = :myID, opmerking = coalesce(:opmerking,opmerking),
+  project_id = coalesce(:project_id,project_id),  uren_declarabel = coalesce(:uren_declarabel,uren_declarabel), uren_uren = coalesce(:uren_uren,uren_uren), user_id = coalesce(:user_id,user_id)
 
 WHERE id = :id 
 
     '''
+    activiteit = None if args["activiteit"] == "" else args["activiteit"]
+    bonus = None if args["bonus"] == "" else args["bonus"]
+    datum = None if args["datum"] == "" else args["datum"]
+    klanten_id = None if args["klanten_id"] == "" else args["klanten_id"]
+    opmerking = None if args["opmerking"] == "" else args["opmerking"]
+    project_id = None if args["project_id"] == "" else args["project_id"]
+    uren_declarabel = None if args["uren_declarabel"] == "" else args["uren_declarabel"]
+    uren_uren = None if args["uren_uren"] == "" else args["uren_uren"]
+    user_id = None if args["user_id"] == "" else args["user_id"]
+
+
     data = {
     
+    
           "id": args["id"],
-        "activiteit": args["activiteit"],
-        "bonus": args["bonus"],
-        "datum": args["datum"],
-        "klanten_id": args["klanten_id"],
+        "activiteit": activiteit,
+        "bonus": bonus,
+        "datum": datum,
+        "klanten_id": klanten_id,
         "myID": args["myID"],
-        "opmerking": args["opmerking"],
-        "project_id": args["project_id"],
-        "uren_declarabel": args["uren_declarabel"],
-        "uren_uren": args["uren_uren"],
-        "user_id": args["user_id"]
+        "opmerking": opmerking,
+        "project_id": project_id,
+        "uren_declarabel": uren_declarabel,
+        "uren_uren": uren_uren,
+        "user_id": user_id
         }
     
     model = DB.update(qry,data)
@@ -432,19 +444,28 @@ def update_klanten():
 
     qry = '''
       UPDATE klanten
-  SET voornaam = :voornaam , woonplaats = :woonplaats, adres = :adres, huisnummer = :huisnummer , postcode = :postcode, telefoon = :telefoon
+  SET voornaam=  coalesce(:voornaam,voornaam), woonplaats =coalesce(:woonplaats,woonplaats) ,adres = coalesce(:adres,adres), huisnummer = coalesce(:huisnummer,huisnummer) , postcode = coalesce(:postcode,postcode), telefoon = coalesce(:telefoon,telefoon)
 WHERE id = :id;
 
+
+
     '''
+    voornaam = None if args["voornaam"] == "" else args["voornaam"]
+    woonplaats = None if args["woonplaats"] == "" else args["woonplaats"]
+    adres = None if args["adres"] == "" else args["adres"]
+    huisnummer = None if args["huisnummer"] == "" else args["huisnummer"]
+    postcode = None if args["postcode"] == "" else args["postcode"]
+    telefoon = None if args["telefoon"] == "" else args["telefoon"]
+
     data = {
     
             "id": args["id"],
-        "voornaam": args["voornaam"],
-        "woonplaats": args["woonplaats"],
-        "adres": args["adres"],
-        "huisnummer": args["huisnummer"],
-        "postcode": args["postcode"],
-        "telefoon": args["telefoon"]
+        "voornaam": voornaam,
+        "woonplaats": woonplaats,
+        "adres": adres,
+        "huisnummer": huisnummer,
+        "postcode": postcode,
+        "telefoon": telefoon
 
 
         }
