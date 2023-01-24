@@ -823,7 +823,7 @@ function projectBer() {
 
 
 function UrenBerwerkenSelection() {
-  api("users2", "GET").then((res) => {
+  api("uren2", "GET").then((res) => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         document.getElementById("selectionSelectBewerken2").innerHTML +=
@@ -1039,7 +1039,7 @@ function UrenUren() {
 }
 
 function UrenUrenM() {
-  api("users2", "GET").then((res) => {
+  api("uren", "GET").then((res) => {
     if (res.message == "success") {
       const table = document.getElementById("myTableM");
 
@@ -1906,7 +1906,7 @@ var idUrenbewerken3 = [];
 
 selectionurenBewerken32.addEventListener("change", () => {
   
-  api("users2", "GET").then((res) => {
+  api("uren2", "GET").then((res) => {
    
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
