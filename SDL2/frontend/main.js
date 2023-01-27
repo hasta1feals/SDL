@@ -61,7 +61,7 @@ function register(e) {
 function projectBer() {
   x = idProjectber2.toString();
   y = idBewerkenK23.toString();
-  z =idBewerkenProjecten3.toString();
+  z = idBewerkenProjecten3.toString();
   // Check if passwords match
   data = {
     naam: getValue("projectSelectBewerken22"),
@@ -79,19 +79,16 @@ function projectBer() {
   });
 }
 
-
-
 function projectBerwerkenM() {
   x = idProjectber2.toString();
   z = idBewerkenProjecten3.toString();
   y = idBewerkenK23.toString();
 
-
   // Check if passwords match
   data = {
     naam: getValue("projectSelectBewerken22M"),
     begin: getValue("b"),
-    user_id:z,
+    user_id: z,
     klanten_id: y,
     id: x,
   };
@@ -99,11 +96,10 @@ function projectBerwerkenM() {
   // Submit data to API
   api("projectB", "PATCH", data).then((res) => {
     if (res.message == "success") {
-     console.log("succes");
+      console.log("succes");
     }
   });
 }
-
 
 function projectPosten() {
   let x = idProject.toString();
@@ -263,8 +259,6 @@ function urenwissen() {
   });
 }
 
-
-
 function urenwissenM() {
   let x = idUrenbewerken33.toString();
   data = {
@@ -297,12 +291,6 @@ function klantenKlantenBewerken111() {
     }
   });
 }
-
-
-
-
-
-
 
 function klantenBewerken111() {
   let x = idKlantKlant.toString();
@@ -416,9 +404,6 @@ function urenUpdate123() {
     }
   });
 }
-
-
-
 
 function urenUpdate987() {
   let x = idProjectUren3.toString();
@@ -667,9 +652,6 @@ function projectUren() {
   });
 }
 
-
-
-
 function projectProjectUren() {
   api("projecten", "GET").then((res) => {
     if (res.message == "success") {
@@ -684,7 +666,6 @@ function projectProjectUren() {
     }
   });
 }
-
 
 function urenBewerken123() {
   api("uren2", "GET").then((res) => {
@@ -776,7 +757,6 @@ function urenVer13() {
   });
 }
 
-
 function urenVer13M() {
   api("users2", "GET").then((res) => {
     if (res.message == "success") {
@@ -820,7 +800,6 @@ function projectBer() {
     }
   });
 }
-
 
 function UrenBerwerkenSelection() {
   api("uren2", "GET").then((res) => {
@@ -882,8 +861,6 @@ function klantenBewerken1000() {
   });
 }
 
-
-
 function klantenBewerken1212M() {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
@@ -898,12 +875,6 @@ function klantenBewerken1212M() {
     }
   });
 }
-
-
-
-
-
-
 
 function klantenProjectProject() {
   api("projecten", "GET").then((res) => {
@@ -1195,11 +1166,6 @@ function klantKlantBer() {
   });
 }
 
-
-
-
-
-
 function klantBer() {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
@@ -1274,7 +1240,6 @@ function medewerkerProject() {
   });
 }
 
-
 function medewerkerProjectBewerken123() {
   api("medewerker", "GET").then((res) => {
     if (res.message == "success") {
@@ -1289,8 +1254,6 @@ function medewerkerProjectBewerken123() {
     }
   });
 }
-
-
 
 function medewerkerProject2() {
   api("medewerker", "GET").then((res) => {
@@ -1368,10 +1331,6 @@ function medewerkerUren2() {
     }
   });
 }
-
-
-
-
 
 function medewerkerMederwerkenUren3() {
   api("medewerker2", "GET").then((res) => {
@@ -1580,15 +1539,14 @@ selectionProjectBer2.addEventListener("change", () => {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionProjectBer2.value) {
           console.log("dadak");
-     
+
           document.getElementsByClassName("popsmoke")[0].placeholder =
             res.id[i].naam;
-            document.getElementById("b").value =
-            res.id[i].begin;
+          document.getElementById("b").value = res.id[i].begin;
 
           idProjectber2.push(res.id[i].id);
-          console.log(idProjectber2)
-          console.log(res.id[i].id)
+          console.log(idProjectber2);
+          console.log(res.id[i].id);
           break;
         }
       }
@@ -1700,7 +1658,6 @@ selectionBewerkenMed.addEventListener("change", () => {
   });
 });
 
-
 let selectionBewerkenMed2 = document.querySelector(
   "#selectionMedewerkerUrenBewerkenM"
 );
@@ -1720,12 +1677,7 @@ selectionBewerkenMed2.addEventListener("change", () => {
   });
 });
 
-
-
-
-let selectionBewerkenProject123 = document.querySelector(
-  "#m"
-);
+let selectionBewerkenProject123 = document.querySelector("#m");
 var idBewerkenProjecten3 = [];
 
 selectionBewerkenProject123.addEventListener("change", () => {
@@ -1734,7 +1686,7 @@ selectionBewerkenProject123.addEventListener("change", () => {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionBewerkenProject123.value) {
           idBewerkenProjecten3.push(res.id[i].id);
-         
+
           break;
         }
       }
@@ -1742,11 +1694,7 @@ selectionBewerkenProject123.addEventListener("change", () => {
   });
 });
 
-
-
-let selectionBewerkenKlanten12 = document.querySelector(
-  "#klanm"
-);
+let selectionBewerkenKlanten12 = document.querySelector("#klanm");
 var idBewerkenK23 = [];
 
 selectionBewerkenKlanten12.addEventListener("change", () => {
@@ -1762,12 +1710,6 @@ selectionBewerkenKlanten12.addEventListener("change", () => {
     }
   });
 });
-
-
-
-
-
-
 
 let selectionBewerkenKlan = document.querySelector(
   "#selectionKlanten1Bewerken"
@@ -1787,10 +1729,6 @@ selectionBewerkenKlan.addEventListener("change", () => {
     }
   });
 });
-
-
-
-
 
 let selectionBewerkenKlan23 = document.querySelector(
   "#selectionKlantenBewerkenM"
@@ -1899,15 +1837,13 @@ selectionUrenVer.addEventListener("change", () => {
   });
 });
 
-
-
-let selectionurenBewerken32 = document.querySelector("#selectionSelectBewerken2");
+let selectionurenBewerken32 = document.querySelector(
+  "#selectionSelectBewerken2"
+);
 var idUrenbewerken3 = [];
 
 selectionurenBewerken32.addEventListener("change", () => {
-  
   api("uren2", "GET").then((res) => {
-   
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionurenBewerken32.value) {
@@ -1930,7 +1866,7 @@ selectionurenBewerken32.addEventListener("change", () => {
           document.getElementsByClassName("bos")[0].placeholder =
             res.id[i].bonus;
 
-            idUrenbewerken3.push(res.id[i].id);
+          idUrenbewerken3.push(res.id[i].id);
           break;
         }
       }
@@ -1938,16 +1874,13 @@ selectionurenBewerken32.addEventListener("change", () => {
   });
 });
 
-
-
-
-let selectionurenBewerken321 = document.querySelector("#selectionSelectVerwijderen2");
+let selectionurenBewerken321 = document.querySelector(
+  "#selectionSelectVerwijderen2"
+);
 var idUrenbewerken33 = [];
 
 selectionurenBewerken321.addEventListener("change", () => {
-  
   api("users2", "GET").then((res) => {
-   
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
         if (res.id[i].id == selectionurenBewerken321.value) {
@@ -1969,40 +1902,21 @@ selectionurenBewerken321.addEventListener("change", () => {
 
           document.getElementsByClassName("126")[0].placeholder =
             res.id[i].bonus;
-            document.getElementsByClassName("33")[0].placeholder =
-            res.id[i].naam;
-            document.getElementsByClassName("333")[0].placeholder =
+          document.getElementsByClassName("33")[0].placeholder = res.id[i].naam;
+          document.getElementsByClassName("333")[0].placeholder =
             res.id[i].voornaam;
-            document.getElementsByClassName("43")[0].placeholder =
+          document.getElementsByClassName("43")[0].placeholder =
             res.id[i].firstname;
 
+          idUrenbewerken33.push(res.id[i].id);
+          console.log(idUrenbewerken33);
 
-            idUrenbewerken33.push(res.id[i].id);
-            console.log(idUrenbewerken33);
-
-            
           break;
         }
       }
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 let selectionUrenVerwijdern = document.querySelector(
   "#selectionSelectVerwijderen1"
@@ -2067,7 +1981,6 @@ selectionKlantenVer.addEventListener("change", () => {
   });
 });
 
-
 let selectionKlantKlant12 = document.querySelector("#klantSelectBijwerkenM");
 var idKlantklantklant = [];
 
@@ -2075,7 +1988,6 @@ selectionKlantKlant12.addEventListener("change", () => {
   api("klanten", "GET").then((res) => {
     if (res.message == "success") {
       for (i = 0; i < res.id.length; i++) {
-       
         if (res.id[i].id == selectionKlantKlant12.value) {
           document.getElementsByClassName("klantNaam")[0].placeholder =
             res.id[i].voornaam;
@@ -2088,22 +2000,16 @@ selectionKlantKlant12.addEventListener("change", () => {
           document.getElementsByClassName("tesd1")[0].placeholder =
             res.id[i].telefoon;
 
-            document.getElementsByClassName("ois")[0].placeholder =
+          document.getElementsByClassName("ois")[0].placeholder =
             res.id[i].adres;
 
-            idKlantklantklant.push(res.id[i].id);
+          idKlantklantklant.push(res.id[i].id);
           break;
         }
       }
     }
   });
 });
-
-
-
-
-
-
 
 let selectionKlantenVer2 = document.querySelector("#selectionKlanten1B");
 var idKlantver2 = [];
@@ -2149,8 +2055,6 @@ selectionProjectUren2.addEventListener("change", () => {
   });
 });
 
-
-
 let selectionProjectUren3 = document.querySelector("#selectionBewerkenM");
 var idProjectUren3 = [];
 
@@ -2167,8 +2071,6 @@ selectionProjectUren3.addEventListener("change", () => {
     }
   });
 });
-
-
 
 let selctionKlantenUren = document.querySelector("#selectionKlanten");
 var idKlantenUren = [];
@@ -2418,7 +2320,6 @@ function QrCodeShow() {
   showPage("QRCodePage");
 }
 
- 
 function proejctVeranderen111() {
   projectUpdate();
 }
@@ -2439,16 +2340,13 @@ function projectBewerten() {
   projectBerwerkenM();
 }
 
-function klantKlantBewerken2(){
+function klantKlantBewerken2() {
   klantenKlantenBewerken111();
 }
-
 
 function urenBewerkenMedewerkers() {
   urenUpdate987();
 }
-
-
 
 function urerVEt() {
   urenwissenM();
@@ -2456,28 +2354,23 @@ function urerVEt() {
 
 //Deze uit het comment halen om zonder 2fa in te loggen t/m lijn 2466
 
-function TEMP() {
-  showPage("dashboardPage");
-}
+// function TEMP() {
+//   showPage("dashboardPage");
+// }
 
-function TEMP2() {
-  showPage("dashboardPageM");
-}
+// function TEMP2() {
+//   showPage("dashboardPageM");
+// }
 
 function bindEvents() {
-  connectButton("login2fa", TEMP);
-  connectButton("login2faM", TEMP2);
-
-
+  // connectButton("login2fa", TEMP);
+  // connectButton("login2faM", TEMP2);
 
   connectButton("qranu", regerop);
   connectButton("projectConfirmBewerkenM", projectBewerten);
   connectButton("klantConfirmBijwerkenM", klantKlantBewerken2);
   connectButton("confirmBewerkenM", urenBewerkenMedewerkers);
   connectButton("confirmVerwijderenM2", urerVEt);
-
-
-
 
   connectButton("QRCodeShowKA", QrCodeShow);
   connectButton("QRCodeShowKB", QrCodeShow);
@@ -2501,17 +2394,12 @@ function bindEvents() {
   connectButton("klantConfirmVerwijderenM1", klantenVerwijder22);
   connectButton("klantConfirmVerwijderen1", klantenVerwijder);
   connectButton("login", login);
-  // connectButton("login2fa", test);
-  // connectButton("login2faM", login2faM);
+  connectButton("login2fa", test);
+  connectButton("login2faM", login2faM);
 
-  
-function test(){
-login2fa();
-
-
-
-}
-  
+  function test() {
+    login2fa();
+  }
 
   connectButton("reg", register);
   connectButton("regop", regerop);
@@ -2867,7 +2755,7 @@ function myFunction(tableName, inputs) {
     var tds = tr[i].getElementsByTagName("td");
     var found = false;
     for (j = 0; j < tds.length; j++) {
-      td = tds[j]
+      td = tds[j];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -2876,24 +2764,9 @@ function myFunction(tableName, inputs) {
       }
     }
     if (found) {
-        tr[i].style.display = "";
+      tr[i].style.display = "";
     } else {
-        tr[i].style.display = "none";
+      tr[i].style.display = "none";
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
