@@ -568,7 +568,6 @@ left JOIN users
 ON uren.user_id = users.id
 left JOIN klanten
 ON uren.klanten_id = klanten.id
-where myID = :id
  AND uren.show = 0
 
     '''
